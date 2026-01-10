@@ -1,0 +1,119 @@
+
+.justify-around{
+    justify-content: space-around;
+}
+
+.subscribe-bg {
+    background-image: url("../images/Property1_1.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 480px;
+    height: 480px;
+    overflow: hidden; //裁切超出的部分
+
+}
+
+@media (max-width:992px) {
+
+    .login-section{
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .subscribe-bg {
+        width: 360px;
+        height: 360px;
+        overflow: hidden; //裁切超出的部分
+
+    }
+    
+}
+
+@media (max-width:576px) {
+    .subscribe-bg {
+        display: none;
+    }
+}
+
+.next-step,
+button.next-step {
+    border-radius: 100px;
+}
+
+form button.next-step a{
+    display: block;
+    position: relative;
+
+    &::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        // background: url("../icon/arrow_forward.svg") no-repeat center/contain;
+        background: url("https://icons.getbootstrap.com/assets/icons/arrow-right.svg") no-repeat center/contain;
+        filter: invert(1); //黑色便白色
+        display: inline-block;
+        vertical-align: middle; /* 讓圖標與文字對齊 */
+        margin-left: 4px;
+    }
+
+}
+    
+.a-decoration {
+    
+    border-bottom: 1px solid $neutral-800;
+}
+
+div.saperate-line{
+    color: $neutral-800;
+    text-align: center;
+
+    &::before {
+        content: "--------------------------\a0\a0\a0\a0";
+        color: $neutral-700;
+        font-weight: 200;
+    }
+
+    &::after {
+        content: "\a0\a0\a0\a0--------------------------";
+        color: $neutral-700;
+        font-weight: 200;
+    }
+}
+
+@media (min-width: 993.02px) and (max-width: 1200px)  {
+    div.saperate-line{
+        &::before {
+            content: "---------------------\a0\a0\a0\a0";
+        }
+
+        &::after {
+            content: "\a0\a0\a0\a0---------------------";
+        }
+    }
+}
+
+@media (max-width: 576px)  {
+    div.saperate-line{
+        &::before {
+            content: "--------------\a0\a0\a0\a0";
+        }
+
+        &::after {
+            content: "\a0\a0\a0\a0--------------";
+        }
+    }
+}
+
+.alert-logo {
+    background-image: url("../images/alert-circle.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 32px;
+    height: 32px;
+}
+
+.login-policy a.fw-bold {
+    font-size: 1rem;
+}

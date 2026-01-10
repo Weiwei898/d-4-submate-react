@@ -1,0 +1,28 @@
+/* Bootstrap 基礎必須先引入 */
+@import "bootstrap/scss/functions";
+
+/*修改變數*/
+@import "./utils/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "./utils/utilities";
+
+/*component*/
+
+
+/* Bootstrap 主體 (會根據上面修改的 $utilities 來生成 .fw-xxx 類別) */
+@import "bootstrap/scss/bootstrap";
+
+/* 其他自訂樣式 */
+@import "./utils/text"; //font-size通用樣式
+@import "./layout/header.scss";
+@import "./layout/footer.scss";
+@import "./pages/faq.scss";
+@import "./pages/index.scss";
+@import "./pages/product_list.scss";
+@import "./pages/about.scss";
+@import "./pages/cart_list.scss";
+@import "./pages/brand_story.scss";
+@import "./pages/brand_feature.scss";
+@import "./pages/login.scss";
+@import "./pages/product_details.scss";

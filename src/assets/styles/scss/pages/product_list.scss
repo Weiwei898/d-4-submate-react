@@ -1,0 +1,486 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /*bxz:bb*/
+  /*outline: solid 1px;測試範圍用*/
+}
+
+.pt-120.pt-120 {
+  padding-top: 120px;
+}
+
+/* 固定輪播高度：預設 720px，md(≥768px) 時 672px */
+.carousel-item.hero-veil,
+.carousel-item.hero-veil-bubbles {
+  height: 680px;
+}
+
+@media (min-width: 768px) {
+
+  .carousel-item.hero-veil,
+  .carousel-item.hero-veil-bubbles {
+    height: 760px;
+  }
+  
+}
+
+@media (min-width: 1200px) {
+
+  .carousel-item.hero-veil,
+  .carousel-item.hero-veil-bubbles {
+    height: 672px;
+  }
+  
+}
+
+/* 讓內層內容撐滿高度（若需要垂直置中可在 container 上加 justify-content-center） */
+.carousel-item.hero-veil>.container,
+.carousel-item.hero-veil-bubbles>.container {
+  height: 100%;
+}
+
+/* ===== 彩色透明罩 + 白色橢圓高光(section輪播用) ===== */
+/* 只留這組（合併後的一份） */
+.hero-veil::before,
+.hero-veil::after {
+  z-index: 0;
+}
+
+/* 彩色罩/白橢圓放後面 */
+
+.hero-veil>* {
+  /* 整個內容放前面 */
+  position: relative;
+  z-index: 1;
+}
+
+.hero-veil {
+  position: relative;
+  overflow: hidden;
+  /* 需要圓角裁切就留這兩行 */
+  border-radius: 24px;
+  isolation: isolate;
+
+  /* 彩色罩參數 */
+  --veil-dir: to top right;
+  /* 左下→右上 */
+  --veil-opacity: .3;
+  /* 這裡改透明度就會生效 */
+
+  /* 白色大橢圓參數（弧線以下整片白） */
+  --bowl-x: 50%;
+  --bowl-y: 130%;
+  /* >100% 放在容器下方，只露上緣弧線 */
+  --bowl-w: 200%;
+  --bowl-h: 120%;
+  --bowl-edge: 65%;
+  /* 弧線高度，越小越往上 */
+}
+
+/* 彩色透明罩 */
+.hero-veil::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(var(--veil-dir),
+      #9738F5 0%, #11A7ED 50%, #1EDFAD 100%);
+  opacity: var(--veil-opacity);
+  pointer-events: none;
+}
+
+/* 白色大橢圓：弧線以下白、以上透明 */
+.hero-veil::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(var(--bowl-w) var(--bowl-h) at var(--bowl-x) var(--bowl-y),
+      rgba(255, 255, 255, .5) 0 var(--bowl-edge),
+      rgba(255, 255, 255, 0) calc(var(--bowl-edge) + .1%));
+  /* 想更亮可加：mix-blend-mode: screen; */
+  pointer-events: none;
+}
+
+/* ===== 彩色透明罩 + 白色三泡泡 ===== */
+.hero-veil-bubbles::before,
+.hero-veil-bubbles::after {
+  z-index: 0;
+}
+
+/* 漸層/泡泡在底層 */
+.hero-veil-bubbles>* {
+  position: relative;
+  z-index: 1;
+}
+
+/* 內容置頂 */
+
+.hero-veil-bubbles {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  isolation: isolate;
+
+  /* 彩色罩：左下→右上 */
+  --veil-dir: to top right;
+  --veil-opacity: .32;
+
+  /* ↓ Mobile 預設 —— 三顆泡泡位置/大小/強度 */
+  --b1-x: 14%;
+  --b1-y: 10%;
+  --b1-r: 500px;
+  --b1-a: .55;
+  /* 左上大 */
+  --b2-x: 95%;
+  --b2-y: 5%;
+  --b2-r: 222px;
+  --b2-a: .45;
+  /* 中上小 */
+  --b3-x: 70%;
+  --b3-y: 100%;
+  --b3-r: 500px;
+  --b3-a: .40;
+  /* 右上小 */
+}
+
+/* 彩色透明罩 */
+.hero-veil-bubbles::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(var(--veil-dir),
+      #9738F5 0%, #11A7ED 50%, #1EDFAD 100%);
+  opacity: var(--veil-opacity);
+}
+
+/* 三顆泡泡（中心透明 → 中段亮 → 外緣透明） */
+.hero-veil-bubbles::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    /* 泡泡 1：左 */
+    radial-gradient(circle var(--b1-r) at var(--b1-x) var(--b1-y),
+      rgba(255, 255, 255, 0) 0 var(--b1-i, 15%),
+      /* 透明中心 */
+      rgba(255, 255, 255, var(--b1-a, .55)) calc(var(--b1-i, 28%) + 6%),
+      /* 亮帶（可調寬度） */
+      rgba(255, 255, 255, 0) var(--b1-o, 35%)
+      /* 外緣淡出 */
+    ),
+    /* 泡泡 2：中 */
+    radial-gradient(circle var(--b2-r) at var(--b2-x) var(--b2-y),
+      rgba(255, 255, 255, 0) 0 var(--b2-i, 5%),
+      rgba(255, 255, 255, var(--b2-a, .45)) calc(var(--b2-i, 30%) + 6%),
+      rgba(255, 255, 255, 0) var(--b2-o, 35%)),
+    /* 泡泡 3：右下 */
+    radial-gradient(circle var(--b3-r) at var(--b3-x) var(--b3-y),
+      rgba(255, 255, 255, 0) 0 var(--b3-i, 15%),
+      rgba(255, 255, 255, var(--b3-a, .40)) calc(var(--b3-i, 28%) + 6%),
+      rgba(255, 255, 255, 0) var(--b3-o, 35%));
+  background-repeat: no-repeat;
+  /* 想更亮可加：mix-blend-mode: screen; */
+}
+
+/* md↑ 位置微調（依設計稿修這些數值即可） */
+@media (min-width: 768px) {
+  .hero-veil-bubbles {
+    --b1-x: 5%;
+    --b1-y: 40%;
+    --b1-r: 900px;
+    --b1-a: .55;
+    --b2-x: 65%;
+    --b2-y: 10%;
+    --b2-r: 444px;
+    --b2-a: .45;
+    --b3-x: 80%;
+    --b3-y: 110%;
+    --b3-r: 900px;
+    --b3-a: .40;
+  }
+}
+
+/* ===== 輪播用button===== */
+#heroDots [data-bs-slide-to] {
+  width: 8px;
+  height: 8px;
+  transition: all .18s ease;
+}
+
+#heroDots [data-bs-slide-to].px-2 {
+  /* active 時會有左右 padding，寬度自然拉長成膠囊 */
+}
+
+
+/* ===== 卡片用===== */
+#catalogFilters {
+  .nav-link {
+    /*清空原有hover active樣式*/
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    color: $neutral-300 !important;
+    padding: .25rem .5rem;
+  }
+
+  /* hover/active → 文字用 primary/700 */
+  .nav-link:hover,
+  .nav-link:focus,
+  .nav-link.active {
+    color: $primary-700 !important;
+  }
+
+  /* 預設圖示吃 currentColor；hover/active → 用全域漸層 */
+  .nav-link svg path {
+    fill: currentColor;
+  }
+
+  .nav-link:hover svg path,
+  .nav-link:focus svg path,
+  .nav-link.active svg path {
+    fill: url(#grad-01) !important;
+  }
+}
+
+.btn-effect {
+  /*清空原有hover active樣式*/
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: $neutral-100 !important;
+  padding: .25rem .5rem;
+}
+
+/* hover/active → 文字用 primary/700 */
+.btn-effect:focus,
+.btn-effect.active {
+  color: $neutral-800 !important;
+  background-color: $neutral-100 !important;
+}
+
+.svg-task_alt-size {
+  font-size: clamp(20px, 2.4vw, 24px);
+  line-height: 1; // 避免垂直擠壓
+  display: inline-flex;
+  align-items: center; // 可選
+}
+
+.svg-task_alt-size>svg {
+  width: 1em;
+  height: 1em;
+}
+
+.card.border.border-2.rounded-3:hover {
+  border-color: transparent !important; // 先關掉白邊
+  background-image:
+    linear-gradient($primary-100, $primary-100),
+    $gradient-01;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+//標籤位置
+.badge-stytle {
+  top: 1.5%;
+  left: 1.5%;
+}
+
+/* ===== Base特別font-size ===== ex.fs-56 fs-md-56*/
+$spacer: 16px; // 1 單位=16px
+
+/* 斷點 */
+$bps: (
+  sm:576px,
+  md:768px,
+  lg:992px,
+  xl:1200px,
+  xxl:1400px
+);
+
+/* ===== 固定字級工具（不啟用 RFS） ===== */
+/* 想要哪些固定 px 值就填進來 */
+$fs-fixed: (
+  56
+);
+
+@each $px in $fs-fixed {
+  .fs-#{$px} {
+    font-size: #{$px}px !important;
+  }
+
+  //// !important會影響權重，要小心使用，因為要蓋過bootstrap預設及以自訂的fint-sizeRWD必需
+  @each $bp, $min in $bps {
+    @media (min-width: $min) {
+      .fs-#{$bp}-#{$px} {
+        font-size: #{$px}px !important;
+      }
+
+      //// !important會影響權重，要小心使用，因為要蓋過bootstrap預設及以自訂的fint-sizeRWD必需
+    }
+  }
+}
+
+/* ===== 間距工具（m/mt/ms/me/mb/mx/my 與 p/pt/pe/pb/ps/px/py）===== */
+/* 這裡用「$spacer 的倍數」來產生，56px=3.5*16px */
+$custom-spacers: (
+  56: 3.5,
+  // 56px
+  // 想加就繼續：72: 4.5, 96: 6, ...
+);
+
+/* 要產的目標屬性集合 */
+$space-targets: (
+  m: (margin),
+  mt: (margin-top),
+  me: (margin-inline-end),
+  mb: (margin-bottom),
+  ms: (margin-inline-start),
+  mx: (margin-left, margin-right),
+  my: (margin-top, margin-bottom),
+  p: (padding),
+  pt: (padding-top),
+  pe: (padding-inline-end),
+  pb: (padding-bottom),
+  ps: (padding-inline-start),
+  px: (padding-left, padding-right),
+  py: (padding-top, padding-bottom)
+);
+
+/* 寫入一組（含 m/mt/.../py） */
+@mixin write-space($suffix, $value) {
+  @each $abbr, $props in $space-targets {
+    .#{$abbr}-#{$suffix} {
+      @each $prop in $props {
+        #{$prop}: $value;
+      }
+
+      //必要時才加 !important
+    }
+  }
+}
+
+/* 產生基礎 + RWD 版本（.mb-56、.mb-md-56…） */
+@each $name, $mult in $custom-spacers {
+  $val: $spacer * $mult; // 例如 3.5*16px = 56px
+
+  /* base：.m-56 / .px-56 ... */
+  @include write-space($name, $val);
+
+  /* responsive：.m-sm-56 / .px-lg-56 ... */
+  @each $bp, $min in $bps {
+    @media (min-width: $min) {
+      @include write-space(#{$bp}-#{$name}, $val);
+    }
+  }
+}
+
+//立體img
+/* ===== 立體 img（純靜態）======================================= */
+
+/* 放 3D 透視在容器（數字越小透視越強、立體感越誇張） */
+.brand-logos {
+  perspective: 380px;
+  /* 可改 600 / 1000 依需求 */
+}
+
+/* 每個項目開 3D 堆疊，並設「預設角度/景深」用 CSS 變數 */
+.brand-logos li {
+  position: relative;
+  /* 給偽元素定位用 */
+  transform-style: preserve-3d;
+  /* 讓子層保留 3D 變換 */
+  /* ↓↓↓ 靜態角度/景深（主要在這三個值上做調整） */
+  --rx: 13deg;
+  /* 往前仰角：+ 往下看、- 往上看 */
+  --ry: -18deg;
+  /* 左右扭轉：- 向左、+ 向右 */
+  --tz: 10px;
+  /* 往鏡頭前推，數字越大越凸出 */
+}
+
+/* 圖本體：套 3D 變換 + 投影 */
+.brand-logos img {
+  display: block;
+  /* 消除行內間隙 */
+  height: 48px;
+  /* 控制 logo 高度 */
+  width: auto;
+  /* 等比例縮放 */
+  transform-origin: 55% 75%;
+  /* 旋轉中心（稍微靠下更像立體牌） */
+  transform:
+    rotateX(var(--rx))
+    /* 依上面變數旋轉 X 軸 */
+    rotateY(var(--ry))
+    /* 依上面變數旋轉 Y 軸 */
+    translateZ(var(--tz));
+  /* 依上面變數前推 */
+  /* transition: none; */
+  /* 靜態可直接關閉過場 */
+  will-change: transform;
+  /* 保險：讓瀏覽器優化此屬性 */
+  /* 投影：數值越大越厚重（Y位移 | 模糊 | 透明度） */
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, .32));
+}
+
+/* 地面陰影：放在圖下方，讓「浮起來」更可信 */
+.brand-logos li::after {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  /* 陰影寬度，可收窄讓它更集中 */
+  bottom: -8px;
+  /* 陰影與圖底的距離 */
+  height: 18px;
+  /* 陰影厚度（越高越模糊） */
+  /* 徑向漸層做橢圓陰影：第一段內側黑、外圈透明 */
+  background: radial-gradient(50% 60% at 50% 50%,
+      rgba(0, 0, 0, .50), transparent 85%);
+  transform: translateZ(-2px) scale(1.1);
+  /* 往後一點，避免蓋到圖 */
+  opacity: .80;
+  /* 整體陰影強度 */
+  /* transition: none; */
+  /* 靜態不需要過場 */
+  pointer-events: none;
+  /* 不擋滑鼠 */
+}
+
+/* 高光：斜向一道亮帶，模擬面板反光 */
+.brand-logos li::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  /* 高光覆蓋範圍（可縮小）往外放大，帶子更靠上、不壓到底部陰影 */
+  /* 斜角白色漸層（位置比例可改，越高越亮） */
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0) 20%,
+      /* 原 35% → 提早開始 */
+      rgba(255, 255, 255, .35) 40%,
+      rgba(255, 255, 255, 0) 60%);
+  transform: translateZ(2px) rotate(-6deg);
+  /* 稍微傾斜更像光帶 傾斜更小更靠上*/
+  opacity: .75;
+  /* 高光強度（0~1） */
+  /* transition: none; */
+  /* 靜態不需要過場 */
+  pointer-events: none;
+  /* 不擋滑鼠 */
+}
+
+/* 使用者偏好「減少動態」時，不做任何過場（雖然上面關了，留著當最佳實踐） */
+@media (prefers-reduced-motion: reduce) {
+  .brand-logos * {
+    transition: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .brand-logos img {
+    height: 80px;
+  }
+}

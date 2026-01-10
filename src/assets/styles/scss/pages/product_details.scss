@@ -1,0 +1,18 @@
+/* 全域固定寬 */
+.modal-details {
+    --bs-modal-width: 1200px ;
+}
+
+/* 左側圖：1200px 時填滿容器寬，隨 RWD 縮小；最小 200x80；置中顯示且不變形 */
+.left-img-heigth { min-height: 200px; }                    /* 讓垂直置中有高度 */
+.brand-img {
+  display: block;
+  width: 100%;               /* 在 1200px（col 寬）時滿版 */
+  height: auto;              /* 等比例縮放 */
+  object-fit: contain;       /* 不裁切 */
+  min-width: 200px;          /* 不小於原寬 */
+  min-height: 80px;          /* 不小於原高 */
+}
+
+/* 方案選擇：select 固定 300px，且不被 flex 撐滿 */
+.select-w-300 { width: 300px; flex: 0 0 300px; }

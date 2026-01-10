@@ -1,0 +1,42 @@
+.brand_feature-bg{
+  width: 100%;
+}
+.feature-list li {
+  margin-bottom: 40px;
+}
+.feature-list li .pic{
+  background-color: #FFFFFF66;
+  box-shadow: 0 4px 20px 0 #0000000D;
+  border-radius: 100px;
+  width: 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-list li .pic img{
+  width: 100%;
+}
+
+.feature-list li p{
+  line-height: 1.5;
+}
+
+@media(min-width:768px){
+  .brand_feature-bg{
+    width: 1076px;
+    margin: 0 auto;
+  }
+  .brand_feature-bg h2 br{
+    display: none;
+  }
+  .feature-list li .pic{
+    width: 192px;
+    height: 192px;
+  }
+  .feature-list li .info{
+    width: 90%;
+  }
+}
+

@@ -1,0 +1,799 @@
+body {
+    background-color: $primary-50;
+}
+
+ol,
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*+++++++++++++++++++++++
+   發想理念與沿革
++++++++++++++++++++++++*/
+
+/* 電腦版樣式(背景圖片放section層級) */
+@media (min-width: 767px) {
+    section.about {
+        background-image: url(../images/roadmap_bg.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: relative; //後續手機板背景定位基準
+        min-height: 713px;
+        overflow: hidden; //裁切超出的部分
+    }
+
+}
+
+
+/*=================
+   卡片文字區
+===================*/
+
+
+.about-card p {
+    //卡片通用樣式電腦版
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid $secondary-400;
+    border-radius: 24px;
+    font-size: 16pt;
+
+}
+
+p.about-card1 {
+    align-self: flex-start;
+}
+
+
+
+@media (max-width:767px) {
+
+    //手機板文字767-576
+    .about-card p {
+        font-size: 12pt;
+    }
+}
+
+@media (max-width:576px) {
+
+    //手機板文字576以下
+    .about-card p {
+        font-size: 10pt;
+    }
+}
+
+
+//卡片2：電腦版根據不同響樣式斷點，給予不同右推邊距
+@media (min-width: 1400px) {
+    .about-card-down-locate {
+        position: absolute;
+        bottom: 16px;
+        right: calc((100% - 1320px) / 2);
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+    .about-card-down-locate {
+        position: absolute;
+        bottom: 16px;
+        right: calc((100% - 1140px) / 2);
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .about-card-down-locate {
+        position: absolute;
+        bottom: 16px;
+        right: calc((100% - 960px) / 2);
+
+
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .about-card-down-locate {
+        position: absolute;
+        bottom: 16px;
+        right: calc((100% - 720px) / 2);
+    }
+}
+
+@media (max-width:767.98px) {
+    //手機板卡片位置
+
+    .about-card-down {
+        position: relative; //給予about-card-down-locate 的絕對定位
+    }
+
+    .about-card-down-locate {
+        //右下角的手機板卡片位置
+        position: absolute;
+        left: 0;
+        bottom: 16px;
+    }
+
+    .about-card-up {
+        position: relative;
+    }
+
+    .about-card-up-locate {
+        //左上角手機板卡片
+        position: absolute;
+        top: -584px; //扣除header、標題、標題上下距離
+        left: 0;
+
+    }
+}
+
+@media (max-width:576px) {
+
+    //小於576的手機
+    .about-card-up,
+    .about-card-down {
+        left: 12px; // 左邊距 12px
+        width: calc(100% - 24px);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+//卡片點線
+
+p.about-card1 {
+    //卡片1:風箏線在左邊
+    position: relative; //偽元素定位基準
+
+    &::before {
+        content: "";
+        background-image: url("../images/about_Line_left.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        /* 讓圖片在容器內完整顯示 */
+        background-position: right center;
+        /* 讓圖片靠右對齊，菱形會緊貼卡片 */
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: -150px; //要精確地數值，與容器w相同
+        transform: translateY(-50%);
+        /* 垂直居中 */
+        width: 150px;
+        height: 36px;
+    }
+}
+
+
+p.about-card2 {
+    //卡片2：風箏線在右邊
+    position: relative;
+
+    &::before {
+        content: "";
+        background-image: url("../images/about_Line_right.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        /* 讓圖片在容器內完整顯示 */
+        background-position: right center;
+        /* 讓圖片靠右對齊，菱形會緊貼卡片 */
+        position: absolute;
+        display: block;
+        top: 50%;
+        right: -150px; //要精確地數值，與容器w相同
+        transform: translateY(-50%);
+        /* 垂直居中 */
+        width: 150px;
+        height: 36px;
+    }
+}
+
+
+@media (max-width:767px) {
+
+    //手機板不用風箏線
+    p.about-card1::before,
+    p.about-card2::before {
+        content: none;
+    }
+
+
+}
+
+
+/*=================
+   卡片文字區結束<<<
+===================*/
+
+/*=================
+   時間軸
+===================*/
+
+
+.roadmap-card li {
+    justify-content: center;
+
+}
+
+.roadmap-dot {
+    //圓點背景圖片
+    background-image: url("../images/roadmap-dot.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+@media (max-width:767px) {
+
+    //手機板圓點
+    .roadmap-dot {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.roadmap-content {
+    //預設電腦版圓形卡片
+    width: 170px;
+    height: 170px;
+    background: rgba(255, 255, 255, 0.4); //線條顏色
+    border-radius: 50%;
+    border: 2px $neutral-0 solid;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; //確保內容在各自的 .col 裡水平居中
+    box-shadow: 2px 2px 16px rgb(0 0 0 / 10%);
+
+    & p {
+        text-align: center;
+        font-size: 14pt;
+    }
+}
+
+@media (max-width:1200px) {
+
+    //針對1200px 及以下螢幕圓型卡片尺寸
+    .roadmap-content {
+        width: 150px;
+        height: 150px;
+    }
+
+    .roadmap-content h5 {
+        font-size: 14pt;
+    }
+
+    .roadmap-content p {
+        font-size: 13pt;
+    }
+}
+
+@media (max-width:992px) {
+
+    /* 針對 992px 及以下螢幕 */
+    .roadmap-content {
+        width: 120px;
+        height: 120px;
+    }
+
+    .roadmap-content h5 {
+        font-size: 12pt;
+    }
+
+    .roadmap-content p {
+        font-size: 11pt;
+    }
+}
+
+
+@media (max-width: 767px) {
+
+    /* 針對 767px 及以下螢幕 */
+    .roadmap-content {
+        width: 120px;
+        height: 120px;
+    }
+
+    .roadmap-content h5 {
+        font-size: 12pt;
+    }
+
+    .roadmap-content p {
+        font-size: 11pt;
+    }
+}
+
+@media (max-width: 576px) {
+
+    /* 針對 767px 及以下螢幕 */
+    .roadmap-content {
+        width: 116px;
+        height: 116px;
+    }
+
+    .roadmap-content h5 {
+        font-size: 12pt;
+    }
+
+    .roadmap-content p {
+        font-size: 10pt;
+    }
+}
+
+//時間軸
+
+/* 電腦版樣式時間軸 */
+@media (min-width: 768px) { 
+    .about-roadmap {
+        position: relative;
+        height: 712px;
+        /* 根據設計稿，給予足夠的高度 */
+    }
+}
+//>1600px
+li.time01 {
+    position: absolute;
+    bottom: 40%;
+    left: 15%;
+}
+
+li.time02 {
+    position: absolute;
+    bottom: 50%;
+    left: 27%;
+}
+
+li.time03 {
+    position: absolute;
+    bottom: 58%;
+    left: 39%;
+}
+
+li.time04 {
+    position: absolute;
+    bottom: 64%;
+    left: 51%;
+}
+
+li.time05 {
+    position: absolute;
+    bottom: 70%;
+    left: 63%;
+}
+
+li.time06 {
+    position: absolute;
+    bottom: 74%;
+    left: 75%;
+}
+
+
+@media (max-width: 1600px) { //1600-1400
+    li.time01 {
+        position: absolute;
+        bottom: 41%;
+        left: 4%;
+    }
+
+    li.time02 {
+        position: absolute;
+        bottom: 50%;
+        left: 20%;
+    }
+
+    li.time03 {
+        position: absolute;
+        bottom: 58%;
+        left: 36%;
+    }
+
+    li.time04 {
+        position: absolute;
+        bottom: 64%;
+        left: 52%;
+    }
+
+    li.time05 {
+        position: absolute;
+        bottom: 70%;
+        left: 68%;
+    }
+
+    li.time06 {
+        position: absolute;
+        bottom: 74%;
+        left: 84%;
+    }
+}
+
+@media (max-width: 1400px) { //1600-1400
+    li.time01 {
+        position: absolute;
+        bottom: 41%;
+        left: 4%;
+    }
+
+    li.time02 {
+        position: absolute;
+        bottom: 50%;
+        left: 20%;
+    }
+
+    li.time03 {
+        position: absolute;
+        bottom: 58%;
+        left: 36%;
+    }
+
+    li.time04 {
+        position: absolute;
+        bottom: 64%;
+        left: 52%;
+    }
+
+    li.time05 {
+        position: absolute;
+        bottom: 70%;
+        left: 68%;
+    }
+
+    li.time06 {
+        position: absolute;
+        bottom: 74%;
+        left: 84%;
+    }
+}
+
+
+@media (max-width: 1200px) { //1400-1200
+    li.time01 {
+        position: absolute;
+        bottom: 40%;
+        left: 4%;
+    }
+
+    li.time02 {
+        position: absolute;
+        bottom: 50%;
+        left: 20%;
+    }
+
+    li.time03 {
+        position: absolute;
+        bottom: 58%;
+        left: 36%;
+    }
+
+    li.time04 {
+        position: absolute;
+        bottom: 64%;
+        left: 52%;
+    }
+
+    li.time05 {
+        position: absolute;
+        bottom: 70%;
+        left: 68%;
+    }
+
+    li.time06 {
+        position: absolute;
+        bottom: 74%;
+        left: 84%;
+    }
+}
+
+@media (max-width: 992px) { //1200-992
+    li.time01 {
+        position: absolute;
+        bottom: 56%;
+        left: 4%;
+    }
+
+    li.time02 {
+        position: absolute;
+        bottom: 63%;
+        left: 20%;
+    }
+
+    li.time03 {
+        position: absolute;
+        bottom: 68%;
+        left: 36%;
+    }
+
+    li.time04 {
+        position: absolute;
+        bottom: 73%;
+        left: 52%;
+    }
+
+    li.time05 {
+        position: absolute;
+        bottom: 77%;
+        left: 68%;
+    }
+
+    li.time06 {
+        position: absolute;
+        bottom: 80%;
+        left: 84%;
+    }
+}
+
+@media (max-width: 768px) { //992-768
+    li.time01 {
+        position: absolute;
+        bottom: 63%;
+        left: 4%;
+    }
+
+    li.time02 {
+        position: absolute;
+        bottom: 67%;
+        left: 20%;
+    }
+
+    li.time03 {
+        position: absolute;
+        bottom: 72%;
+        left: 36%;
+    }
+
+    li.time04 {
+        position: absolute;
+        bottom: 76%;
+        left: 52%;
+    }
+
+    li.time05 {
+        position: absolute;
+        bottom: 79%;
+        left: 68%;
+    }
+
+    li.time06 {
+        position: absolute;
+        bottom: 82%;
+        left: 84%;
+    }
+}
+
+
+
+
+@media (max-width:767.98px) {
+
+    //手機板，時間軸可滑動
+    .about-roadmap {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        background-image: url(../images/roadmap_mobile.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: left;
+        position: relative; //後續手機板背景定位基準
+        background-attachment: local; //關鍵：讓背景跟著內容一起滾動
+    }
+
+
+    .about-roadmap::-webkit-scrollbar {
+        display: none;
+    }
+
+    .about-roadmap ol {
+        width: 100%;
+        height: 600px;
+    }
+
+    li.time01 {
+        position: absolute;
+        bottom: 25%;
+        left: 5%;
+    }
+
+    li.time02 {
+        position: absolute;
+        bottom: 33%;
+        left: 40%;
+    }
+
+    li.time03 {
+        position: absolute;
+        bottom: 40%;
+        left: 75%;
+    }
+
+    li.time04 {
+        position: absolute;
+        bottom: 46%;
+        left: 110%;
+    }
+
+    li.time05 {
+        position: absolute;
+        bottom: 51%;
+        left: 145%;
+    }
+
+    li.time06 {
+        position: absolute;
+        bottom: 55%;
+        left: 180%;
+    }
+
+}
+
+
+/*=================
+   時間軸結束<<<<
+===================*/
+
+
+/*+++++++++++++++++++++++
+   發想理念與沿革結束<<<
++++++++++++++++++++++++*/
+
+/*+++++++++++++++++++++++
+   團隊成員
++++++++++++++++++++++++*/
+
+/*=================
+   標題與閃電logo
+===================*/
+
+//背景圖片
+.title-container {
+    justify-content: center;
+}
+
+.title-logo {
+    background-image: url("../images/title_item.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 20px;
+    height: 32px;
+    flex-shrink: 0;
+}
+
+@media (min-width:767px) {
+
+    //手機板
+    .title-text h3 {
+        font-size: 32pt;
+    }
+}
+
+/*=====================
+   標題與閃電logo結束<<<
+=======================*/
+
+
+
+/*=================
+   成員照片
+===================*/
+
+.member-group ul {
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.member-group li {
+    align-items: center;
+}
+
+
+//照片圓形框線--漸變色外框
+.portrait-frame2 {
+    //照片 w160
+    width: 178px;
+    /* 電腦版：總寬度=2px 邊框 + 8px*2 間隔 + 160px 圖片 */
+    height: 178px;
+    background: $gradient-01;
+    border-radius: 50%;
+    padding: 2px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; //確保頭像在各自的 .col 裡水平居中
+}
+
+//照片圓形框線--假遮罩
+.portrait-frame2 .inner {
+    width: 100%;
+    height: 100%;
+    background: $primary-50;
+    border-radius: 50%;
+    padding: 8px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+//照片圓形框線--照片
+.portrait-frame2 img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 中型電腦版 */
+
+@media (max-width: 992px) {
+
+    //照片w100
+    .portrait-frame2 {
+        width: 110px;
+        /* 中型電腦版：總寬度=2px 邊框 + 4px*2 間隔 + 100px 圖片 */
+        height: 110px;
+    }
+
+    .portrait-frame2 .inner {
+        padding: 4px;
+    }
+}
+
+/* 手機版 */
+@media (max-width: 768px) {
+
+    //照片w80
+    .portrait-frame2 {
+        width: 90px;
+        /* 手機版：總寬度=2px 邊框 + 4px*2 間隔 + 80px 圖片 */
+        height: 90px;
+    }
+
+    .portrait-frame2 .inner {
+        padding: 4px;
+        /* 手機版間隔改為 4px */
+    }
+}
+
+/*=================
+   成員照片結束<<<
+===================*/
+
+/*+++++++++++++++++++++++
+   團隊成員結束<<<<
++++++++++++++++++++++++*/
+
+
+/*+++++++++++++++++++++++
+   首頁區塊-CTA按鈕
++++++++++++++++++++++++*/
+
+
+
+a.cta-btn.btn-primary-600 {
+    display: block;
+    border-radius: 1000px;
+    color: $neutral-0;
+    font-size: 1rem;
+
+    &:hover,
+    &:active,
+    &:link,
+    &:visited {
+        color: $neutral-0;
+    }
+}
+
+/*+++++++++++++++++++++++
+   首頁區塊-CTA按鈕結束<<<
++++++++++++++++++++++++*/
