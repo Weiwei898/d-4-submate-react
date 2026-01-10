@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>register</title>
+  </head>
+  <body>
+    <%- include('./layout/header'); -%>
+
+    <h1 class="d-flex justify-content-center my-10">會員註冊</h1>
+
+    <form class="container">
+      <!-- Q1：電子信箱地址 -->
+      <div class="row">
+        <div class="col-6 mx-auto pb-3 my-4 border-bottom">
+          <label for="InputEmail" class="form-label h5">電子信箱地址</label>
+          <div id="emailHelp" class="form-text mb-2">
+            ※ 電子信箱地址將作為登入帳號，敬請填寫正確資訊，以免喪失會員權益。
+          </div>
+          <div class="d-flex justify-content-center align-items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="gray"
+              class="bi bi-person-fill me-2"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
+              />
+            </svg>
+            <input
+              type="email"
+              class="form-control required-field"
+              id="InputEmail"
+              aria-describedby="emailHelp"
+              placeholder="Email Address"
+              required
+            />
+          </div>
+          <div class="invalid-feedback">
+            無效​的​Email​地​址！​ /​ 此​Email​已​註冊！​
+          </div>
+        </div>
+      </div>
+      <!-- Q2：電子信箱驗證 -->
+      <div class="row">
+        <div class="col-12 col-md-6 mx-auto pb-3 my-4 border-bottom">
+          <label for="verifyCodeInput" class="form-label h5"
+            >電子信箱驗證</label
+          >
+          <div id="emailHelp" class="form-text mb-2">
+            ※ 驗證信將寄至上方電子信箱中，請將信件中驗證碼輸入下欄。
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <input
+              type="text"
+              class="form-control flex-grow-1"
+              id="verifyCodeInput"
+              placeholder="驗證碼"
+              inputmode="numeric"
+              autocomplete="one-time-code"
+              pattern="[0-9]*"
+              required
+            />
+            <button
+              id="getCodeBtn"
+              type="button"
+              class="btn btn-primary px-4 text-nowrap"
+            >
+              <!-- 按鈕設定在底部 -->
+              <span id="btnLabel" class="text-white">取得驗證碼</span>
+              <span id="countdownWrapper" class="d-none"
+                >（<span id="countdown">60</span>s）</span
+              >
+            </button>
+          </div>
+          <div class="invalid-feedback">請輸入數字驗證碼！​</div>
+        </div>
+      </div>
+      <!-- Q3：手機號碼 -->
+      <div class="row">
+        <div class="col-6 mx-auto pb-3 my-4 border-bottom">
+          <label for="InputPhoneNumber" class="form-label h5">手機號碼</label>
+          <div id="phoneHelp" class="form-text mb-2">
+            ※ 為保護您的個人資料，手機一旦綁定，無法變更或連結其他電子郵件。
+          </div>
+          <div class="d-flex justify-content-center align-items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="gray"
+              class="bi bi-telephone-fill me-2"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"
+              />
+            </svg>
+            <input
+              type="text"
+              class="form-control required-field"
+              id="InputPhoneNumber"
+              aria-describedby="phoneHelp"
+              placeholder="Phone Number"
+              required
+            />
+          </div>
+          <div class="invalid-feedback">無效的手機號碼格式！​</div>
+        </div>
+      </div>
+      <!-- Q4：密碼 -->
+      <div class="row">
+        <div class="col-6 mx-auto pb-3 my-4 border-bottom">
+          <label for="InputPassword" class="form-label h5">密碼</label>
+          <div id="passwordHelp" class="form-text mb-2"></div>
+          <div class="d-flex justify-content-center align-items-center mb-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="gray"
+              class="bi bi-lock-fill me-2"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8 0a4 4 0 0 1 4 4v2.05a2.5 2.5 0 0 1 2 2.45v5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5v-5a2.5 2.5 0 0 1 2-2.45V4a4 4 0 0 1 4-4m0 1a3 3 0 0 0-3 3v2h6V4a3 3 0 0 0-3-3"
+              />
+            </svg>
+            <input
+              type="password"
+              class="form-control required-field"
+              id="InputPassword"
+              aria-describedby="passwordHelp passwordRule"
+              placeholder="請輸入 8–20 位，需同時包含英文與數字"
+              minlength="8"
+              maxlength="20"
+              pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}"
+              required
+            />
+          </div>
+          <div class="invalid-feedback">
+            密碼格式不符合：需 8–20 位，並同時包含英文與數字（僅限英數字）。​
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="passwordCheck1"
+            />
+            <label class="form-check-label" for="passwordCheck1"
+              >顯示密碼</label
+            >
+          </div>
+        </div>
+      </div>
+      <!-- Q5：確認密碼 -->
+      <div class="row">
+        <div class="col-6 mx-auto pb-3 my-4 border-bottom">
+          <label for="InputPasswordConfirm" class="form-label h5"
+            >確認密碼</label
+          >
+          <div id="passwordHelp" class="form-text mb-2"></div>
+          <div class="d-flex justify-content-center align-items-center mb-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="gray"
+              class="bi bi-lock-fill me-2"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8 0a4 4 0 0 1 4 4v2.05a2.5 2.5 0 0 1 2 2.45v5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5v-5a2.5 2.5 0 0 1 2-2.45V4a4 4 0 0 1 4-4m0 1a3 3 0 0 0-3 3v2h6V4a3 3 0 0 0-3-3"
+              />
+            </svg>
+            <input
+              type="password"
+              class="form-control required-field"
+              id="InputPasswordConfirm"
+              aria-describedby="passwordHelp passwordRule"
+              placeholder="請輸入 8–20 位，需同時包含英文與數字"
+              minlength="8"
+              maxlength="20"
+              pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}"
+              required
+            />
+          </div>
+          <div class="invalid-feedback">
+            密碼格式不符合：需 8–20 位，並同時包含英文與數字（僅限英數字）。​
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="passwordCheck2"
+            />
+            <label class="form-check-label" for="passwordCheck2"
+              >顯示密碼</label
+            >
+          </div>
+        </div>
+      </div>
+      <!-- Q6：真實姓名 -->
+      <div class="row">
+        <div class="col-6 mx-auto pb-3 my-4 border-bottom">
+          <label for="InputName" class="form-label h5">真實姓名</label>
+          <div id="nameHelp" class="form-text mb-2"></div>
+          <div class="d-flex justify-content-center align-items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="gray"
+              class="bi bi-person-fill me-2"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
+              />
+            </svg>
+            <input
+              type="text"
+              class="form-control required-field"
+              id="InputName"
+              aria-describedby="nameHelp"
+              placeholder="Name"
+              required
+            />
+          </div>
+          <div class="invalid-feedback">請輸入姓名！​</div>
+        </div>
+      </div>
+    </form>
+
+    <!-- 我同意勾選 -->
+    <div class="container">
+      <div class="row">
+        <div class="col-6 mx-auto pb-3 my-4">
+          <div class="form-check">
+            <input
+              class="form-check-input me-3"
+              type="checkbox"
+              id="readCheck"
+              required
+            />
+            <label class="form-check-label" for="readCheck">
+              我已閱讀並同意<b class="text-decoration-underline"
+                >使用條款與細則</b
+              >及<b class="text-decoration-underline">隱私權政策</b>
+            </label>
+            <div id="agreeFeedback" class="invalid-feedback">請勾選同意！</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <a href="register_complete.html" class="w-100"
+        ><button class="btn btn-primary w-100 text-white" type="button">
+          註冊
+        </button></a
+      >
+    </div>
+
+    <%- include('./layout/footer'); -%>
+
+    <script>
+      <!-- 按鈕倒數設定 -->
+      (() => {
+        const DURATION = 60; // 秒
+        const STORAGE_KEY = "register_code_sent_at";
+
+        const btn = document.getElementById("getCodeBtn");
+        const btnLabel = document.getElementById("btnLabel");
+        const countdownWrapper = document.getElementById("countdownWrapper");
+        const cdNum = document.getElementById("countdown");
+        let timerId = null;
+
+        function setDisabled(on) {
+          btn.disabled = on;
+          btn.setAttribute("aria-disabled", String(on));
+          btn.classList.toggle("disabled", on);
+        }
+
+        function startCountdown(remaining) {
+          clearInterval(timerId);
+          setDisabled(true);
+          btnLabel.textContent = "沒有收到驗證碼？";
+          countdownWrapper.classList.remove("d-none");
+          cdNum.textContent = remaining;
+
+          timerId = setInterval(() => {
+            remaining -= 1;
+            cdNum.textContent = remaining;
+            if (remaining <= 0) {
+              clearInterval(timerId);
+              localStorage.removeItem(STORAGE_KEY);
+              countdownWrapper.classList.add("d-none");
+              setDisabled(false);
+              btnLabel.textContent = "重新取得驗證碼";
+            }
+          }, 1000);
+        }
+
+        // 點擊取得驗證碼
+        btn.addEventListener("click", async () => {
+          if (btn.disabled) return;
+
+          // TODO: 這裡呼叫你的 API 發送驗證碼
+          // const ok = await sendCodeAPI();
+          const ok = true; // 範例：假裝成功
+
+          if (ok) {
+            btnLabel.textContent = "沒有收到驗證碼？";
+            const now = Date.now();
+            localStorage.setItem(STORAGE_KEY, String(now));
+            startCountdown(DURATION);
+          }
+        });
+
+        // 進頁面時：若還在倒數，就延續剩餘時間
+        const sentAt = Number(localStorage.getItem(STORAGE_KEY) || 0);
+        if (sentAt) {
+          const elapsed = Math.floor((Date.now() - sentAt) / 1000);
+          const remaining = DURATION - elapsed;
+          if (remaining > 0) startCountdown(remaining);
+          else localStorage.removeItem(STORAGE_KEY);
+        }
+
+        // 密碼設置
+        const passwordInput = document.getElementById("InputPassword");
+        const passwordCheck = document.getElementById("passwordCheck1");
+
+        passwordCheck.addEventListener("change", () => {
+          passwordInput.type = passwordCheck.checked ? "text" : "password";
+        });
+
+        // 確認密碼切換顯示
+        const passwordConfirmInput = document.getElementById(
+          "InputPasswordConfirm"
+        );
+        const passwordCheck2 = document.getElementById("passwordCheck2");
+        if (passwordCheck2) {
+          passwordCheck2.addEventListener("change", () => {
+            passwordConfirmInput.type = passwordCheck2.checked
+              ? "text"
+              : "password";
+          });
+        }
+
+        // 兩次密碼一致性驗證
+        const form = document.querySelector("form.container");
+        function validatePasswordMatch() {
+          const same =
+            passwordInput.value === passwordConfirmInput.value &&
+            passwordConfirmInput.value.length > 0;
+          passwordConfirmInput.setCustomValidity(same ? "" : "mismatch");
+          // 僅在輸入過才標紅，避免一開始就顯示錯誤
+          passwordConfirmInput.classList.toggle(
+            "is-invalid",
+            !same && passwordConfirmInput.value.length > 0
+          );
+          passwordConfirmInput.classList.toggle("is-valid", same);
+        }
+        passwordInput.addEventListener("input", validatePasswordMatch);
+        passwordConfirmInput.addEventListener("input", validatePasswordMatch);
+
+        // 表單送出時再檢查一次，若不通過則阻擋
+        const agree = document.getElementById("readCheck");
+        const agreeFeedback = document.getElementById("agreeFeedback");
+
+        function validateAgree() {
+          const ok = !!agree.checked;
+          agree.setCustomValidity(ok ? "" : "required");
+          // 顯示/隱藏自訂提示
+          if (agreeFeedback)
+            agreeFeedback.style.display = ok ? "none" : "block";
+          return ok;
+        }
+
+        form.addEventListener("submit", (e) => {
+          validatePasswordMatch();
+          const agreeOK = validateAgree();
+
+          if (!form.checkValidity() || !agreeOK) {
+            e.preventDefault();
+            e.stopPropagation();
+            // 捲動到第一個錯誤欄位
+            const firstInvalid = form.querySelector(":invalid, .is-invalid");
+            if (firstInvalid && firstInvalid.scrollIntoView) {
+              firstInvalid.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            }
+            // 全域提示
+            alert(
+              "請確認註冊資料皆填寫正確無誤，並勾選『使用條款與隱私權政策』。"
+            );
+          }
+          form.classList.add("was-validated");
+        });
+      })();
+    </script>
+    <script type="module" src="../main.js"></script>
+  </body>
+</html>

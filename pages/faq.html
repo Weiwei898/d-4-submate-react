@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ</title>
+  </head>
+  <body>
+    <%- include('./layout/header'); -%>
+    <!-- 問題搜尋 -->
+    <section class="bg-primary-50">
+      <div class="container hero-search">
+        <div class="row">
+          <!-- 標題 -->
+          <div class="d-flex justify-content-center">
+            <h2 class="hero-title">
+              <img
+                src="../src/assets/images/title item.svg"
+                alt="title item"
+              /><span>你想找什麼樣的問題？</span
+              ><img src="../src/assets/images/title item.svg" alt="title item" />
+            </h2>
+          </div>
+          <!-- 搜尋列 -->
+          <div class="d-flex justify-content-center mb-4">
+            <div class="col-12 col-md-4">
+              <div class="searchbox">
+                <div class="dropdown">
+                  <input
+                    id="faqSearch"
+                    class="form-control search-input mb-3"
+                    type="search"
+                    placeholder="輸入關鍵字"
+                    aria-controls="faqList"
+                  />
+
+                  <!-- 下方選項：預設隱藏；只有 focus 才顯示，寬度與上方欄位一致 -->
+                  <ul id="faqList" class="dropdown-menu result-panel p-3">
+                    <li class="hint fs-7 ps-3 pb-4 mb-4">我猜你想找...</li>
+                    <li>
+                      <a class="dropdown-item p-0 w-100" href="#submate-q1-h">
+                        <div class="d-flex justify-content-between p-3">
+                          <span class="flex-grow-1 me-3"
+                            >Q1. 什麼是 Submate？</span
+                          >
+                          <img
+                            src="../src/assets/images/logo.svg"
+                            style="height: 24px"
+                            alt="logo"
+                          /></div
+                      ></a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item p-0 w-100" href="#submate-q2-h">
+                        <div class="d-flex justify-content-between p-3">
+                          <span class="flex-grow-1 me-3"
+                            >Q2. Submate 有哪些可共享的服務？</span
+                          >
+                          <img
+                            src="../src/assets/images/logo.svg"
+                            style="height: 24px"
+                            alt="logo"
+                          /></div
+                      ></a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item p-0 w-100" href="#submate-q3-h">
+                        <div class="d-flex justify-content-between p-3">
+                          <span class="flex-grow-1 me-3"
+                            >Q3. Submate 是官方授權平台嗎？</span
+                          >
+                          <img
+                            src="../src/assets/images/logo.svg"
+                            style="height: 24px"
+                            alt="logo"
+                          /></div
+                      ></a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item p-0 w-100" href="#submate-q4-h">
+                        <div class="d-flex justify-content-between p-3">
+                          <span class="flex-grow-1 me-3"
+                            >Q4：如何加入共享團？</span
+                          >
+                          <img
+                            src="../src/assets/images/logo.svg"
+                            style="height: 24px"
+                            alt="logo"
+                          /></div
+                      ></a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item p-0 w-100" href="#submate-q5-h">
+                        <div class="d-flex justify-content-between p-3">
+                          <span class="flex-grow-1 me-3"
+                            >Q5：可以自己開團找朋友一起共享嗎？</span
+                          >
+                          <img
+                            src="../src/assets/images/logo.svg"
+                            style="height: 24px"
+                            alt="logo"
+                          /></div
+                      ></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Logo區 -->
+        <div class="container text-center">
+          <p class="d-flex justify-content-center brand">
+            點選產品可快速前往常見問題
+          </p>
+          <!-- 品牌快捷區 -->
+          <div
+            class="brand-grid row row-cols-3 row-cols-md-7 g-2 g-md-3 justify-content-center"
+          >
+            <div class="col">
+              <div class="brand-card">
+                <a href="#submate-faq">
+                  <img
+                    class="d-flex align-items-center justify-content-center brand-logo"
+                    src="../src/assets/images/Property1_Submate.svg"
+                    alt="Submate"
+                  />
+                </a>
+              </div>
+            </div>
+            <div class="col">
+              <div class="brand-card">
+                <a href="#NETFLIX-faq">
+                  <img
+                    class="d-flex align-items-center justify-content-center brand-logo"
+                    src="../src/assets/images/Property1_NETFLIX.svg"
+                    alt="NETFLIX"
+                  />
+                </a>
+              </div>
+            </div>
+            <div class="col">
+              <div class="brand-card">
+                <a href="#disney-faq">
+                  <img
+                    class="d-flex align-items-center justify-content-center brand-logo"
+                    src="../src/assets/images/Property1_Disney+.svg"
+                    alt="Disney+"
+                  />
+                </a>
+              </div>
+            </div>
+            <div class="col">
+              <div class="brand-card">
+                <a href="#YouTubePremium-faq">
+                  <img
+                    class="d-flex align-items-center justify-content-center brand-logo"
+                    src="../src/assets/images/Property1_YouTubePremium.svg"
+                    alt="YoutubePremium"
+                  />
+                </a>
+              </div>
+            </div>
+            <div class="col">
+              <div class="brand-card">
+                <img
+                  class="d-flex align-items-center justify-content-center brand-logo"
+                  src="../src/assets/images/Property1_KKTV.svg"
+                  alt="KKTV"
+                />
+              </div>
+            </div>
+            <div class="col">
+              <div class="brand-card">
+                <img
+                  class="d-flex align-items-center justify-content-center brand-logo"
+                  src="../src/assets/images/Property1_iQIYI.svg"
+                  alt="iQIYI"
+                />
+              </div>
+            </div>
+            <div class="col">
+              <div class="brand-card">
+                <a href="#Spotify-faq">
+                  <img
+                    class="d-flex align-items-center justify-content-center brand-logo"
+                    src="../src/assets/images/Property1_Spotify.svg"
+                    alt="Spotify"
+                  />
+                </a>
+              </div>
+            </div>
+            <div class="col">
+              <div class="brand-card">
+                <a href="#HamiVideo-faq">
+                  <img
+                    class="d-flex align-items-center justify-content-center brand-logo"
+                    src="../src/assets/images/Property1_HamiVideo.svg"
+                    alt="HamiVideo"
+                  />
+                </a>
+              </div>
+            </div>
+            <div class="col">
+              <div class="brand-card">
+                <img
+                  class="d-flex align-items-center justify-content-center brand-logo"
+                  src="../src/assets/images/Property1_friday.svg"
+                  alt="friday"
+                />
+              </div>
+            </div>
+            <div class="col">
+              <div class="brand-card">
+                <img
+                  class="d-flex align-items-center justify-content-center brand-logo"
+                  src="../src/assets/images/Property1_Canva.svg"
+                  alt="Canva"
+                />
+              </div>
+            </div>
+            <div class="col">
+              <div class="brand-card">
+                <img
+                  class="d-flex align-items-center justify-content-center brand-logo"
+                  src="../src/assets/images/Property1_miro.svg"
+                  alt="miro"
+                />
+              </div>
+            </div>
+            <div class="col">
+              <div class="brand-card">
+                <img
+                  class="d-flex align-items-center justify-content-center brand-logo"
+                  src="../src/assets/images/Property1_Microsoft365.svg"
+                  alt="Microsoft365"
+                />
+              </div>
+            </div>
+            <div class="col">
+              <div class="brand-card">
+                <img
+                  class="d-flex align-items-center justify-content-center brand-logo"
+                  src="../src/assets/images/Property1_Notion.svg"
+                  alt="Notion"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Submate -->
+    <section class="bg-primary-50" id="submate-faq">
+      <div class="faq container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-8">
+            <div class="d-flex justify-content-center logo-mb-4">
+              <img
+                class="logo-me-3"
+                src="../src/assets/images/title item.svg"
+                alt="title item"
+              />
+              <img
+                class="logo-me-3 faq-logo"
+                src="../src/assets/images/Property1_Submate.svg"
+                alt="Submate"
+              />
+              <img src="../src/assets/images/title item.svg" alt="title item" />
+            </div>
+            <div class="accordion" id="faqSubmate">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="submate-q1-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#submate-q1"
+                    aria-expanded="false"
+                    aria-controls="submate-q1"
+                  >
+                    Q1：什麼是 Submate？
+                    <span
+                      class="q-hot-ic"
+                      style="
+                        -webkit-mask-image: url('../src/assets/icons/mode_heat.svg');
+                        mask-image: url('../src/assets/icons/mode_heat.svg');
+                      "
+                    ></span>
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="submate-q1"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="submate-q1-h"
+                  data-bs-parent="#faqSubmate"
+                >
+                  <div class="accordion-body">
+                    A：Submate
+                    是一個專為台灣用戶打造的共享訂閱平台，讓大家能安全、快速地組團共享
+                    Netflix、Disney+、Spotify、YouTube Premium
+                    等多人方案，降低個人支出並享受完整服務。
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="submate-q2-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#submate-q2"
+                    aria-expanded="false"
+                    aria-controls="submate-q2"
+                  >
+                    Q2：Submate 有哪些可共享的服務？
+                    <span
+                      class="q-hot-ic"
+                      style="
+                        -webkit-mask-image: url('../src/assets/icons/mode_heat.svg');
+                        mask-image: url('../src/assets/icons/mode_heat.svg');
+                      "
+                    ></span>
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="submate-q2"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="submate-q2-h"
+                  data-bs-parent="#faqSubmate"
+                >
+                  <div class="accordion-body">
+                    A：目前支援 NETFLIX、Disney+、Spotify、YouTube
+                    Premium等多達13項服務商品，未來將陸續新增更多數位訂閱方案。
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="submate-q3-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#submate-q3"
+                    aria-expanded="false"
+                    aria-controls="submate-q3"
+                  >
+                    Q3：Submate 是官方授權平台嗎？
+                    <span
+                      class="q-hot-ic"
+                      style="
+                        -webkit-mask-image: url('../src/assets/icons/mode_heat.svg');
+                        mask-image: url('../src/assets/icons/mode_heat.svg');
+                      "
+                    ></span>
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="submate-q3"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="submate-q3-h"
+                  data-bs-parent="#faqSubmate"
+                >
+                  <div class="accordion-body">
+                    A：我們不是各串流服務的官方代理，而是提供費用分攤、帳號管理、安全保護機制的第三方共享平台。
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="submate-q4-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#submate-q4"
+                    aria-expanded="false"
+                    aria-controls="submate-q4"
+                  >
+                    Q4：如何加入共享團？
+                    <span
+                      class="q-hot-ic"
+                      style="
+                        -webkit-mask-image: url('../src/assets/icons/mode_heat.svg');
+                        mask-image: url('../src/assets/icons/mode_heat.svg');
+                      "
+                    ></span>
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="submate-q4"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="submate-q4-h"
+                  data-bs-parent="#faqSubmate"
+                >
+                  <div class="accordion-body">
+                    Ａ：你只需要<br />1. 選擇想加入的服務<br />2. 選擇方案（例如
+                    Netflix 高級方案）<br />3.
+                    完成付款後，系統自動分配帳號登入資訊
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="submate-q5-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#submate-q5"
+                    aria-expanded="false"
+                    aria-controls="submate-q5"
+                  >
+                    Q5：可以自己開團找朋友一起共享嗎？
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="submate-q5"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="submate-q5-h"
+                  data-bs-parent="#faqSubmate"
+                >
+                  <div class="accordion-body">
+                    A：可以！Submate的其中一個特色就是：可以同一個帳號購買複數個平台帳號！Submate將依照訂閱情況，提供最貼近的訂閱帳號組合。
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- NETFLIX -->
+    <section class="bg-primary-50" id="NETFLIX-faq">
+      <div class="faq container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-8">
+            <div class="d-flex justify-content-center logo-mb-4">
+              <img
+                class="logo-me-3"
+                src="../src/assets/images/title item.svg"
+                alt="title item"
+              />
+              <img
+                class="logo-me-3 faq-logo"
+                src="../src/assets/images/Property1_NETFLIX.svg"
+                alt="NETFLIX"
+              />
+              <img src="../src/assets/images/title item.svg" alt="title item" />
+            </div>
+            <div class="accordion" id="faqNETFLIX">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="NETFLIX-q1-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#NETFLIX-q1"
+                    aria-expanded="false"
+                    aria-controls="NETFLIX-q1"
+                  >
+                    Q1：什麼是共享 NETFLIX？
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="NETFLIX-q1"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="NETFLIX-q1-h"
+                  data-bs-parent="#faqNETFLIX"
+                >
+                  <div class="accordion-body">
+                    A：透過我們的平台，您可以與其他用戶共同分擔 NETFLIX
+                    高級或標準方案的費用，獲得專屬帳號使用權，節省每月訂閱成本。
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="NETFLIX-q2-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#NETFLIX-q2"
+                    aria-expanded="false"
+                    aria-controls="NETFLIX-q2"
+                  >
+                    Q2：你們的服務跟 NETFLIX 官方有合作嗎？
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="NETFLIX-q2"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="NETFLIX-q2-h"
+                  data-bs-parent="#faqNETFLIX"
+                >
+                  <div class="accordion-body">
+                    A：我們並非 NETFLIX
+                    官方，而是提供安全、穩定的團隊共享機制，協助多位用戶共用同一個家庭方案帳號。
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="NETFLIX-q3-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#NETFLIX-q3"
+                    aria-expanded="false"
+                    aria-controls="NETFLIX-q3"
+                  >
+                    Q3：NETFLIX 可同時幾人觀看？
+                    <span
+                      class="q-hot-ic"
+                      style="
+                        -webkit-mask-image: url('../src/assets/icons/mode_heat.svg');
+                        mask-image: url('../src/assets/icons/mode_heat.svg');
+                      "
+                    ></span>
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="NETFLIX-q3"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="NETFLIX-q3-h"
+                  data-bs-parent="#faqNETFLIX"
+                >
+                  <div class="accordion-body">
+                    A： <br />• 標準方案：最多 2 人同時觀看<br />
+                    • 高級方案（4K Ultra HD）：最多 4 人同時觀看
+                    <br />我們會依方案限制合理分配名額，避免超額登入。
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="NETFLIX-q4-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#NETFLIX-q4"
+                    aria-expanded="false"
+                    aria-controls="NETFLIX-q4"
+                  >
+                    Q4：我的觀看紀錄會跟其他人混在一起嗎？
+                    <span
+                      class="q-hot-ic"
+                      style="
+                        -webkit-mask-image: url('../src/assets/icons/mode_heat.svg');
+                        mask-image: url('../src/assets/icons/mode_heat.svg');
+                      "
+                    ></span>
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="NETFLIX-q4"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="NETFLIX-q4-h"
+                  data-bs-parent="#faqNETFLIX"
+                >
+                  <div class="accordion-body">
+                    A：不會，每位用戶都擁有專屬使用者帳號，觀看紀錄、推薦清單互不影響。
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="NETFLIX-q5-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#NETFLIX-q5"
+                    aria-expanded="false"
+                    aria-controls="NETFLIX-q5"
+                  >
+                    Q5：密碼會不會被別人更改？
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="NETFLIX-q5"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="NETFLIX-q5-h"
+                  data-bs-parent="#faqNETFLIX"
+                >
+                  <div class="accordion-body">
+                    A：帳號密碼由平台統一管理，避免被個別用戶更改；你只需使用提供的登入資訊即可。
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Disney+ -->
+    <section class="bg-primary-50" id="disney-faq">
+      <div class="faq container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-8">
+            <div class="d-flex justify-content-center logo-mb-4">
+              <img
+                class="logo-me-3"
+                src="../src/assets/images/title item.svg"
+                alt="title item"
+              />
+              <img
+                class="logo-me-3 faq-logo"
+                src="../src/assets/images/Property1_Disney+.svg"
+                alt="Disney+"
+              />
+              <img src="../src/assets/images/title item.svg" alt="title item" />
+            </div>
+            <div class="accordion" id="faqDisney+">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="disney-q1-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#disney-q1"
+                    aria-expanded="false"
+                    aria-controls="disney-q1"
+                  >
+                    Q1：在 Submate 的 Disney+ 團可以同時幾台裝置播放？
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="disney-q1"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="disney-q1-h"
+                  data-bs-parent="#faqDisney+"
+                >
+                  <div class="accordion-body">
+                    A：Disney+
+                    支援最多4台裝置同時觀看，並可建立最多7個使用者個人檔案，我們會為每位用戶分配專屬個人檔案，避免觀看紀錄影響。
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="disney-q2-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#disney-q2"
+                    aria-expanded="false"
+                    aria-controls="disney-q2"
+                  >
+                    Q2：登入顯示裝置已達上限怎麼辦？
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="disney-q2"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="disney-q2-h"
+                  data-bs-parent="#faqDisney+"
+                >
+                  <div class="accordion-body">
+                    A：如無法登入，則表示目前已達到4台裝置同時播放上線，請稍後再重試。
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="disney-q3-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#disney-q3"
+                    aria-expanded="false"
+                    aria-controls="disney-q3"
+                  >
+                    Q3：可以在旅遊時使用 Disney+ 嗎？
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="disney-q3"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="disney-q3-h"
+                  data-bs-parent="#faqDisney+"
+                >
+                  <div class="accordion-body">
+                    A：可以，但片庫會依所在地區變動。
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- YouTubePremium -->
+    <section class="bg-primary-50" id="YouTubePremium-faq">
+      <div class="faq container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-8">
+            <div class="d-flex justify-content-center logo-mb-4">
+              <img
+                class="logo-me-3"
+                src="../src/assets/images/title item.svg"
+                alt="title item"
+              />
+              <img
+                class="logo-me-3 faq-logo"
+                src="../src/assets/images/Property1_YouTubePremium.svg"
+                alt="YouTubePremium"
+              />
+              <img src="../src/assets/images/title item.svg" alt="title item" />
+            </div>
+            <div class="accordion" id="faqYouTubePremium">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="youtube-q1-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#youtube-q1"
+                    aria-expanded="false"
+                    aria-controls="youtube-q1"
+                  >
+                    Q1：加入 Submate 的 YouTube Premium
+                    團，可以免廣告看所有影片嗎？
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="youtube-q1"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="youtube-q1-h"
+                  data-bs-parent="#faqYouTubePremium"
+                >
+                  <div class="accordion-body">
+                    A：是的，官方支援的影片與音樂皆可免廣告播放。
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="youtube-q2-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#youtube-q2"
+                    aria-expanded="false"
+                    aria-controls="youtube-q2"
+                  >
+                    Q2：背景播放與離線下載在哪些裝置可用？
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="youtube-q2"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="youtube-q2-h"
+                  data-bs-parent="#faqYouTubePremium"
+                >
+                  <div class="accordion-body">
+                    A：手機與平板 App 支援背景播放與下載，桌面版僅支援背景播放。
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="youtube-q3-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#youtube-q3"
+                    aria-expanded="false"
+                    aria-controls="youtube-q3"
+                  >
+                    Q3：頻繁換裝置會影響使用嗎？
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="youtube-q3"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="youtube-q3-h"
+                  data-bs-parent="#faqYouTubePremium"
+                >
+                  <div class="accordion-body">
+                    A：可能會觸發官方風控，建議保持主要裝置穩定使用。
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Spotify -->
+    <section class="bg-primary-50" id="Spotify-faq">
+      <div class="faq container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-8">
+            <div class="d-flex justify-content-center logo-mb-4">
+              <img
+                class="logo-me-3"
+                src="../src/assets/images/title item.svg"
+                alt="title item"
+              />
+              <img
+                class="logo-me-3 faq-logo"
+                src="../src/assets/images/Property1_Spotify.svg"
+                alt="Spotify"
+              />
+              <img src="../src/assets/images/title item.svg" alt="title item" />
+            </div>
+            <div class="accordion" id="faqSpotify">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="spotify-q1-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#spotify-q1"
+                    aria-expanded="false"
+                    aria-controls="spotify-q1"
+                  >
+                    Q1：加入 Submate 的 Spotify 團，可以離線聽歌嗎？
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="spotify-q1"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="spotify-q1-h"
+                  data-bs-parent="#faqSpotify"
+                >
+                  <div class="accordion-body">
+                    A：可以，Premium 方案支援離線播放功能。
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="spotify-q2-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#spotify-q2"
+                    aria-expanded="false"
+                    aria-controls="spotify-q2"
+                  >
+                    Q2：播放清單會因退團消失嗎？
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="spotify-q2"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="spotify-q2-h"
+                  data-bs-parent="#faqSpotify"
+                >
+                  <div class="accordion-body">
+                    A：不會，播放清單會保留，但無法離線播放。
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="spotify-q3-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#spotify-q3"
+                    aria-expanded="false"
+                    aria-controls="spotify-q3"
+                  >
+                    Q3：為什麼有些歌曲顯示「無法播放」？
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="spotify-q3"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="spotify-q3-h"
+                  data-bs-parent="#faqSpotify"
+                >
+                  <div class="accordion-body">
+                    A：可能因地區授權或歌曲下架導致。
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="spotify-q4-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#spotify-q4"
+                    aria-expanded="false"
+                    aria-controls="spotify-q4"
+                  >
+                    Q4：可以跨國使用 Spotify 嗎？
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="spotify-q4"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="spotify-q4-h"
+                  data-bs-parent="#faqSpotify"
+                >
+                  <div class="accordion-body">
+                    A：可以，但長期跨區使用可能會被要求重新驗證地區。
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- HamiVideo -->
+    <section class="bg-primary-50" id="HamiVideo-faq">
+      <div class="faq container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-8">
+            <div class="d-flex justify-content-center logo-mb-4">
+              <img
+                class="logo-me-3"
+                src="../src/assets/images/title item.svg"
+                alt="title item"
+              />
+              <img
+                class="logo-me-3 faq-logo"
+                src="../src/assets/images/Property1_HamiVideo.svg"
+                alt="HamiVideo"
+              />
+              <img src="../src/assets/images/title item.svg" alt="title item" />
+            </div>
+            <div class="accordion" id="faqHamiVideo">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="HamiVideo-q1-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#HamiVideo-q1"
+                    aria-expanded="false"
+                    aria-controls="HamiVideo-q1"
+                  >
+                    Q1：加入 Submate 的 Hami Video 團，影片畫質怎麼看？
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="HamiVideo-q1"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="HamiVideo-q1-h"
+                  data-bs-parent="#faqHamiVideo"
+                >
+                  <div class="accordion-body">
+                    A：部分影片支援 4K，需相容裝置與網速。
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="HamiVideo-q2-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#HamiVideo-q2"
+                    aria-expanded="false"
+                    aria-controls="HamiVideo-q2"
+                  >
+                    Q2：可以下載影片離線看嗎？
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="HamiVideo-q2"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="HamiVideo-q2-h"
+                  data-bs-parent="#faqHamiVideo"
+                >
+                  <div class="accordion-body">
+                    A：部分內容支援下載功能，依官方授權為準。
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="HamiVideo-q3-h">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#HamiVideo-q3"
+                    aria-expanded="false"
+                    aria-controls="HamiVideo-q3"
+                  >
+                    Q3：為什麼影片顯示「地區限制」？
+                    <span class="accordion-icon"
+                      ><i class="bi bi-plus-lg"></i><i class="bi bi-dash-lg"></i
+                    ></span>
+                  </button>
+                </h2>
+                <div
+                  id="HamiVideo-q3"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="HamiVideo-q3-h"
+                  data-bs-parent="#faqHamiVideo"
+                >
+                  <div class="accordion-body">
+                    A：因授權不同，部分內容僅限特定地區觀看。
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Help CTA -->
+    <section id="help-cta">
+      <div class="container">
+        <div class="row justify-content-center">
+          <!-- 手機版佔滿；桌機版置中收斂寬度 -->
+          <div class="col-12 col-md-8">
+            <div
+              class="help-cta rounded-3 border shadow-sm text-center py-5 my-5"
+            >
+              <div class="colorCircle1"></div>
+              <div class="colorCircle2"></div>
+              <h3 class="fw-bold mb-3 fs-4 fs-md-3">找不到你想問的問題嗎？</h3>
+              <p class="mb-4 fs-6 fs-md-4 text-primary">
+                歡迎填寫工單，我們將盡快為您服務
+              </p>
+              <a
+                class="btn btn-primary btn-lg rounded-pill px-4 text-light"
+                href="#"
+                >填寫工單</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <%- include('./layout/footer'); -%>
+
+    <script type="module" src="../main.js"></script>
+
+    <!-- Back to Top 按鈕 -->
+    <button id="backToTopBtn" class="back-to-top" aria-label="Back to Top">
+      <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <script>
+      const backToTopBtn = document.getElementById("backToTopBtn");
+      backToTopBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 300) {
+          backToTopBtn.style.display = "flex";
+        } else {
+          backToTopBtn.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

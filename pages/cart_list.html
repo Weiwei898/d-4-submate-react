@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>購物車首頁</title>
+</head>
+
+<body class="bg-primary-50">
+    <%- include('./layout/header_login'); -%>
+    <!--標題、步驟-->
+    <section class="title-section mb-10">
+        <div class="container">
+            <!--標題與logo--->
+            <div class="row">
+                <div class="col-12">
+                    <div class="title-container d-flex align-items-center gap-3 mb-6 mb-md-10">
+                        <div class="title-logo d-flex align-items-center"></div><!--閃電偽元素--->
+                        <div class="title-text">
+                            <h3 class="text-center">購物車</h3>
+                        </div>
+                        <div class="title-logo d-flex align-items-center"></div><!--閃電偽元素--->
+                    </div><!--標題與logo--->
+                </div>
+            </div>
+
+            <!--購物車三步驟--->
+            <div class="row justify-center">
+                <nav class="col-6">
+                    <ol class="cart-steps d-flex justify-between">
+                        <!--1.購物車確認-->
+                        <li>
+                            <a href="cart_list.html" class="cart-step-on d-flex flex-column fs-4 fw-bolder" >
+                                <div class="cart-step-common cart-step01"></div>  
+                                購物車確認
+                            </a> 
+                        </li><!--1.購物車確認-->
+
+                        <!--2.填寫或確認結帳資料-->
+                        <li>
+                            <a href="cart_payment.html" class="cart-step-off d-flex flex-column fs-4 fw-bolder" >
+                                <div class="cart-step-common cart-step02"></div>  
+                                填寫或確認結帳資料
+                            </a> 
+                        </li><!--2.填寫或確認結帳資料-->
+
+                        <!--3.完成付款-->
+                        <li>
+                            <a href="cart_finish.html" class="cart-step-off d-flex flex-column fs-4 fw-bolder" >
+                                <div class="cart-step-common cart-step03"></div>  
+                                完成付款
+                            </a> 
+                        </li><!--3.完成付款-->
+                    </ol>
+                </nav>
+            </div><!--購物車三步驟--->
+
+        </div>
+    </section><!--標題、步驟-->
+
+    <!--購物車確認步驟-->
+    <section id="cart-list-form" class="d-flex flex-column gap-6 mb-10">
+        <!--結帳內容-->
+        <div class="container">
+            <div class="white-board bg-neutral-0 shadow-sm rounded px-12 py-10"> <!--白板放這才能跟footer對齊-->
+                <!--表格：商品列-->
+                <div class="row">
+                    <div class="col-12">                        
+                        <table class="table table-hover">
+                            <thead>
+                                <tr class="align-middle">
+                                    <th scope="col" class="text-center">產品名稱</th>
+                                    <th scope="col" class="text-center">方案</th>
+                                    <th scope="col" class="text-center">數量</th>
+                                    <th scope="col" class="text-center">小計(新台幣)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="align-middle"> <!--垂直置中-->
+                                    <th scope="col"><!--包含商品勾選--->
+                                        <div class="form-check d-flex gap-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="cart-product01" checked>
+                                            <label class="form-check-label" for="cart-product01">
+                                                Netfilx
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <th scope="col" class="text-center">基本​方案</th>
+                                    <th scope="col" class="d-flex justify-center"><!--數值增減元件--->
+                                        <div class="number-control d-flex align-items-center gap-3">
+                                            <button class="btn btn-primary rounded-circle p-0 decrement-btn" type="button">-</button>
+                                            <input type="number" class="form-control text-center" number-input value="2" min="0" max="99" >    
+                                            <button class="btn btn-primary rounded-circle p-0 increment-btn"  type="button">+</button>
+                                        </div>
+                                    </th><!--數值增減元件--->
+                                    <th scope="col" class="text-end">$4,800</th>
+                                </tr>
+                                
+                                <tr class="align-middle"> <!--垂直置中-->
+                                    <th scope="col"><!--包含商品勾選--->
+                                        <div class="form-check d-flex gap-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="cart-product02" checked>
+                                            <label class="form-check-label" for="cart-product02">
+                                                Youtube Premium
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <th scope="col" class="text-center">一個月</th>
+                                    <th scope="col" class="d-flex justify-center"><!--數值增減元件--->
+                                        <div class="number-control d-flex align-items-center gap-3">
+                                            <button class="btn btn-primary rounded-circle p-0 decrement-btn" type="button">-</button>
+                                            <input type="number" class="form-control text-center number-input" value="1" min="0" max="99">    
+                                            <button class="btn btn-primary rounded-circle p-0 increment-btn"  type="button">+</button>
+                                        </div>
+                                    </th><!--數值增減元件--->
+                                    <th scope="col" class="text-end">$180</th>
+                                </tr>
+                                
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!--小計--->
+                <div class="row d-flex justify-end">
+                    <div class="col-4" >
+                        <table class="table cart-total table-borderless">
+                            <tr>
+                                <th class="text-end">總計金額 </th>
+                                <th class="text-start"> NT$</th>
+                                <th class="text-end">4,980 元</th>
+                            </tr>
+
+                            <tr>
+                                <th class="text-end">折扣總金額 </th>
+                                <th class="text-start"> NT$</th>
+                                <th class="text-end">-100 元</th>
+                            </tr>
+
+                            <tr>
+                                <th class="text-end">總付款 </th>
+                                <th class="text-start"> NT$</th>
+                                <th class="text-end">4,980 元</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>        
+        </div><!--結帳內容container-->
+
+        <!--按鈕-->
+        <div class="container d-flex justify-end">
+            <a href="cart_payment.html#payment-setting"  class=" next-step btn btn-primary-600" role="button">下一步</a>
+        </div><!--按鈕-->
+
+    </section><!--購物車確認步驟-->
+
+
+
+
+
+
+    <%- include('./layout/footer_login'); -%>
+    <script type="module" src="../main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 使用 querySelectorAll 找到所有 .number-control 元件
+        const numberControls = document.querySelectorAll('.number-control');
+
+        // 遍歷每一個數值增減器元件
+        numberControls.forEach(control => {
+            // 在每個元件內部找到對應的按鈕和輸入框
+            const decrementBtn = control.querySelector('.decrement-btn');
+            const incrementBtn = control.querySelector('.increment-btn');
+            const numberInput = control.querySelector('.form-control'); // 使用更精確的選擇器
+
+            // 定義數值範圍
+            const minValue = 0;
+            const maxValue = 99;
+
+            // 更新按鈕的 disabled 狀態
+            function updateButtonState() {
+                decrementBtn.disabled = parseInt(numberInput.value) <= minValue;
+                incrementBtn.disabled = parseInt(numberInput.value) >= maxValue;
+            }
+
+            // 監聽減號按鈕的點擊事件
+            decrementBtn.addEventListener('click', function() {
+                let currentValue = parseInt(numberInput.value);
+                if (currentValue > minValue) {
+                    numberInput.value = currentValue - 1;
+                }
+                updateButtonState();
+            });
+
+            // 監聽加號按鈕的點擊事件
+            incrementBtn.addEventListener('click', function() {
+                let currentValue = parseInt(numberInput.value);
+                if (currentValue < maxValue) {
+                    numberInput.value = currentValue + 1;
+                }
+                updateButtonState();
+            });
+
+            // 監聽 input 欄位的輸入事件
+            numberInput.addEventListener('input', function() {
+                let currentValue = parseInt(numberInput.value);
+                if (isNaN(currentValue) || currentValue < minValue) {
+                    numberInput.value = minValue;
+                } else if (currentValue > maxValue) {
+                    numberInput.value = maxValue;
+                }
+                updateButtonState();
+            });
+            
+            // 頁面載入時先執行一次，以確保按鈕狀態正確
+            updateButtonState();
+        });
+    });
+    </script>
+
+</body>
+
+</html>

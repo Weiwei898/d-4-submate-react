@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入頁面</title>
+</head>
+
+<body class="bg-primary-50">
+    <%- include('./layout/header'); -%>
+    <div class="container py-10">
+        <!--標題與logo--->
+        <div class="row mb-6">
+            <div class="col-12">
+                <div class="title-container d-flex align-items-center gap-3 mb-6 mb-md-10">
+                <div class="title-logo d-flex align-items-center"></div><!--閃電偽元素--->
+                <div class="title-text">
+                    <h3 class="text-center">登入/註冊</h3>
+                </div>
+                <div class="title-logo d-flex align-items-center"></div><!--閃電偽元素--->
+                </div>
+            </div><!--標題與logo--->
+        </div><!--標題與logo--->
+
+        <!--滑手機背景圖片-->
+        <div class="login-section row d-flex flex-column-reverse flex-lg-row justify-around align-items-center">
+            <div class="col-8 col-lg-4">
+                <div class="subscribe-bg"></div>
+            </div>
+
+            <div class="col-12  col-lg-5">
+                <div class=" d-flex flex-column bg-neutral-0 shadow-sm rounded px-6 py-10">
+                    <!--小標題-->
+                    <h3 class="text-center mb-8">Submate會員登入</h3>
+
+                    <!--帳號密碼輸入-->
+                    <form action="" class="d-flex flex-column  gap-4 align-items-center mb-4">
+                        <input type="text" class="form-control  required-field" id="login-email" placeholder="請輸入email">
+                        <input type="password" class="form-control  required-field" id="login-password" placeholder="請輸入密碼">
+                        <button type="submit" class="next-step  btn btn-primary-600" id= "checkout-button"> 
+                            <a href="product_list.html" role="button">Login</a>
+                        </button>
+                    </form>
+                    <div class="d-flex flex-column align-items-center gap-4 mb-4">
+                        <a href="#" class="text-neutral-800 a-decoration">忘記密碼</a>
+                        <a href="register.html">新會員註冊</a>
+                    </div>
+
+                    <!--其他登入分隔線-->
+                    <div class="saperate-line"> 或 </div>
+
+                    <!--三個登入方式-->
+                    <div class="d-flex align-items-center justify-center gap-12 py-4 mb-4">
+                        <a href="#"><img src="../src/assets/images/gmail-icon.svg" alt="gmail登入"></a>
+                        <a href="#"><img src="../src/assets/images/apple-icon.svg" alt="apple登入"></a>
+                        <a href="#"><img src="../src/assets/images/line-icon.svg" alt="line登入"></a>
+                    </div>
+
+                    <!--隱私權說明-->
+                    <div class="login-policy d-flex align-items-center gap-3">
+                        <div class="alert-logo"></div>
+                        <p>
+                            註冊會員即表示您同意我們的
+                            <a href="#" class="fw-bold text-decoration-underline text-neutral-900">使用條款與細則</a>
+                            ，且您已閱讀我們的
+                            <a href="#" class="fw-bold text-decoration-underline text-neutral-900" >隱私權政策</a>
+                        </p>
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <%- include('./layout/footer'); -%>
+    <script type="module" src="../main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    //檢查必填欄位
+    document.addEventListener('DOMContentLoaded', function() {
+        const checkoutButton = document.getElementById('checkout-button');
+        const requiredFields = document.querySelectorAll('.required-field');
+
+        checkoutButton.addEventListener('click', function(event) {
+            let formIsValid = true;
+            let firstInvalidFieldLabel = '';
+
+            // 遍歷每個必填欄位
+            requiredFields.forEach(field => {
+                // 檢查欄位是否為空
+                if (field.value.trim() === '') {
+                    // 如果是空值，加上 .is-invalid class
+                    field.classList.add('is-invalid');
+                    formIsValid = false;
+
+                    // 如果這是第一個無效的欄位，獲取其對應的 label 名稱
+                    if (firstInvalidFieldLabel === '') {
+                        // 找到與 input id 關聯的 label
+                        const label = document.querySelector(`label[for="${field.id}"]`);
+                        if (label) {
+                            firstInvalidFieldLabel = label.textContent.trim();
+                        }
+                    }
+                } else {
+                    // 如果有值，移除 .is-invalid class
+                    field.classList.remove('is-invalid');
+                }
+            });
+
+            if (formIsValid) {
+                // alert('所有欄位都已填寫，準備送出！');
+            } else {
+                event.preventDefault();
+
+                // 顯示第一個未填寫欄位的名稱
+                if (firstInvalidFieldLabel) {
+                    // 移除 label 文字的最後一個字元(冒號)
+                    const formattedInvalidLabel = firstInvalidFieldLabel.slice(0, -1);
+                    alert(`請填寫「${formattedInvalidLabel}」欄位！`);
+                } else {
+                    // 如果找不到 label，顯示通用訊息
+                    alert('請檢查必填欄位！');
+                }
+            }
+        });
+    });
+
+
+    </script>
+
+</body>
+
+</html>

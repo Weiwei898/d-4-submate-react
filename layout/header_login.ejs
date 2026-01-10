@@ -1,0 +1,99 @@
+<header class="bg-primary-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="header navbar navbar-expand-md  justify-content-between align-items-center py-3 px-1 py-md-4">
+                    <!--Submate logo-->
+                    <a class="d-flex align-items-center gap-1"  href="index.html">
+                        <img src="../src/assets/images/SubmateLogo.svg" alt="Submate-logo">
+                        <img src="../src/assets/images/Submate.svg" alt="Submate-word">
+                    </a>
+
+                    <!--主選單，已登入和未登入有不同選項，會分成兩頁，要分別引用-->
+                    <div class="header-right d-flex align-items-center gap-md-6">
+
+                        <!--電腦版主功能按鈕-->
+                        <div class="d-none d-md-flex">
+                            <ul class="nav navbar-nav me-auto mb-2 mb-md-0 py-md-2 gap-md-2">
+                                <li class="nav-item">
+                                    <a class="nav-link py-md-3 px-md-4  fs-6 " href="about.html">關於我們</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link  py-md-3 px-md-4  fs-6 " href="product_list.html">商品列表</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link  dropdown-toggle  py-md-3 px-md-4  fs-6 " id="navbarDropdownfaq" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="faq.html">
+                                        FAQ
+                                    </a>
+                                    <!--子功能下拉選單-->
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownfaq">
+                                        <li><a  class="dropdown-item" href="faq.html">常見問題</a></li>
+                                        <li><a  class="dropdown-item" href="#">客服工單</a></li>
+                                    </ul>
+                                </li>
+                                <!--已登入才有-->
+                                <li class="nav-item">
+                                    <a class="nav-link  py-md-3 px-md-4  fs-6 " href= "index.html">會員中心</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!--電腦版購物車按鈕--> <!--已登入/未登入差異處--> 
+                        <div  class="cart-large">
+                            <a href="cart_list.html">
+                                <div class="cart-group">
+                                    <img class="local_mall" src="../src/assets/images/local_mall.svg" alt="購物車按鈕">
+                                    <img class="porduct-sum" src="../src/assets/images/Badge_10.svg" alt="購物車商品數量圖示" >
+                                </div>
+                            </a>
+                        </div>
+
+                        <!--手機版右側按鈕群組-->  <!--已登入/未登入差異處-->
+                        <div class="mobile-header-buttons d-flex d-md-none align-items-center">
+                            
+                            <!--手機版登入/註冊，展開漢堡選單時會消失-->  <!--已登入/未登入差異處-->
+
+
+                            <!--漢堡選單按鈕，collapse對應收合元素，bs內建-->
+                            <button class="navbar-toggler btn-hamburger" type="button" data-bs-toggle="collapse"  data-bs-target="#mobileNavContent" aria-controls="mobileNavContent" aria-expanded="false" aria-label="Toggle navigation" >
+                                <i class="bi bi-list"></i>
+                            </button>
+                        </div> <!--手機版右側按鈕群組-->
+
+
+
+                    </div> <!--主選單，已登入和未登入有不同選項-->
+                </nav>
+
+                <!--手機版漢堡展開選單內容，利用collapse串聯-->
+                <div class="hambergur-list collapse navbar-collapse mobile-nav-menu my-6" id="mobileNavContent">
+                    <div class="mobile-nav-content">
+                        <!--手機版漢堡選單項目-功能名稱-->
+                        <ul class="nav flex-column gap-2 ">
+                            <li class="nav-item">
+                                <a class="nav-link mobile-nav-link py-3 px-4 fs-6  " href="about.html">關於我們</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mobile-nav-link  py-3 px-4 fs-6 " href="product_list.html">商品列表</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a  class="nav-link mobile-nav-link  py-3 px-4  fs-6 " href="faq.html"> FAQ </a>
+                            </li>
+                            <!--已登入才有-->
+                            <li class="nav-item">
+                                <a class="nav-link mobile-nav-link  py-3 px-4 fs-6 " href="index.html">會員中心</a>
+                            </li>
+                        </ul> <!--手機版漢堡選單項目-功能名稱-->
+
+                        <!--取消手機版展開後的登入按鈕-->  <!--已登入/未登入差異處-->
+
+                    </div>  <!--mobile-nav-content-->
+
+                </div> <!--手機版漢堡展開選單內容，利用collapse串聯-->
+
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--取消js監聽-->  <!--已登入/未登入差異處-->
