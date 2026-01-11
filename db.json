@@ -1,0 +1,162 @@
+{
+  "products": [
+    {
+      "id": "-Og_i3TnmTL-cXmCcszG",
+      "title": "Netflix",
+      "category": "影音類",
+      "plan_name": "Premium",
+      "plan_description": [
+        "4K+HDR 畫質",
+        "最高級音效",
+        "支援 4 台裝置同時觀看"
+      ],
+      "content": [
+        "基本裝置無明確限制，下載裝置 Premium 可達 6 台",
+        "同住用戶免費。",
+        "不同住需加 NT$ 100 / 人"
+      ],
+      "group_info": {
+        "needed_people": 4,
+        "current_people": 2,
+        "is_full": false
+      },
+      "description": [
+        "涵蓋各種影片類型，包括電影、電視劇、紀錄片、動畫等。",
+        "支援智慧型手機、平板電腦、智慧型電視、筆記型電腦等。",
+        "提供中等畫質(720p)至頂級畫質(4K+HDR)多種方案選擇。"
+      ],
+      "imageUrl": "https://raw.githubusercontent.com/Weiwei898/B-1-SubMate/4b0cc01cfe1c819cc2a1a725a7f4af156cb07152/assets/images/Property1_NETFLIX.svg",
+      "imagesUrl": [],
+      "is_enabled": 1,
+      "origin_price": 600,
+      "price": 390,
+      "currency": "TWD",
+      "unit": "月/人",
+      "duration_days": 30
+    },
+    {
+      "id": "ai-001",
+      "title": "ChatGPT Plus",
+      "category": "AI 工具類",
+      "plan_name": "月繳方案",
+      "plan_description": [
+        "GPT-4o 模型使用",
+        "優先使用權",
+        "DALL-E 3 生成"
+      ],
+      "content": [
+        "獨立帳號或合租帳號",
+        "官方正版訂閱",
+        "支援全平台使用"
+      ],
+      "group_info": {
+        "needed_people": 1,
+        "current_people": 0,
+        "is_full": false
+      },
+      "description": [
+        "最強大的人工智慧模型，提升工作效率。",
+        "支援自定義 GPTs，打造個人專屬助手。"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
+      "imagesUrl": [
+        "/images/chatgpt_detail_01.png"
+      ],
+      "is_enabled": 1,
+      "origin_price": 650,
+      "price": 600,
+      "currency": "TWD",
+      "unit": "月/人",
+      "duration_days": 30
+    }
+  ],
+  "users": [
+    {
+      "id": "user-123",
+      "email": "test@example.com",
+      "is_email_verified": true,
+      "mobile": "0912345678",
+      "password": "hashed_password",
+      "real_name": "王小明",
+      "subscriptions": [
+        {
+          "product_id": "-Og_i3TnmTL-cXmCcszG",
+          "title": "Netflix",
+          "plan": "Premium",
+          "expiry_date": "2026-02-11",
+          "virtual_account": "submate_netflix_01",
+          "assigned_password": "pw_example_888"
+        }
+      ],
+      "payment_methods": [
+        {
+          "id": "pm-001",
+          "type": "credit_card",
+          "card_last_four": "4455",
+          "brand": "Visa",
+          "is_default": true
+        }
+      ],
+      "order_history": [
+        {
+          "order_id": "ORD-20250101",
+          "date": "2025-01-01",
+          "total": 351,
+          "status": "已完成"
+        }
+      ]
+    }
+  ],
+  "carts": [
+    {
+      "id": "cart-999",
+      "user_id": "user-123",
+      "items": [
+        {
+          "product_id": "-Og_i3TnmTL-cXmCcszG",
+          "title": "Netflix",
+          "plan": "Premium",
+          "quantity": 1,
+          "price": 390
+        }
+      ],
+      "subtotal": 390,
+      "discount_rate": 0.9,
+      "discount_amount": 39,
+      "total_amount": 351,
+      "payment_method": "credit_card",
+      "status": "active"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rev-001",
+      "product_id": "-Og_i3TnmTL-cXmCcszG",
+      "user_name": "陳小姐",
+      "content": "畫質很清晰，成團速度也很快！",
+      "rating": 5,
+      "created_at": "2025-12-20"
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq-001",
+      "category": "影音類",
+      "question": "如果不同住可以使用嗎？",
+      "answer": "可以，我們的方案已包含不同住的轉移費用，請安心訂閱。"
+    }
+  ],
+  "system_messages": {
+    "auth": {
+      "login_failed": "電子信箱或密碼錯誤，請再試一次。",
+      "email_exists": "此電子信箱已被註冊。",
+      "verification_sent": "驗證碼已發送至您的信箱。"
+    },
+    "api": {
+      "connection_error": "連線逾時，請檢查網路狀態。",
+      "server_error": "伺服器維護中，請稍後再試。",
+      "create_success": "資料已成功建立。",
+      "update_success": "資料已成功更新。"
+    }
+  }
+}
