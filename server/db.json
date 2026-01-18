@@ -74,6 +74,8 @@
     {
       "id": "user-123",
       "email": "test@example.com",
+      "role": "user",
+      "name": "一般會員",
       "is_email_verified": true,
       "mobile": "0912345678",
       "password": "hashed_password",
@@ -105,6 +107,20 @@
           "status": "已完成"
         }
       ]
+    },
+    {
+      "id": "admin-001",
+      "email": "admin@submate.com",
+      "role": "admin",
+      "name": "管理員",
+      "is_email_verified": true,
+      "mobile": "0900000000",
+      "password": "admin_password_hash",
+      "real_name": "系統管理員",
+      "subscriptions": [],
+      "payment_methods": [],
+      "order_history": [],
+      "_comment": "在資料前面加_就不會擾前端顯示，保留subscriptions、payment_methods、order_history欄位，這些空陣列是為了保持資料結構一致，避免前端讀取時發生錯誤"
     }
   ],
   "carts": [
