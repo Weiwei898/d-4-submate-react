@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import ApiTester from './components/ApiTester'; // 引入剛剛寫好的元件
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,6 +29,8 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      {/* 👇 只要把這行註解掉，測試功能就會徹底關閉 */}
+      <ApiTester />
     </>
   )
 }
