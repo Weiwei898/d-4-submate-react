@@ -1,8 +1,8 @@
 // ==========================================
 // 1. 配置與初始化
 // ==========================================
-const SUPABASE_URL = 'https://baqbpqggchjdwlywicjo.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_jvUHARNgVTN_UNk_PdPE0w_W8sAm4t3';
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_KEY;
 
 // 設定 API 基礎路徑 (針對 products 資料表)
 const BASE_URL = `${SUPABASE_URL}/rest/v1/products`;
