@@ -12,6 +12,7 @@
     "server": "json-server --watch db.json --port 3000"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.93.1",
     "axios": "^1.13.2",
     "bootstrap": "^5.3.8",
     "gh-pages": "^6.3.0",
