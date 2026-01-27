@@ -24,13 +24,13 @@ function AdminIndex({ supabase }) {
         </div>
         <Routes>
           {/*
-            對應網址: /admin/register
+            對應網址: #/admin/register
             顯示元件: <AdminRegister />
           */}
           <Route path="register" element={<AdminRegister supabase={supabase} />} />
 
           {/*
-            對應網址: /admin/login
+            對應網址: #/admin/login
             顯示元件: <AdminLogin />
           */}
           <Route path="login" element={<AdminLogin supabase={supabase} />} />
