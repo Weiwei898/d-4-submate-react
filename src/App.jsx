@@ -1,38 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import ApiTester from './components/ApiTester'; // 引入剛剛寫好的元件
+import { createClient } from '@supabase/supabase-js';
+import { Routes, Route } from 'react-router-dom';
+import AdminIndex from './pages/Admin/AdminIndex';
+import ApiTester from './components/ApiTester'; // 引入 ApiTester 元件
 
-function App() {
-  const [count, setCount] = useState(0)
+// 初始化 Supabase 客戶端
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
 
+// 將原本 App.jsx 的內容變成一個首頁元件
+function HomePage() {
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>首頁</h1>
+      <p>這裡是原本 App.jsx 的內容。</p>
       {/* 👇 只要把這行註解掉，測試功能就會徹底關閉 */}
-      <ApiTester />
+      {/* <ApiTester />*/}
     </>
-  )
+  );
 }
 
-export default App
+// App 元件現在專職處理路由
+function App() {
+  return (
+    <Routes>
+      {/* 前台路由 */}
+      <Route path="/" element={<HomePage />} />
+
+      {/* 後台總入口 */}
+      <Route path="/admin/*" element={<AdminIndex supabase={supabase} />} />
+    </Routes>
+  );
+}
+
+export default App;
