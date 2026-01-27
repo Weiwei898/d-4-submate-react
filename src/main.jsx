@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom';
 
 // --- 以下是從原本 main.js 搬過來的「全域資源」 ---
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap 樣式
@@ -15,6 +16,8 @@ console.log('Hello world - React 專案已成功合併進入點');
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>,
 )
