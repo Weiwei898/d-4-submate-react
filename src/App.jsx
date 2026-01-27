@@ -5,7 +5,7 @@ import ApiTester from './components/ApiTester'; // 引入 ApiTester 元件
 
 // 初始化 Supabase 客戶端
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // 將原本 App.jsx 的內容變成一個首頁元件
@@ -24,10 +24,10 @@ function HomePage() {
 function App() {
   return (
     <Routes>
-      {/* 前台路由 */}
+      {/* 前台 */}
       <Route path="/" element={<HomePage />} />
 
-      {/* 後台總入口 */}
+      {/* 後台總入口：交給 AdminIndex 處理所有 /admin/* 路由 */}
       <Route path="/admin/*" element={<AdminIndex supabase={supabase} />} />
     </Routes>
   );
