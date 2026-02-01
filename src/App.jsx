@@ -1,6 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 import { Routes, Route } from 'react-router-dom';
 import AdminIndex from './pages/Admin/AdminIndex';
+import ProductList from './pages/ProductList';
 import ApiTester from './components/ApiTester'; // 引入 ApiTester 元件
 
 // 初始化 Supabase 客戶端
@@ -16,6 +17,7 @@ function HomePage() {
       <p>這裡是原本 App.jsx 的內容。</p>
       {/* 👇 只要把這行註解掉，測試功能就會徹底關閉 */}
       {/* <ApiTester />*/}
+      <ProductList />
     </>
   );
 }
