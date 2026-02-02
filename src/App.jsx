@@ -1,6 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 import { Routes, Route } from 'react-router-dom';
 import AdminIndex from './pages/Admin/AdminIndex';
+import Header from './components/Header';
 import ProductList from './pages/ProductList';
 import ApiTester from './components/ApiTester'; // 引入 ApiTester 元件
 
@@ -25,7 +26,7 @@ function App() {
   return (
     <>
       {/* --- 不會動的外殼 --- */}
-
+      <Header supabase={supabase} />
       {/* --- 會根據網址變動的內容區域 --- */}
       <Routes>
         {/*請依字母排序各自的路由，path是網頁路徑，例如https://weiwei898.github.io/d-4-submate-react/A/B*/}
