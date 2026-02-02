@@ -4,6 +4,7 @@ import AdminIndex from './pages/Admin/AdminIndex';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Login from './components/Login';
+import Register from './components/Register';
 import ProductList from './pages/ProductList';
 import ApiTester from './components/ApiTester'; // 引入 ApiTester 元件
 
@@ -41,6 +42,7 @@ function App() {
 
         <Route path="/products" element={<ProductList />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         
 
 
