@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import Register from './components/Register';
+import Carts from './components/Carts';
 import ProductList from './pages/ProductList';
 import ApiTester from './components/ApiTester'; // 引入 ApiTester 元件
 
@@ -40,9 +41,11 @@ function App() {
         {/* --- 前台公開區域 --- */}
         <Route path="/" element={<HomePage />} />
 
-        <Route path="/products" element={<ProductList />} />
+        <Route path="/carts" element={<Carts />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/products" element={<ProductList />} />
         <Route path="/register" element={<Register />} />
+
         
 
 
