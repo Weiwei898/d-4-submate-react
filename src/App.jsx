@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import AdminIndex from './pages/Admin/AdminIndex';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Login from './components/Login';
 import ProductList from './pages/ProductList';
 import ApiTester from './components/ApiTester'; // 引入 ApiTester 元件
 
@@ -39,6 +40,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
 
         <Route path="/products" element={<ProductList />} />
+        <Route path="/login" element={<Login />} />
+        
 
 
         {/* 後台總入口：交給 AdminIndex 處理所有 /admin/* 路由 */}
