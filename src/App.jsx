@@ -2,6 +2,7 @@ import { createClient } from '@supabase/supabase-js';
 import { Routes, Route } from 'react-router-dom';
 import AdminIndex from './pages/Admin/AdminIndex';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import ProductList from './pages/ProductList';
 import ApiTester from './components/ApiTester'; // 引入 ApiTester 元件
 
@@ -44,7 +45,7 @@ function App() {
         <Route path="/admin/*" element={<AdminIndex supabase={supabase} />} />
       </Routes>
       {/* --- 不會動的外殼 --- */}
-
+      <Footer supabase={supabase} />
     </>
   );
 }
