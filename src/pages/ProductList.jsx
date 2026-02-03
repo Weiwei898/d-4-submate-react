@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getProducts } from '../api/productsApi';
+import CommonSwiper from '../components/CommonSwiper';
 // import Header from '../layout/Header'; // 請根據實際路徑引入 Header
 // import Footer from '../layout/Footer'; // 請根據實際路徑引入 Footer
 
@@ -75,69 +76,25 @@ const ProductList = () => {
     fetchProducts();
   }, []);
 
-  const carouselRef = useRef(null);
-
-  // 處理輪播圖的滑鼠拖曳功能
-  // 使用 useEffect 在組件掛載後初始化 Bootstrap Carousel 和事件監聽器
-  useEffect(() => {
-    const el = carouselRef.current;
-    if (!el || !window.bootstrap) return;
-
-    const carousel = new window.bootstrap.Carousel(el, {
-      ride: 'carousel',
-      interval: 5000,
-      touch: true,
-      wrap: true,
-    });
-
-    // 拖曳相關變數
-    let startX = 0;
-    let deltaX = 0;
-    let dragging = false;
-    const THRESHOLD = 50;
-
-    // 按下指標 (滑鼠或觸控)
-    const onPointerDown = (e) => {
-      if (e.pointerType === 'mouse' && e.buttons !== 1) return;
-      dragging = true;
-      startX = e.clientX;
-      deltaX = 0;
-      el.setPointerCapture?.(e.pointerId); // 鎖定指標，確保拖曳過程中事件不會丟失
-      el.style.userSelect = 'none'; // 防止拖曳時選中文字
-    };
-
-    // 移動指標
-    const onPointerMove = (e) => {
-      if (!dragging) return;
-      deltaX = e.clientX - startX;
-    };
-
-    // 放開指標
-    const onPointerUp = (e) => {
-      if (!dragging) return;
-      dragging = false;
-      el.releasePointerCapture?.(e.pointerId);
-      el.style.userSelect = '';
-      // 如果拖曳距離超過閾值，則切換輪播
-      if (Math.abs(deltaX) > THRESHOLD) {
-        deltaX < 0 ? carousel.next() : carousel.prev();
-      }
-    };
-
-    // 註冊事件監聽器
-    el.addEventListener('pointerdown', onPointerDown);
-    el.addEventListener('pointermove', onPointerMove);
-    el.addEventListener('pointerup', onPointerUp);
-    el.addEventListener('pointercancel', onPointerUp);
-
-    // 清除事件監聽器
-    return () => {
-      el.removeEventListener('pointerdown', onPointerDown);
-      el.removeEventListener('pointermove', onPointerMove);
-      el.removeEventListener('pointerup', onPointerUp);
-      el.removeEventListener('pointercancel', onPointerUp);
-    };
-  }, []);
+  // 定義輪播圖的資料結構 (取代原本寫死在 HTML 的 carousel-item)
+  const heroSlides = [
+    {
+      id: 'stream',
+      category: 'stream',
+      badge: '影音熱門組合',
+      title1: '追劇不停!!!',
+      title2: '國際大片+原創劇!!!',
+      bgClass: 'hero-veil', // 對應原本的 CSS class
+    },
+    {
+      id: 'ai',
+      category: 'ai',
+      badge: 'AI 工具熱門組合',
+      title1: '工作效率再升級',
+      title2: '一起用更順手！',
+      bgClass: 'hero-veil-bubbles', // 對應原本的 CSS class
+    },
+  ];
 
   // 篩選邏輯：判斷產品類別是否符合當前 filter
   const isVisible = (cat) => filter === 'all' || filter === cat;
@@ -146,69 +103,49 @@ const ProductList = () => {
     <div className="bg-primary-50">
       {/* <Header /> */}
 
-      {/* Hero Carousel */}
-      <section id="heroCarousel" className="carousel slide px-4 px-md-10" data-bs-ride="carousel" ref={carouselRef}>
-        <div className="carousel-inner">
-          <div className="carousel-item active pt-120 pt-md-13 hero-veil">
-            <div className="d-flex flex-column align-items-center container">
-              <span
-                className="border border-2 border-neutral-0 bg-neutral-0 rounded-pill py-2 px-6 fs-5 fs-md-3 text-primary-600 mb-6"
-                style={{ '--bs-bg-opacity': '.4' }}
-              >
-                影音熱門組合
-              </span>
-              <h2 className="fs-2 fs-md-56 mb-4">追劇不停!!!</h2>
-              <h2 className="fs-2 fs-md-56 mb-56 mb-md-13">國際大片+原創劇!!!</h2>
-              <ul className="brand-logos d-flex justify-content-center flex-wrap gap-10">
-                {products
-                  .filter((product) => product.category === 'stream')//篩選category分類
-                  .filter((product, index, self) =>//篩選imageUrl有重覆的
-                    index === self.findIndex((p) => p.imageUrl === product.imageUrl)
-                  )
-                  .map((product) => (
-                    <li key={product.id}><img src={product.imageUrl} alt={product.title} /></li>
-                  ))}
-              </ul>
+      {/* Hero Carousel - 改用 CommonSwiper 套件實作 */}
+      {/* 這裡使用 CommonSwiper 取代原本的 Bootstrap Carousel 結構 */}
+      {/* 樣式部分保留原本的 px-4 px-md-10 以維持版面間距 */}
+      <section className="px-4 px-md-10">
+        <CommonSwiper
+          items={heroSlides}
+          config={{
+            autoplay: {
+              delay: 5000,
+              disableOnInteraction: false,
+            },
+            loop: true,
+            // 使用 Swiper 內建的導航和分頁，取代原本手寫的 DOM
+            navigation: true,
+            pagination: { clickable: true },
+          }}
+          renderItem={(slide) => (
+            // 這裡保留原本的樣式類別 (pt-120, hero-veil 等) 以維持視覺效果
+            <div className={`pt-120 pt-md-13 ${slide.bgClass}`}>
+              <div className="d-flex flex-column align-items-center container">
+                <span
+                  className="border border-2 border-neutral-0 bg-neutral-0 rounded-pill py-2 px-6 fs-5 fs-md-3 text-primary-600 mb-6"
+                  style={{ '--bs-bg-opacity': '.4' }}
+                >
+                  {slide.badge}
+                </span>
+                <h2 className="fs-2 fs-md-56 mb-4">{slide.title1}</h2>
+                <h2 className="fs-2 fs-md-56 mb-56 mb-md-13">{slide.title2}</h2>
+                <ul className="brand-logos d-flex justify-content-center flex-wrap gap-10">
+                  {products
+                    .filter((product) => product.category === slide.category) // 篩選 category 分類
+                    .filter((product, index, self) => // 篩選 imageUrl 有重覆的
+                      index === self.findIndex((p) => p.imageUrl === product.imageUrl)
+                    )
+                    .map((product) => (
+                      <li key={product.id}><img src={product.imageUrl} alt={product.title} /></li>
+                    ))}
+                </ul>
+              </div>
             </div>
-          </div>
-          <div className="carousel-item pt-120 pt-md-13 hero-veil-bubbles">
-            <div className="d-flex flex-column align-items-center container">
-              <span
-                className="border border-2 border-neutral-0 bg-neutral-0 rounded-pill py-2 px-6 fs-5 fs-md-3 text-primary-600 mb-6"
-                style={{ '--bs-bg-opacity': '.4' }}
-              >
-                AI 工具熱門組合
-              </span>
-              <h2 className="fs-2 fs-md-56 mb-4">工作效率再升級</h2>
-              <h2 className="fs-2 fs-md-56 mb-56 mb-md-13">一起用更順手！</h2>
-              <ul className="brand-logos d-flex justify-content-center flex-wrap gap-10">
-                {products
-                  .filter((product) => product.category === 'ai')//篩選category分類
-                  .filter((product, index, self) =>//篩選imageUrl有重覆的
-                    index === self.findIndex((p) => p.imageUrl === product.imageUrl)
-                  )
-                  .map((product) => (
-                    <li key={product.id}><img src={product.imageUrl} alt={product.title} /></li>
-                  ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-        <button className="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button className="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Next</span>
-        </button>
+          )}
+        />
       </section>
-
-      {/* 外部圓點 */}
-      <div id="heroDots" className="d-flex justify-content-center mt-6 gap-3">
-        <button type="button" className="p-1 border-0 bg-neutral-100 rounded-pill" data-bs-target="#heroCarousel" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" className="p-1 border-0 bg-neutral-100 rounded-pill" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      </div>
 
       <div className="container my-10 my-md-13">
         <div className="row justify-content-center">
