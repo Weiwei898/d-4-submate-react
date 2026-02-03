@@ -34,9 +34,10 @@ function App() {
       {/* --- 會根據網址變動的內容區域 --- */}
       <Routes>
         {/*請依字母排序各自的路由，path是網頁路徑，例如https://weiwei898.github.io/d-4-submate-react/A/B*/}
-        {/*A=path的內容，只有"/"就是會少一層，d-4submate-react/product*/}
-        {/*A=path的內容，如果是"pages"，d-4submate-react/pages/product*/}
-        {/**B=element裡的檔案路徑，例如product/ */}
+        {/* path (網址路徑): 使用者在網址列看到的地址。例：/products
+            element (渲染組件): 該網址要顯示的 React 組件。例：<ProductList /> 
+            (註：組件需先在檔案上方完成 import)
+        */}
 
         {/* --- 前台公開區域 --- */}
         <Route path="/" element={<HomePage />} />
