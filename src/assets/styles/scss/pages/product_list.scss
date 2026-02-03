@@ -11,15 +11,15 @@
 }
 
 /* 固定輪播高度：預設 720px，md(≥768px) 時 672px */
-.carousel-item.hero-veil,
-.carousel-item.hero-veil-bubbles {
+.hero-veil,
+.hero-veil-bubbles {
   height: 680px;
 }
 
 @media (min-width: 768px) {
 
-  .carousel-item.hero-veil,
-  .carousel-item.hero-veil-bubbles {
+  .hero-veil,
+  .hero-veil-bubbles {
     height: 760px;
   }
   
@@ -27,16 +27,16 @@
 
 @media (min-width: 1200px) {
 
-  .carousel-item.hero-veil,
-  .carousel-item.hero-veil-bubbles {
+  .hero-veil,
+  .hero-veil-bubbles {
     height: 672px;
   }
   
 }
 
 /* 讓內層內容撐滿高度（若需要垂直置中可在 container 上加 justify-content-center） */
-.carousel-item.hero-veil>.container,
-.carousel-item.hero-veil-bubbles>.container {
+.hero-veil>.container,
+.hero-veil-bubbles>.container {
   height: 100%;
 }
 
