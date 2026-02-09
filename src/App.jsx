@@ -1,13 +1,16 @@
 import { createClient } from '@supabase/supabase-js';
 import { Routes, Route } from 'react-router-dom';
-import AdminIndex from './pages/Admin/AdminIndex';
+//元件
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Login from './components/Login';
-import Register from './components/Register';
 import Carts from './components/Carts';
-import ProductList from './pages/ProductList';
 import ApiTester from './components/ApiTester'; // 引入 ApiTester 元件
+//頁面
+import AdminIndex from './pages/Admin/AdminIndex';
+import ProductList from './pages/ProductList';
+import RegisterPage from './pages/RegisterPage'; //註冊頁
+
 
 // 初始化 Supabase 客戶端
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -45,8 +48,7 @@ function App() {
         <Route path="/carts" element={<Carts />} />
         <Route path="/login" element={<Login />} />
         <Route path="/products" element={<ProductList />} />
-        <Route path="/register" element={<Register />} />
-
+        <Route path="/register" element={<RegisterPage />} />
         
 
 
