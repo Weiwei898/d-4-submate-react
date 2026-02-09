@@ -2,7 +2,7 @@
 // 1. 配置與初始化
 // ==========================================
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_KEY;
+const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 // 設定 API 基礎路徑 (針對 products 資料表)
 const BASE_URL = `${SUPABASE_URL}/rest/v1/products`;

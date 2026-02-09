@@ -1,13 +1,16 @@
 import { createClient } from '@supabase/supabase-js';
 import { Routes, Route } from 'react-router-dom';
-import AdminIndex from './pages/Admin/AdminIndex';
+//元件
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Login from './components/Login';
-import Register from './components/Register';
 import Carts from './components/Carts';
-import ProductList from './pages/ProductList';
 import ApiTester from './components/ApiTester'; // 引入 ApiTester 元件
+//頁面
+import AdminIndex from './pages/Admin/AdminIndex';
+import ProductList from './pages/ProductList';
+import RegisterPage from './pages/RegisterPage'; //註冊頁
+
 
 // 初始化 Supabase 客戶端
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -34,9 +37,10 @@ function App() {
       {/* --- 會根據網址變動的內容區域 --- */}
       <Routes>
         {/*請依字母排序各自的路由，path是網頁路徑，例如https://weiwei898.github.io/d-4-submate-react/A/B*/}
-        {/*A=path的內容，只有"/"就是會少一層，d-4submate-react/product*/}
-        {/*A=path的內容，如果是"pages"，d-4submate-react/pages/product*/}
-        {/**B=element裡的檔案路徑，例如product/ */}
+        {/* path (網址路徑): 使用者在網址列看到的地址。例：/products
+            element (渲染組件): 該網址要顯示的 React 組件。例：<ProductList /> 
+            (註：組件需先在檔案上方完成 import)
+        */}
 
         {/* --- 前台公開區域 --- */}
         <Route path="/" element={<HomePage />} />
@@ -44,8 +48,7 @@ function App() {
         <Route path="/carts" element={<Carts />} />
         <Route path="/login" element={<Login />} />
         <Route path="/products" element={<ProductList />} />
-        <Route path="/register" element={<Register />} />
-
+        <Route path="/register" element={<RegisterPage />} />
         
 
 
