@@ -11,22 +11,26 @@ li {
     padding: 0;
 }
 
-a{
+a {
     text-decoration: none;
 }
-.justify-center{
+
+.justify-center {
     justify-content: center;
 }
 
-.justify-between{
+.justify-between {
     justify-content: space-between;
 }
-.justify-end{
-    justify-content:end;
+
+.justify-end {
+    justify-content: end;
 }
-.text-justify{
-    text-align:justify;
+
+.text-justify {
+    text-align: justify;
 }
+
 /*=================
    標題與閃電logo
 ===================*/
@@ -52,19 +56,20 @@ a{
    購物車三步驟
 ===================*/
 
-.cart-steps a{
+.cart-steps a {
     align-items: center;
 }
 
 a.cart-step-on {
     color: $primary-700;
 
-    &:hover{
+    &:hover {
         color: $primary-700;
         text-decoration: none;
     }
 }
-a.cart-step-off  {
+
+a.cart-step-off {
     color: $neutral-300;
 
     &:hover {
@@ -88,28 +93,31 @@ div.cart-step-common {
     mask-size: contain;
 }
 
-a.cart-step-on div.cart-step-common{ //svg圖片顏色
+a.cart-step-on div.cart-step-common {
+    //svg圖片顏色
     background: $gradient-01;
 }
 
-a.cart-step-off div.cart-step-common{ //svg圖片顏色
+a.cart-step-off div.cart-step-common {
+    //svg圖片顏色
     background: $neutral-300;
 }
 
-a.cart-step-off:hover div.cart-step-common{ //svg圖片顏色
-    background:  $primary-600;
+a.cart-step-off:hover div.cart-step-common {
+    //svg圖片顏色
+    background: $primary-600;
 }
 
-div.cart-step01{ 
-    --cart-step-mask-url: url('../images/shopping-cart.svg'); 
+div.cart-step01 {
+    --cart-step-mask-url: url('../images/shopping-cart.svg');
 }
 
-div.cart-step02{
-    --cart-step-mask-url: url('../images/edit.svg'); 
+div.cart-step02 {
+    --cart-step-mask-url: url('../images/edit.svg');
 }
 
-div.cart-step03{
-    --cart-step-mask-url: url('../images/file-text.svg'); 
+div.cart-step03 {
+    --cart-step-mask-url: url('../images/file-text.svg');
 }
 
 /*=================
@@ -121,23 +129,23 @@ div.cart-step03{
    購物車確認步驟
 ===================*/
 
-div.next-step{
+div.next-step {
     border-radius: 100px;
 }
 
-.next-step a{
-    color: $neutral-0;   
+.next-step a {
+    color: $neutral-0;
     padding: 4px 16px;
 
-    &:hover{
-        color: $neutral-0;   
+    &:hover {
+        color: $neutral-0;
     }
 }
 
 
 //數字增減元件
 
-button.rounded-circle{
+button.rounded-circle {
     width: 24px;
     height: 24px;
     line-height: 1;
@@ -145,11 +153,12 @@ button.rounded-circle{
     color: $neutral-0;
 
     &:hover,
-    &:disabled{
+    &:disabled {
         color: $neutral-0;
     }
 }
-.number-control input{
+
+.number-control input {
     width: 64px;
     font-size: 1rem;
     line-height: 0.75;
@@ -162,8 +171,9 @@ button.rounded-circle{
     -webkit-appearance: none;
     margin: 0;
 }
+
 //總金額區域
-.cart-total{
+.cart-total {
     border: none;
 }
 
@@ -180,13 +190,13 @@ button.rounded-circle{
 a.btn-outline-success.btn {
     border-radius: 1000px;
     background-color: $neutral-0;
-    
+
     display: block;
     padding-inline: 24px;
     color: green;
     padding-top: 12px;
     padding-bottom: 12px;
-    
+
     &:hover,
     &:active {
         color: $neutral-0;
@@ -218,7 +228,8 @@ a.next-step.btn-primary-600 {
         background: url("https://icons.getbootstrap.com/assets/icons/arrow-right.svg") no-repeat center/contain;
         filter: invert(1); //黑色便白色
         display: inline-block;
-        vertical-align: middle; /* 讓圖標與文字對齊 */
+        vertical-align: middle;
+        /* 讓圖標與文字對齊 */
         margin-left: 4px;
     }
 
@@ -236,7 +247,8 @@ a.next-step.btn-primary-600 {
     position: relative;
     //圖片容器尺寸由JS自動抓取白板尺寸來控制
 }
-.finish-bg{
+
+.finish-bg {
     position: absolute;
     top: -36px; //保留2px白邊，可看的到白板 ，搭配js的 whiteBoardWidth
     left: -44px; //保留2px白邊，可看的到白板  ，搭配js的 newHeight
@@ -266,9 +278,134 @@ a.next-step.btn-primary-600 {
 
 .submate-logo img {
     /* 將圖片放大 1.2 倍，即 120% */
-    transform: scale(1.5); 
+    transform: scale(1.5);
 }
 
 /*++++++++++++++++++++
     完成付款結束<<<<
 ++++++++++++++++++++++*/
+
+/*=================
+   訂單金額卡片
+===================*/
+
+.order-summary-card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+
+    h4 {
+        color: $primary-700;
+        font-size: 1.25rem;
+    }
+
+    .summary-row {
+        font-size: 0.95rem;
+
+        .text-muted {
+            color: #6c757d !important;
+        }
+    }
+
+    .summary-total {
+        .fs-4 {
+            font-size: 1.5rem !important;
+        }
+    }
+
+    button {
+        font-weight: 500;
+        transition: all 0.2s ease;
+
+        &:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        &.btn-outline-primary {
+            color: $primary-600;
+            border-color: $primary-600;
+
+            &:hover {
+                background-color: $primary-600;
+                color: white;
+            }
+        }
+
+        &.btn-primary {
+            background-color: $primary-600;
+            border-color: $primary-600;
+        }
+    }
+}
+
+/*=================
+   訂單金額卡片結束<<<<
+===================*/
+
+/*=================
+   付款方式卡片
+===================*/
+
+.payment-method-card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+
+    h5 {
+        color: $neutral-900;
+        font-size: 1.125rem;
+    }
+
+    .payment-option {
+        border: 2px solid $neutral-200 !important;
+        transition: all 0.3s ease;
+        background-color: $neutral-0;
+
+        &:hover {
+            border-color: $primary-400 !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        &.selected {
+            border-color: $primary-600 !important;
+            background-color: rgba(59, 130, 246, 0.05);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .payment-icon {
+            color: $neutral-600;
+        }
+
+        &.selected .payment-icon {
+            color: $primary-600;
+        }
+    }
+}
+
+/*=================
+   付款方式卡片結束<<<<
+===================*/
+
+/*=================
+   結帳資訊卡片
+===================*/
+
+.checkout-info-card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+
+    h5 {
+        color: $neutral-900;
+        font-size: 1.125rem;
+    }
+
+    .form-label {
+        font-size: 0.875rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .fw-medium {
+        color: $neutral-900;
+        font-size: 0.95rem;
+    }
+}
+
+/*=================
+   結帳資訊卡片結束<<<<
+===================*/
