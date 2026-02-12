@@ -57,6 +57,9 @@
     & a {
         display: block;
     }
+    &:hover {
+        color: white;
+    }
 }
 
 //小尺寸登入按鈕的樣式
