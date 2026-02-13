@@ -1,24 +1,24 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css");
 
 //header通用樣式
-.header a{
-  text-decoration: none;
-  color: $neutral-950;
-  font-size: 16px;
-  font-weight: 400;
+.header a {
+    text-decoration: none;
+    color: $neutral-950;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 //三功能按鈕
-.nav-link{
-  display: block;
-  border-bottom: 1px solid transparent ;
-  color:$neutral-950;
-  
-  &:hover,
-  &:active {
-    color: $primary-700;
-    border-bottom: 1px solid $primary-500 ;
-  }
+.nav-link {
+    display: block;
+    border-bottom: 1px solid transparent;
+    color: $neutral-950;
+
+    &:hover,
+    &:active {
+        color: $primary-700;
+        border-bottom: 1px solid $primary-500;
+    }
 }
 
 /*========================
@@ -27,150 +27,146 @@
 
 //按鈕的核心樣式
 @mixin btn-secondary-base {
-  background-color: $neutral-0 ;
-  border: 1.5px solid $secondary-700 ;
-  border-radius: 100px;
-  color: $secondary-700;
-  font-weight: $font-weight-semibold;
-
-  & a {
+    background-color: $neutral-0;
+    border: 1.5px solid $secondary-700;
+    border-radius: 100px;
     color: $secondary-700;
-    display: block;
-  }
-
-  &:hover {
-    background-color: $secondary-600;
-    border: 1.5px solid $secondary-600;
+    font-weight: $font-weight-semibold;
 
     & a {
-      color: $neutral-0;
+        color: $secondary-700;
+        display: block;
     }
-  }
-}
 
+    &:hover {
+        background-color: $secondary-600;
+        border: 1.5px solid $secondary-600;
+
+        & a {
+            color: $neutral-0;
+        }
+    }
+}
 
 //大尺寸登入按鈕的樣式
 .btn-secondary-large {
-  @include btn-secondary-base; // 引用核心樣式
-  font-size: $h6-font-size;
-  padding: 16px 24px;
+    @include btn-secondary-base; // 引用核心樣式
+    font-size: $h6-font-size;
+    padding: 16px 24px;
 
-  & a {
-    display: block
-  }
+    & a {
+        display: block;
+    }
+    &:hover {
+        color: white;
+    }
 }
 
 //小尺寸登入按鈕的樣式
 .btn-secondary-medium {
-  @include btn-secondary-base; // 引用核心樣式
-  font-size: $h7-font-size;
-  font-weight: $font-weight-semibold;
-  padding:8px 16px;
+    @include btn-secondary-base; // 引用核心樣式
+    font-size: $h7-font-size;
+    font-weight: $font-weight-semibold;
+    padding: 8px 16px;
 
-  & a {
-    display: block
-
-  }
+    & a {
+        display: block;
+    }
 }
 
 //手機版展開選單內的大按鈕樣式
 .btn-secondary-large-mobile {
-  @include btn-secondary-base; // 引用核心樣式
-  font-size: $h6-font-size;
-  width: 100%;
-  padding: 16px 24px;
+    @include btn-secondary-base; // 引用核心樣式
+    font-size: $h6-font-size;
+    width: 100%;
+    padding: 16px 24px;
 
-  & a{
-    display: block
-  }
+    & a {
+        display: block;
+    }
 }
 
 /*========================
   登入按鈕結束 <<<
 ==========================*/
 
-
 /*========================
   漢堡選單
 ==========================*/
 .navbar.header .navbar-toggler {
-  padding: 0;
-  border: none;
-  box-shadow: none;
-
-  &:hover {
-    background-color: $neutral-200;
-  }
-
-  &:focus {
+    padding: 0;
+    border: none;
     box-shadow: none;
-  }
 
-  .navbar-toggler-icon {
-    // Bootstrap 預設樣式移除
-    background-image: none;
-  }
+    &:hover {
+        background-color: $neutral-200;
+    }
 
+    &:focus {
+        box-shadow: none;
+    }
 
-  i {
-      font-size: 20px;
-      color: $neutral-700;
-      display: inline-block;
-      padding: 12px; //撐開整個banner
-  }
+    .navbar-toggler-icon {
+        // Bootstrap 預設樣式移除
+        background-image: none;
+    }
+
+    i {
+        font-size: 20px;
+        color: $neutral-700;
+        display: inline-block;
+        padding: 12px; //撐開整個banner
+    }
 }
 
 /*========================
   手機版展開選單樣式
 ==========================*/
 
-
-
 .mobile-nav-menu {
-  // 只在手機版顯示(就算在手機版點了漢堡忘了關，到電腦版也會自動關)
-  @include media-breakpoint-up(md) {
-    display: none !important;
-  }
+    // 只在手機版顯示(就算在手機版點了漢堡忘了關，到電腦版也會自動關)
+    @include media-breakpoint-up(md) {
+        display: none !important;
+    }
 }
 
 //以下段落是為了實作把按鈕推到手機底部
 
 /* 只處理展開後高度，不把外層變 flex */
 .mobile-nav-menu.collapse.show {
-  height: auto !important;  // 解除 bootstrap 動畫最終 height
-  min-height: 80vh;
-  overflow-y: auto;          // 若整體過長才整體滾動
+    height: auto !important; // 解除 bootstrap 動畫最終 height
+    min-height: 80vh;
+    overflow-y: auto; // 若整體過長才整體滾動
 }
 
 /* 動畫進行中避免高度太小閃爍（不加入會有跳一下的感覺） */
 .mobile-nav-menu.collapsing {
-  min-height: 80vh;
+    min-height: 80vh;
 }
 
 /* 內層真正的排列容器 */
 .mobile-nav-content {
-  display: flex;
-  flex-direction: column;
-  min-height: 80vh;  // 內層再保險一次（雙層保護）
-
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh; // 內層再保險一次（雙層保護）
 }
 
 /* 上方選單區：只要自然高度，不搶空間 */
 .mobile-nav-content .nav {
-  display: flex;
-  flex-direction: column; // 垂直列表
-  align-items: stretch;   // 展開整行（避免水平置中）
-  gap: 8px;                 
+    display: flex;
+    flex-direction: column; // 垂直列表
+    align-items: stretch; // 展開整行（避免水平置中）
+    gap: 8px;
 }
 
 /* 登入按鈕容器推到底 */
 .mobile-nav-content .mobile-login-btn {
-  margin-top: auto;
+    margin-top: auto;
 }
 
 // 手機版選單連結樣式
-a.mobile-nav-link{
-  font-size: 16pt;
+a.mobile-nav-link {
+    font-size: 16pt;
 }
 
 /*========================
@@ -180,7 +176,6 @@ a.mobile-nav-link{
 /*========================
   漢堡選單結束<<<<
 ==========================*/
-
 
 /*========================
   nav-item 下拉選單
@@ -195,76 +190,78 @@ a.mobile-nav-link{
 
 //給下拉選單定位基準
 .nav-item.dropdown {
-  position: relative;
+    position: relative;
 }
 
 // 為每個 dropdown nav-item 創建隱形連接區域，
 // 避免滑鼠移動過程中選單就消失
 .nav-item.dropdown::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  height: 20px; // 隱形連接區域高度，可調整
-  background: transparent;
-  z-index: 999;
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 20px; // 隱形連接區域高度，可調整
+    background: transparent;
+    z-index: 999;
 }
-
 
 //下拉選單出現位置(母功能正下方)
 .nav-item .dropdown-menu {
-  display: none; //預設隱藏
-  transition: opacity 0.3s ease-in-out; //平滑動畫效果
+    display: none; //預設隱藏
+    transition: opacity 0.3s ease-in-out; //平滑動畫效果
 
-  position: absolute;
-  top: calc(100% + 20px); // 讓選單剛好在父層下方
-  left: 50%; // 讓下拉選單以其自身為基準向左平移 50%
-  transform: translateX(-50%); //將整個選單向左平移自身寬度的50%，選單的中心點就會和父層的中心點對齊
+    position: absolute;
+    top: calc(100% + 20px); // 讓選單剛好在父層下方
+    left: 50%; // 讓下拉選單以其自身為基準向左平移 50%
+    transform: translateX(
+        -50%
+    ); //將整個選單向左平移自身寬度的50%，選單的中心點就會和父層的中心點對齊
 
-  padding: 12px;
-  border-radius: 24px;
-  border: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  
+    padding: 12px;
+    border-radius: 24px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 //nav-item下拉選單選項
 a.dropdown-item {
-  color: $neutral-700;
-  border-radius: 50px;
-  display: block;
-  padding: 12px 76px;
-
-  /* 初始狀態的樣式 */
-  background-color: transparent;
-  border: 2px solid transparent;
-  position: relative; // 重要：為偽元素定位
-  //transition: all 0.3s ease; //平滑轉場
-  border-bottom: 1px  solid transparent;
-
-  /* 創建漸變邊框的偽元素 */
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0; // 覆蓋整個元素
-    padding: 2px; // 邊框粗細
-    background: linear-gradient(to right, #1EDFAD, #11A7ED, #9738F5);
+    color: $neutral-700;
     border-radius: 50px;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: xor;
-    -webkit-mask-composite: xor;
-    opacity: 0; // 初始隱藏
-  }
+    display: block;
+    padding: 12px 76px;
 
-  &:hover {
-    color: $neutral-950;
-    background-color: $primary-50; // 懸停時的背景色
-    
+    /* 初始狀態的樣式 */
+    background-color: transparent;
+    border: 2px solid transparent;
+    position: relative; // 重要：為偽元素定位
+    //transition: all 0.3s ease; //平滑轉場
+    border-bottom: 1px solid transparent;
+
+    /* 創建漸變邊框的偽元素 */
     &::before {
-      opacity: 1; // hover 時顯示漸變邊框
-  }
-}
+        content: "";
+        position: absolute;
+        inset: 0; // 覆蓋整個元素
+        padding: 2px; // 邊框粗細
+        background: linear-gradient(to right, #1edfad, #11a7ed, #9738f5);
+        border-radius: 50px;
+        mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        mask-composite: xor;
+        -webkit-mask-composite: xor;
+        opacity: 0; // 初始隱藏
+    }
+
+    &:hover {
+        color: $neutral-950;
+        background-color: $primary-50; // 懸停時的背景色
+
+        &::before {
+            opacity: 1; // hover 時顯示漸變邊框
+        }
+    }
 }
 
 // 只在 md 斷點以上有hover時才生效
@@ -273,7 +270,6 @@ a.dropdown-item {
         display: block; // 強制顯示下拉選單
     }
 }
-
 
 /*========================
   nav-item 下拉選單結束<<<
@@ -286,67 +282,72 @@ a.dropdown-item {
 ==========================*/
 
 .cart-large a {
-  position: relative; //購物車定位基準、為偽元素定位
-  display: block; //讓 a 標籤佔據整個父層 div
-  padding: 12px; //讓購物車有足夠的點擊空間
-  border-radius: 100px;
-
-  /* 初始狀態的樣式 */
-  background-color: transparent;
-  border: 2px solid transparent;
-
-  /* 創建漸變邊框的偽元素 */
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0; // 覆蓋整個元素
-    padding: 2px; // 邊框粗細
-    background: linear-gradient(to right, #1EDFAD, #11A7ED, #9738F5);
+    position: relative; //購物車定位基準、為偽元素定位
+    display: block; //讓 a 標籤佔據整個父層 div
+    padding: 12px; //讓購物車有足夠的點擊空間
     border-radius: 100px;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: xor;
-    -webkit-mask-composite: xor;
-    opacity: 0; // 初始隱藏
-  }
+
+    /* 初始狀態的樣式 */
+    background-color: transparent;
+    border: 2px solid transparent;
+
+    /* 創建漸變邊框的偽元素 */
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0; // 覆蓋整個元素
+        padding: 2px; // 邊框粗細
+        background: linear-gradient(to right, #1edfad, #11a7ed, #9738f5);
+        border-radius: 100px;
+        mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        mask-composite: xor;
+        -webkit-mask-composite: xor;
+        opacity: 0; // 初始隱藏
+    }
 }
 
 //購物車只有在電腦版有hover效果
-@media (min-width:767px) {
-  .cart-large a:hover {
-    background-color: $primary-50; // 懸停時的背景色
-        
-      &::before {
-        opacity: 1; // hover 時顯示漸變邊框
+@media (min-width: 767px) {
+    .cart-large a:hover {
+        background-color: $primary-50; // 懸停時的背景色
+
+        &::before {
+            opacity: 1; // hover 時顯示漸變邊框
+        }
     }
-  }  
 }
 
 .cart-group {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 24px; //確保購物車容器
-  height: 24px; //確保購物車容器
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px; //確保購物車容器
+    height: 24px; //確保購物車容器
 }
 
 .cart-group .porduct-sum {
-  position: absolute;
-  top: -8px; //向上移動
-  right: -16px; //向右移動
+    position: absolute;
+    top: -8px; //向上移動
+    right: -16px; //向右移動
 }
 
-@media (max-width:767px) {
-  .local_mall{
-    max-width: 20px;
-  }
-  .cart-group{
-    width: 20px;
-    height: 20px;
-  }
+@media (max-width: 767px) {
+    .local_mall {
+        max-width: 20px;
+    }
+    .cart-group {
+        width: 20px;
+        height: 20px;
+    }
 }
-
 
 /*========================
   購物車按鈕結束<<<
 ==========================*/
+
+img.Submate-word {
+    max-width: 120px;
+}
