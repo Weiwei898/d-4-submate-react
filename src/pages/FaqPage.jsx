@@ -5,6 +5,8 @@ import React, { useState, useEffect } from "react";
 import FaqCategorySection from "../components/FaqCategorySection";
 import HelpCta from "../components/HelpCta";
 
+import { Img } from "../assets/imageManager";
+
 // ==========================================
 // 1. 設定檔：集中管理所有品牌與對應的 Logo
 // ==========================================
@@ -12,12 +14,12 @@ const BRAND_LIST = [
   {
     id: "SubMate",
     title: "SubMate",
-    logo: "../src/assets/images/SubMate_newLogo.svg",
+    logo: Img.logoSubMate,
   },
   {
     id: "NETFLIX",
     title: "NETFLIX",
-    logo: "../src/assets/images/Property1_NETFLIX.svg",
+    logo: Img.logoNetflix,
     productId: [
       "3939f2e7-113e-46eb-9eab-4a241e0a608a",
       "dbbc3aa6-f2af-42fa-b9bd-ee3ac6b5789b",
@@ -26,7 +28,7 @@ const BRAND_LIST = [
   {
     id: "Disney+",
     title: "Disney+",
-    logo: "../src/assets/images/Property1_Disney+.svg",
+    logo: Img.logoDisney,
     productId: [
       "92624a9c-769c-45d0-84eb-6804c6770278",
       "a4d9008a-d344-49c1-a081-74574ac0faf9",
@@ -35,13 +37,13 @@ const BRAND_LIST = [
   {
     id: "YouTubePremium",
     title: "YouTube Premium",
-    logo: "../src/assets/images/Property1_YouTubePremium.svg",
+    logo: Img.logoYoutube,
     productId: "ae936f5f-188b-468d-83be-372e8faf5b11",
   },
   {
     id: "KKTV",
     title: "KKTV",
-    logo: "../src/assets/images/Property1_KKTV.svg",
+    llogo: Img.logoKktv,
     productId: [
       "bc6f52b4-b542-4a4b-889f-793eec2fccfa",
       "6b1750cb-7ef7-45c4-bef4-b4618513650f",
@@ -50,7 +52,7 @@ const BRAND_LIST = [
   {
     id: "iQIYI",
     title: "iQIYI",
-    logo: "../src/assets/images/Property1_iQIYI.svg",
+    logo: Img.logoIqiyi,
     productId: [
       "28850a72-4a51-44ad-959b-c24b17691475",
       "574b96e1-0375-4d55-a0bc-f2bc621ede46",
@@ -59,13 +61,13 @@ const BRAND_LIST = [
   {
     id: "Spotify",
     title: "Spotify",
-    logo: "../src/assets/images/Property1_Spotify.svg",
+    logo: Img.logoSpotify,
     productId: "233340f8-1dee-4049-9316-b7e7e7a8e88b",
   },
   {
     id: "HamiVideo",
     title: "Hami Video",
-    logo: "../src/assets/images/Property1_HamiVideo.svg",
+    logo: Img.logoHami,
     productId: [
       "017d94ea-d2f9-4f34-8000-b0749ec97df7",
       "53e6d5d7-44a5-4046-95b8-204e8d6356b1",
@@ -75,7 +77,7 @@ const BRAND_LIST = [
   {
     id: "friday",
     title: "friday",
-    logo: "../src/assets/images/Property1_friday.svg",
+    logo: Img.logoFriday,
     productId: [
       "33f56250-63b0-4a86-b810-da8060c414af",
       "5df35cb3-08d2-4394-9ea1-b285bcef843a",
@@ -86,13 +88,13 @@ const BRAND_LIST = [
   {
     id: "Canva",
     title: "Canva",
-    logo: "../src/assets/images/Property1_Canva.svg",
+    logo: Img.logoCanva,
     productId: "e05df85a-8e98-4d66-a0ac-1fac85d09bf9",
   },
   {
     id: "miro",
     title: "miro",
-    logo: "../src/assets/images/Property1_miro.svg",
+    logo: Img.logoMiro,
     productId: [
       "8761df4a-6e96-47e2-a5c3-a2e94b98d2e0",
       "bb3177bf-35af-4215-8ffb-4ba389fa893e",
@@ -103,7 +105,7 @@ const BRAND_LIST = [
   {
     id: "Microsoft365",
     title: "Microsoft365",
-    logo: "../src/assets/images/Property1_Microsoft365.svg",
+    logo: Img.logoMicrosoft,
     productId: [
       "8fa9547f-3248-4c41-a032-bb7f37d10f75",
       "ed111006-f67d-46ee-b988-45b98e42cee6",
@@ -112,7 +114,7 @@ const BRAND_LIST = [
   {
     id: "Notion",
     title: "Notion",
-    logo: "../src/assets/images/Property1_Notion.svg",
+    logo: Img.logoNotion,
     productId: [
       "0061a743-300b-4da0-bbc3-9f2036761e03",
       "45b1b3f9-5e82-4700-946f-7f89461c5c6d",
@@ -323,15 +325,9 @@ const FaqPage = () => {
           <div className="row">
             <div className="d-flex justify-content-center">
               <h2 className="hero-title">
-                <img
-                  src="../src/assets/images/title item.svg"
-                  alt="title item"
-                />
+                <img src={Img.titleItemImg} alt="title item" />
                 <span>你想找什麼樣的問題？</span>
-                <img
-                  src="../src/assets/images/title item.svg"
-                  alt="title item"
-                />
+                <img src={Img.titleItemImg} alt="title item" />
               </h2>
             </div>
 
