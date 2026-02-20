@@ -12,22 +12,13 @@ import AdminIndex from "./pages/Admin/AdminIndex";
 import ProductList from "./pages/ProductList";
 import RegisterPage from "./pages/RegisterPage";
 import FaqPage from "./pages/FaqPage";
+import HomePage from "./pages/HomePage";
+
 
 // 初始化 Supabase 客戶端
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
-
-// 將原本 App.jsx 的內容變成一個首頁元件
-function HomePage() {
-  return (
-    <>
-      <h1>首頁(暫時測試區)</h1>
-      {/* 👇 只要把這行註解掉，測試功能就會徹底關閉 */}
-      {/* <ApiTester />*/}
-    </>
-  );
-}
 
 // App 元件現在專職處理路由
 function App() {
