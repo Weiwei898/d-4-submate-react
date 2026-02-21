@@ -1,9 +1,9 @@
-import { Img } from "./constants/imageManager";
+import { Img } from "@/assets/constants/imageManager";
 
 // ==========================================
 // 1. 設定檔：集中管理所有品牌與對應的 Logo
 // ==========================================
-const BRAND_LIST = [
+export const BRAND_LIST = [
   {
     id: "SubMate",
     title: "SubMate",
@@ -120,7 +120,7 @@ const BRAND_LIST = [
 // ==========================================
 // 2. 靜態資料庫：
 // ==========================================
-const STATIC_FAQS = [
+export const STATIC_FAQS = [
   // --- SubMate 常見問題 ---
   {
     id: "submate-1",
