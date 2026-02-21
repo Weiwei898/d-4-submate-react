@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import FaqCategorySection from "../components/FaqCategorySection";
 import HelpCta from "../components/HelpCta";
 
-import { BRAND_LIST, STATIC_FAQS } from "./constants/faqData";
+import { BRAND_LIST, STATIC_FAQS } from "../assets/constants/faqData";
 import { Img } from "../assets/constants/imageManager";
 
 // ==========================================
