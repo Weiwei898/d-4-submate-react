@@ -1,4 +1,5 @@
 import React from "react";
+import { Img } from "../assets/constants/imageManager";
 
 const FaqCategorySection = ({ brand, allFaqs }) => {
   const safeFaqs = allFaqs || [];
@@ -30,17 +31,13 @@ const FaqCategorySection = ({ brand, allFaqs }) => {
         <div className="row justify-content-center">
           <div className="col-12 col-md-8">
             <div className="d-flex justify-content-center align-items-center logo-mb-4 mt-5">
-              <img
-                className="logo-me-3"
-                src="../src/assets/images/title item.svg"
-                alt="icon"
-              />
+              <img className="logo-me-3" src={Img.titleItemImg} alt="icon" />
               <img
                 className="logo-me-3 faq-logo"
                 src={brand.logo}
                 alt={brand.title}
               />
-              <img src="../src/assets/images/title item.svg" alt="icon" />
+              <img className="logo-me-3" src={Img.titleItemImg} alt="icon" />
             </div>
 
             <div className="accordion" id={`faq-${brand.id}`}>

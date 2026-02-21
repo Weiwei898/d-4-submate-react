@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import FaqCategorySection from "../components/FaqCategorySection";
 import HelpCta from "../components/HelpCta";
 
-import { Img } from "../assets/imageManager";
+import { Img } from "../assets/constants/imageManager";
 
 // ==========================================
 // 1. 設定檔：集中管理所有品牌與對應的 Logo
@@ -43,7 +43,7 @@ const BRAND_LIST = [
   {
     id: "KKTV",
     title: "KKTV",
-    llogo: Img.logoKktv,
+    logo: Img.logoKktv,
     productId: [
       "bc6f52b4-b542-4a4b-889f-793eec2fccfa",
       "6b1750cb-7ef7-45c4-bef4-b4618513650f",
