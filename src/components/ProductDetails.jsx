@@ -133,7 +133,7 @@ const ProductDetails = ({ plans, onClose }) => {
                   <button
                     type="button"
                     className="btn py-4 px-6 btn-primary rounded-pill text-neutral-0 d-flex justify-content-center align-items-center gap-1"
-                    onClick={() => navigate('/cart_payment')} // Placeholder navigation
+                    onClick={() => navigate('/carts')} // Placeholder navigation
                   >
                     快速結帳
                     <img src={arrowForwardIcon} alt="" />
@@ -141,7 +141,7 @@ const ProductDetails = ({ plans, onClose }) => {
                   <button
                     type="button"
                     className="btn py-4 px-6 btn-neutral-0 rounded-pill text-secondary-700 border-secondary-700"
-                    onClick={() => navigate('/cart_list')} // Placeholder navigation
+                    onClick={() => navigate('/carts')} // Placeholder navigation
                   >
                     加入購物車
                   </button>
