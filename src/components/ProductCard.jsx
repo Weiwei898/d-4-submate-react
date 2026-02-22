@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
  * @param {object} props - 元件的 props
  * @param {Array<object>} props.plans - 屬於同一個服務的多個方案物件陣列 (例如 [Netflix HD方案, Netflix 4K方案])
  */
-const ProductCard = ({ plans }) => {
+const ProductCard = ({ plans, onOpenDetails }) => {
   // useNavigate 是 react-router-dom 提供的 hook，用於程式化的頁面跳轉
   const navigate = useNavigate();
   // activePlan 狀態用來追蹤並顯示當前使用者選擇的方案。初始值為 null
@@ -25,23 +25,23 @@ const ProductCard = ({ plans }) => {
   // 防禦性程式碼：如果 activePlan 尚未被設置 (例如 props.plans 是空的)，則不渲染任何內容，避免後續程式碼出錯
   if (!activePlan) return null;
 
-  // 解析 `content` 欄位以獲取特色列表。這是一個「立即調用函式表達式」(IIFE)
-  // 它的目的是根據 `activePlan.content` 的格式，穩健地產生一個 `features` 陣列
+  // 解析 `description` 欄位以獲取特色列表。這是一個「立即調用函式表達式」(IIFE)
+  // 它的目的是根據 `activePlan.description` 的格式，穩健地產生一個 `features` 陣列
   const features = (() => {
-    // 情況1: 如果 `activePlan.content` 已經是一個陣列 (例如，從 API 來的時候就被正確解析)
-    if (Array.isArray(activePlan.content)) {
+    // 情況1: 如果 `activePlan.description` 已經是一個陣列 (例如，從 API 來的時候就被正確解析)
+    if (Array.isArray(activePlan.description)) {
       // ...就直接回傳使用
-      return activePlan.content;
+      return activePlan.description;
     }
-    // 情況2: 如果 `activePlan.content` 不是陣列，我們假設它是一個 JSON 字串
+    // 情況2: 如果 `activePlan.description` 不是陣列，我們假設它是一個 JSON 字串
     try {
       // JSON.parse() 會嘗試將一個 JSON 字串轉換為 JavaScript 的值 (此處預期是陣列)
-      // `activePlan.content || "[]"` 的意思是：如果 `activePlan.content` 是 `null` 或 `undefined`，就使用 `[]` 這個空陣列的字串作為備用，避免 `JSON.parse(null)` 拋出錯誤
-      return JSON.parse(activePlan.content || "[]");
+      // `activePlan.description || "[]"` 的意思是：如果 `activePlan.description` 是 `null` 或 `undefined`，就使用 `[]` 這個空陣列的字串作為備用，避免 `JSON.parse(null)` 拋出錯誤
+      return JSON.parse(activePlan.description || "[]");
     } catch (e) {
-      // 如果 `try` 區塊內的程式碼執行出錯 (例如 `activePlan.content` 是 "你好" 這種無效的JSON字串)，`catch` 會捕捉到錯誤
+      // 如果 `try` 區塊內的程式碼執行出錯 (例如 `activePlan.description` 是 "你好" 這種無效的JSON字串)，`catch` 會捕捉到錯誤
       // 記錄錯誤到控制台，方便開發者除錯
-      console.error("Failed to parse activePlan.content:", activePlan.content);
+      console.error("Failed to parse activePlan.description:", activePlan.description);
       // ...並返回一個空陣列，確保即使資料格式錯誤，頁面也不會因此崩潰
       return [];
     }
@@ -50,7 +50,11 @@ const ProductCard = ({ plans }) => {
   return (
     <div className="col-12 col-md-6 col-lg-4 catalog-item" data-cat={activePlan.category}>
       <div className="card p-4 p-md-8 h-100 border border-2 rounded-3 border-neutral-0 bg-white bg-opacity-40 position-relative">
-        
+        {activePlan.plan_category && (
+          <span className="badge rounded-pill bg-gradient-01-bltr text-neutral-0 position-absolute badge-stytle py-2 px-4 fw-semibold fs-7">
+            {activePlan.plan_category}
+          </span>
+        )}
         {/* 主要圖片區域：圖片來源隨 activePlan 的變化而更新 */}
         <div className="d-flex justify-content-center mb-4 mb-md-6">
           <img 
@@ -107,7 +111,7 @@ const ProductCard = ({ plans }) => {
         {/* 主要操作按鈕 */}
         <button 
           className="mt-4 mt-md-6 w-100 py-4 px-6 border-0 bg-primary-600 text-neutral-0 rounded-pill"
-          onClick={() => console.log(`Navigating to product details: ${activePlan.id}`)} // 目前僅為示範，未來可替換為 navigate()
+          onClick={() => onOpenDetails(plans)}
         >
           立即訂閱
         </button>
