@@ -2,11 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { getProducts } from '../api/productsApi';
 import CommonSwiper from '../components/CommonSwiper';
 import ProductCard from '../components/ProductCard';
+import ProductDetails from '../components/ProductDetails';
 
 const ProductList = () => {
   // filter 狀態：控制顯示哪種類型的產品 (all: 全部, stream: 串流影音, ai: AI 工具)
   const [filter, setFilter] = useState('all'); // all, stream, ai
   const [products, setProducts] = useState([]);
+  const [selectedPlans, setSelectedPlans] = useState(null);
+
+  const handleOpenDetails = (plans) => {
+    setSelectedPlans(plans);
+  };
+
+  const handleCloseDetails = () => {
+    setSelectedPlans(null);
+  };
+
   //取得產品，getProducts()就是靜態的productsApi.js
   useEffect(() => {
     const fetchProducts = async () => {
@@ -49,7 +60,16 @@ const ProductList = () => {
       }
       groups[product.title].push(product);
     });
-    return Object.values(groups);
+
+    // 針對每個群組內的方案進行排序 (依價格由低到高)
+    return Object.values(groups).map(groupPlans => {
+      return groupPlans.sort((a, b) => {
+        // 嘗試將價格轉為數字進行比較 (移除非數字字元如 "NT$", "," 等)
+        const priceA = Number(String(a.price).replace(/[^0-9.-]+/g, "")) || 0;
+        const priceB = Number(String(b.price).replace(/[^0-9.-]+/g, "")) || 0;
+        return priceA - priceB;
+      });
+    });
   }, [products]);
 
   return (
@@ -153,7 +173,7 @@ const ProductList = () => {
                 {serviceGroups
                   .filter(plans => filter === 'all' || plans[0].category === filter)
                   .map(plans => (
-                    <ProductCard key={plans[0].title} plans={plans} />
+                    <ProductCard key={plans[0].title} plans={plans} onOpenDetails={handleOpenDetails} />
                   ))
                 }
               </div>
@@ -161,6 +181,8 @@ const ProductList = () => {
           </div>
         </div>
       </div>
+
+      {selectedPlans && <ProductDetails plans={selectedPlans} onClose={handleCloseDetails} />}
 
       {/* <Footer /> */}
 
