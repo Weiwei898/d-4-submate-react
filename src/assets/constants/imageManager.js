@@ -38,6 +38,17 @@ import iconCheckCircle from "@/assets/images/check-circle.svg";
 import iconAlertCircle from "@/assets/images/alert-circle.svg";
 import iconArrowUp from "@/assets/icons/keyboard_arrow_up.svg";
 
+// --- 5. Home頁面 ---
+import bannerMobile from "@/assets/images/Property1_mobile.png";
+import bannerDefault from "@/assets/images/Property1_Default.png";
+import newsImg1 from "@/assets/images/Property1_1.svg";
+import portrait01 from "@/assets/images/portrait01.png";
+import portrait02 from "@/assets/images/portrait02.png";
+import portrait03 from "@/assets/images/portrait03.png";
+import iconSearch from "@/assets/icons/Search.svg";
+import iconKidStar from "@/assets/images/kid_star.svg";
+import titleItem from "@/assets/images/title_item.svg";
+
 // 將所有圖片打包成一個 Img 物件匯出
 export const Img = {
   // 主 Logo
@@ -73,4 +84,15 @@ export const Img = {
   iconCheckCircle,
   iconAlertCircle,
   iconArrowUp,
+
+  // Home頁面
+  bannerMobile,
+  bannerDefault,
+  newsImg1,
+  portrait01,
+  portrait02,
+  portrait03,
+  iconSearch,
+  iconKidStar,
+  titleItem,
 };
