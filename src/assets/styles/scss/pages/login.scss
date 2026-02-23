@@ -1,5 +1,4 @@
-
-.justify-around{
+.justify-around {
     justify-content: space-around;
 }
 
@@ -11,27 +10,22 @@
     width: 480px;
     height: 480px;
     overflow: hidden; //裁切超出的部分
-
 }
 
-@media (max-width:992px) {
-
-    .login-section{
+@media (max-width: 992px) {
+    .login-section {
         align-items: center;
         justify-content: center;
     }
-
 
     .subscribe-bg {
         width: 360px;
         height: 360px;
         overflow: hidden; //裁切超出的部分
-
     }
-    
 }
 
-@media (max-width:576px) {
+@media (max-width: 576px) {
     .subscribe-bg {
         display: none;
     }
@@ -42,7 +36,7 @@ button.next-step {
     border-radius: 100px;
 }
 
-form button.next-step a{
+form button.next-step a {
     display: block;
     position: relative;
 
@@ -51,21 +45,20 @@ form button.next-step a{
         width: 20px;
         height: 20px;
         // background: url("../icon/arrow_forward.svg") no-repeat center/contain;
-        background: url("https://icons.getbootstrap.com/assets/icons/arrow-right.svg") no-repeat center/contain;
+        background: url("https://icons.getbootstrap.com/assets/icons/arrow-right.svg")
+            no-repeat center/contain;
         filter: invert(1); //黑色便白色
         display: inline-block;
         vertical-align: middle; /* 讓圖標與文字對齊 */
         margin-left: 4px;
     }
-
 }
-    
+
 .a-decoration {
-    
     border-bottom: 1px solid $neutral-800;
 }
 
-div.saperate-line{
+div.saperate-line {
     color: $neutral-800;
     text-align: center;
 
@@ -82,8 +75,8 @@ div.saperate-line{
     }
 }
 
-@media (min-width: 993.02px) and (max-width: 1200px)  {
-    div.saperate-line{
+@media (min-width: 993.02px) and (max-width: 1200px) {
+    div.saperate-line {
         &::before {
             content: "---------------------\a0\a0\a0\a0";
         }
@@ -94,8 +87,8 @@ div.saperate-line{
     }
 }
 
-@media (max-width: 576px)  {
-    div.saperate-line{
+@media (max-width: 576px) {
+    div.saperate-line {
         &::before {
             content: "--------------\a0\a0\a0\a0";
         }
@@ -116,4 +109,50 @@ div.saperate-line{
 
 .login-policy a.fw-bold {
     font-size: 1rem;
+}
+
+// 地球圖片
+
+.login-hero-img {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+
+    // 預設大小 (sm 以下 / 手機)
+    height: 150px;
+    max-width: 180px;
+
+    // 中型螢幕 (md / 平板)
+    @media (min-width: 768px) {
+        height: 220px;
+        max-width: 350px;
+    }
+
+    // 大型螢幕 (lg / 電腦)
+    @media (min-width: 992px) {
+        height: 360px;
+        max-width: 400px;
+    }
+}
+
+// title
+
+.Login-title {
+    color: #085884;
+    font-size: 24px;
+
+    // 中型螢幕 (md / 平板)
+    @media (min-width: 768px) {
+        font-size: 28px;
+    }
+}
+
+// login-slogan
+
+.login-slogan h4 {
+    font-size: 16px;
+    @media (min-width: 768px) {
+        font-size: 28px;
+    }
 }
