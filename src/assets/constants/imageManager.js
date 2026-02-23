@@ -49,6 +49,21 @@ import iconSearch from "@/assets/icons/Search.svg";
 import iconKidStar from "@/assets/images/kid_star.svg";
 import titleItem from "@/assets/images/title_item.svg";
 
+// --- 6. about頁面 ---
+import feature01 from "@/assets/images/Property1_01.svg";
+import feature02 from "@/assets/images/Property1_02.svg";
+import feature03 from "@/assets/images/Property1_03.svg";
+import feature04 from "@/assets/images/Property1_04.svg";
+import feature05 from "@/assets/images/Property1_05.svg";
+import feature06 from "@/assets/images/Property1_06.svg";
+import storyBefore from "@/assets/images/image_150.jpg";
+import storySub1 from "@/assets/images/image_151.png";
+import storySub2 from "@/assets/images/image_153.png";
+import storySub3 from "@/assets/images/image_152.png";
+import storySub4 from "@/assets/images/image_154.png";
+import portraitGirl1 from "@/assets/images/portrait_girl1.svg";
+import portraitGirl2 from "@/assets/images/portrait_girl2.svg";
+
 // 將所有圖片打包成一個 Img 物件匯出
 export const Img = {
   // 主 Logo
@@ -95,4 +110,19 @@ export const Img = {
   iconSearch,
   iconKidStar,
   titleItem,
+
+  // About頁面
+  feature01,
+  feature02,
+  feature03,
+  feature04,
+  feature05,
+  feature06,
+  storyBefore,
+  storySub1,
+  storySub2,
+  storySub3,
+  storySub4,
+  portraitGirl1,
+  portraitGirl2,
 };
