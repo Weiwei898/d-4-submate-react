@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CommonSwiper from '../components/CommonSwiper';
+import { Img } from "../assets/constants/imageManager";
 
 // 引入圖片 (或是直接使用絕對路徑字串，這裡示範直接使用路徑字串配合 Vite)
 // 注意：請確保圖片路徑正確，這裡假設您的圖片都在 src/assets/images 下
@@ -10,7 +11,7 @@ const HomePage = () => {
   const hotProducts = [
     {
       id: 1,
-      imgSrc: '/src/assets/images/Property1_Disney+.svg',
+      imgSrc: Img.logoDisney,
       alt: 'Disney+',
       title: 'Disney+',
       price: 'NT$ 270',
@@ -21,7 +22,7 @@ const HomePage = () => {
     },
     {
       id: 2,
-      imgSrc: '/src/assets/images/Property1_YouTubePremium.svg',
+      imgSrc: Img.logoYoutube,
       alt: 'YouTubePremium',
       title: 'YouTube Premium',
       price: 'NT$ 290',
@@ -33,7 +34,7 @@ const HomePage = () => {
     // 為了示範輪播效果，重複加入資料
     {
       id: 3,
-      imgSrc: '/src/assets/images/Property1_Disney+.svg',
+      imgSrc: Img.logoDisney,
       alt: 'Disney+',
       title: 'Disney+',
       price: 'NT$ 270',
@@ -44,7 +45,7 @@ const HomePage = () => {
     },
     {
       id: 4,
-      imgSrc: '/src/assets/images/Property1_YouTubePremium.svg',
+      imgSrc: Img.logoYoutube,
       alt: 'YouTubePremium',
       title: 'YouTube Premium',
       price: 'NT$ 290',
@@ -59,26 +60,26 @@ const HomePage = () => {
   const testimonials = [
     {
       id: 1,
-      img: '/src/assets/images/portrait01.png',
+      img: Img.portrait01,
       name: '台北 張先生',
       content: '最近發現 Submate 超好用！現在訂閱 Netflix、Disney+、Spotify 一個人真的太貴，自己找人湊團又麻煩還容易出問題。 Submate 幫你快速找到可靠團員，自動處理付款，還有帳號安全保障。省錢、省心又方便，訂閱共享就用 Submate！'
     },
     {
       id: 2,
-      img: '/src/assets/images/portrait02.png',
+      img: Img.portrait02,
       name: '台南 黃小姐',
       content: '你也是訂閱一堆平台花很多錢的人嗎？加起來真的很傷荷包。以前找朋友湊團超麻煩，管理帳號、收款都讓人頭痛。自從用 Submate，一鍵成團、自動扣款，帳號安全還有保障。省下大筆費用，享受所有內容Submate真的超讚！'
     },
     {
       id: 3,
-      img: '/src/assets/images/portrait03.png',
+      img: Img.portrait03,
       name: '台中 陳太太',
       content: '訂閱費越來越高，一個人扛真的不划算， 湊團又麻煩還怕遇到問題。我朋友推薦我用 Submate，真的超方便！平台自動幫你找到團隊，所有分攤付款和帳號管理都幫你處理好。安全、省心、省錢，訂閱共享原來可以這麼輕鬆！'
     },
     // 重複資料以展示輪播
     {
       id: 4,
-      img: '/src/assets/images/portrait01.png',
+      img: Img.portrait01,
       name: '台北 張先生',
       content: '最近發現 Submate 超好用！現在訂閱 Netflix、Disney+、Spotify 一個人真的太貴，自己找人湊團又麻煩還容易出問題。 Submate 幫你快速找到可靠團員，自動處理付款，還有帳號安全保障。省錢、省心又方便，訂閱共享就用 Submate！'
     }
@@ -90,13 +91,13 @@ const HomePage = () => {
       <section className="index-banner-bg bg-primary-50">
         <div className="index-banner">
           <picture>
-            <source srcSet="/src/assets/images/Property1_mobile.png" media="(max-width: 767px)" />
-            <img src="/src/assets/images/Property1_Default.png" alt="Banner" />
+            <source srcSet={Img.bannerMobile} media="(max-width: 767px)" />
+            <img src={Img.bannerDefault} alt="Banner" />
           </picture>
         </div>
         <div className="index-banner-infoBox">
           <p className="text-primary fs-5 fs-md-3 mb-4">想要蹭優惠，又揪不到咖嗎?</p>
-          <div className="logo"><img src="/src/assets/images/logo.svg" alt="logo" /></div>
+          <div className="logo"><img src={Img.logoSubMate} alt="logo" /></div>
           <h2 className="fs-md-display h1 mb-8">一起訂，省到底</h2>
           <div>
             <a href="#hotProduct" className="btn index-btn btn-primary text-neutral-0 main-btn fs-6">立即查看熱門產品</a>
@@ -108,9 +109,9 @@ const HomePage = () => {
       <section className="bg-primary-50">
         <div className="container py-8">
           <h2 className="d-flex gap-md-3 justify-content-center align-content-center mb-6 mb-md-10 text-primary-800">
-            <img src="/src/assets/images/title_item.svg" alt="" />
+            <img src={Img.titleItem} alt="" />
             <span className="fs-1 ms-3 me-3">最新消息</span>
-            <img src="/src/assets/images/title_item.svg" alt="" />
+            <img src={Img.titleItem} alt="" />
           </h2>
           <div id="carouselExampleInterval" className="index-news-carousel carousel carousel-dark slide" data-bs-ride="carousel">
             <div className="carousel-indicators">
@@ -128,7 +129,7 @@ const HomePage = () => {
                       <button type="button" className="btn index-btn btn-primary main-btn text-neutral-0 fs-6">查看詳情</button>
                     </div>
                   </div>
-                  <div className="mb-6"><img src="/src/assets/images/Property1_1.svg" alt="" /></div>
+                  <div className="mb-6"><img src={Img.newsImg1} alt="" /></div>
                 </div>
               </div>
               <div className="carousel-item">
@@ -141,7 +142,7 @@ const HomePage = () => {
                       <button type="button" className="btn index-btn btn-primary main-btn text-neutral-0 fs-6">查看詳情</button>
                     </div>
                   </div>
-                  <div className="mb-6"><img src="/src/assets/images/Property1_1.svg" alt="" /></div>
+                  <div className="mb-6"><img src={Img.newsImg1} alt="" /></div>
                 </div>
               </div>
             </div>
@@ -158,14 +159,14 @@ const HomePage = () => {
           <div id="hotProduct"></div>
           
           <h2 className="d-flex gap-md-3 justify-content-center align-content-center mb-6 mb-md-10 text-primary-800">
-            <img src="/src/assets/images/title_item.svg" alt="" />
+            <img src={Img.titleItem} alt="" />
             <span className="fs-1 ms-3 me-3">熱門商品</span>
-            <img src="/src/assets/images/title_item.svg" alt="" />
+            <img src={Img.titleItem} alt="" />
           </h2>
           
           <div className="index-search-bg">
             <input id="faqSearch" className="form-control search-input mb-3" type="search" placeholder="輸入關鍵字" aria-controls="faqList" />
-            <div className="icon"><img src="/src/assets/icons/Search.svg" alt="" /></div>
+            <div className="icon"><img src={Img.iconSearch} alt="" /></div>
           </div>
 
           {/* Hot Product Swiper */}
@@ -246,9 +247,9 @@ const HomePage = () => {
       <section className="bg-primary-50">
         <div className="container py-8">
           <h2 className="d-flex gap-md-3 justify-content-center align-content-center mb-6 mb-md-10 text-primary-800">
-            <img src="/src/assets/images/title_item.svg" alt="" />
+            <img src={Img.titleItem} alt="" />
             <span className="fs-1 ms-3 me-3">用戶推薦</span>
-            <img src="/src/assets/images/title_item.svg" alt="" />
+            <img src={Img.titleItem} alt="" />
           </h2>
           
           <div className="swiper-container">
@@ -274,7 +275,7 @@ const HomePage = () => {
                     <h6 className="fs-5 mb-3">{item.name}</h6>
                     <div className="d-flex">
                       {[...Array(5)].map((_, i) => (
-                        <div className="me-1" key={i}><img src="/src/assets/images/kid_star.svg" alt="star" /></div>
+                        <div className="me-1" key={i}><img src={Img.iconKidStar} alt="star" /></div>
                       ))}
                     </div>
                   </li>
@@ -292,9 +293,9 @@ const HomePage = () => {
       <section className="bg-primary-50">
         <div className="container py-8">
           <h2 className="d-flex gap-md-3 justify-content-center align-content-center mb-6 mb-md-10 text-primary-800">
-            <img src="/src/assets/images/title_item.svg" alt="" />
+            <img src={Img.titleItem} alt="" />
             <span className="fs-1 ms-3 me-3">熱門FAQ</span>
-            <img src="/src/assets/images/title_item.svg" alt="" />
+            <img src={Img.titleItem} alt="" />
           </h2>
           <div className="accordion" id="faqSubMate">
             <div className="accordion-item">
