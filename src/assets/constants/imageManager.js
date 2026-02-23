@@ -114,7 +114,6 @@ export const Img = {
     Badge10,
     Badge99,
 
-<<<<<<< components/header-brice
     // Home頁面
     bannerMobile,
     bannerDefault,
@@ -125,31 +124,19 @@ export const Img = {
     iconSearch,
     iconKidStar,
     titleItem,
-=======
-  // Home頁面
-  bannerMobile,
-  bannerDefault,
-  newsImg1,
-  portrait01,
-  portrait02,
-  portrait03,
-  iconSearch,
-  iconKidStar,
-  titleItem,
 
-  // About頁面
-  feature01,
-  feature02,
-  feature03,
-  feature04,
-  feature05,
-  feature06,
-  storyBefore,
-  storySub1,
-  storySub2,
-  storySub3,
-  storySub4,
-  portraitGirl1,
-  portraitGirl2,
->>>>>>> main
+    // About頁面
+    feature01,
+    feature02,
+    feature03,
+    feature04,
+    feature05,
+    feature06,
+    storyBefore,
+    storySub1,
+    storySub2,
+    storySub3,
+    storySub4,
+    portraitGirl1,
+    portraitGirl2,
 };
