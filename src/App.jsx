@@ -13,6 +13,7 @@ import ProductList from "./pages/ProductList";
 import RegisterPage from "./pages/RegisterPage";
 import FaqPage from "./pages/FaqPage";
 import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
 
 // 初始化 Supabase 客戶端
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -66,6 +67,7 @@ function App() {
                     path="/login"
                     element={<Login onLogin={handleLogin} />}
                 />
+                <Route path="/about" element={<AboutPage />} />
                 <Route path="/products" element={<ProductList />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/faq" element={<FaqPage />} />

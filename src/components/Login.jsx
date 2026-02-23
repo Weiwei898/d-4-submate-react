@@ -108,7 +108,7 @@ function Login({ onLogin }) {
         try {
             await signIn(email, password);
             onLogin();
-            navigate("/ProductList");
+            navigate("/products");
         } catch (err) {
             setErrors({ api: err.message || "登入失敗" });
         } finally {
