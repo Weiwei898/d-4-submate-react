@@ -1,61 +1,12 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import CommonSwiper from '../components/CommonSwiper';
 import { Img } from "../assets/constants/imageManager";
+import HotProducts from '../components/HotProducts';
 
 // 引入圖片 (或是直接使用絕對路徑字串，這裡示範直接使用路徑字串配合 Vite)
 // 注意：請確保圖片路徑正確，這裡假設您的圖片都在 src/assets/images 下
 
 const HomePage = () => {
-  // 熱門商品資料
-  const hotProducts = [
-    {
-      id: 1,
-      imgSrc: Img.logoDisney,
-      alt: 'Disney+',
-      title: 'Disney+',
-      price: 'NT$ 270',
-      period: '/ 月',
-      desc: '無限制「地點」，可共享但官方不推薦',
-      device: '10 台裝置（註冊)',
-      view: 'month'
-    },
-    {
-      id: 2,
-      imgSrc: Img.logoYoutube,
-      alt: 'YouTubePremium',
-      title: 'YouTube Premium',
-      price: 'NT$ 290',
-      period: '/ 月',
-      desc: '家人共享最多 5 位家庭成員',
-      device: '每戶支援最多 10 裝置',
-      view: 'plus'
-    },
-    // 為了示範輪播效果，重複加入資料
-    {
-      id: 3,
-      imgSrc: Img.logoDisney,
-      alt: 'Disney+',
-      title: 'Disney+',
-      price: 'NT$ 270',
-      period: '/ 月',
-      desc: '無限制「地點」，可共享但官方不推薦',
-      device: '10 台裝置（註冊)',
-      view: 'month'
-    },
-    {
-      id: 4,
-      imgSrc: Img.logoYoutube,
-      alt: 'YouTubePremium',
-      title: 'YouTube Premium',
-      price: 'NT$ 290',
-      period: '/ 月',
-      desc: '家人共享最多 5 位家庭成員',
-      device: '每戶支援最多 10 裝置',
-      view: 'plus'
-    }
-  ];
-
   // 用戶推薦資料
   const testimonials = [
     {
@@ -92,16 +43,19 @@ const HomePage = () => {
         <div className="index-banner">
           <picture>
             <source srcSet={Img.bannerMobile} media="(max-width: 767px)" />
-            <img src={Img.bannerDefault} alt="Banner" />
+            <img src={Img.bannerDefault} alt="Banner" className="w-100 d-block" />
           </picture>
         </div>
         <div className="index-banner-infoBox">
           <p className="text-primary fs-5 fs-md-3 mb-4">想要蹭優惠，又揪不到咖嗎?</p>
           <div className="logo"><img src={Img.logoSubMate} alt="logo" /></div>
           <h2 className="fs-md-display h1 mb-8">一起訂，省到底</h2>
-          <div>
-            <a href="#hotProduct" className="btn index-btn btn-primary text-neutral-0 main-btn fs-6">立即查看熱門產品</a>
-          </div>
+          <Link
+            to="/products"
+            className="btn index-btn btn-primary text-neutral-0 main-btn fs-6"
+          >
+            立即查看熱門產品
+          </Link>
         </div>
       </section>
 
@@ -120,29 +74,29 @@ const HomePage = () => {
             </div>
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <div className="d-flex gap-3 p-6 index-news-bg rounded justify-content-between shadow-sm flex-column-reverse flex-md-row">
-                  <div className="d-md-flex flex-md-column justify-content-center ms-5">
-                    <p className="fs-2 mb-3">買越多、省越多！</p>
-                    <p className="fs-2 mb-3">開幕慶，兩件以上立即9折，</p>
-                    <p className="fs-2 mb-6">享受服務更划算。</p>
+                <div className="d-flex gap-3 p-4 p-md-6 index-news-bg rounded justify-content-between shadow-sm flex-column-reverse flex-md-row">
+                  <div className="d-md-flex flex-md-column justify-content-center ms-0 ms-md-5">
+                    <p className="fs-4 fs-md-2 mb-3">買越多、省越多！</p>
+                    <p className="fs-4 fs-md-2 mb-3">開幕慶，兩件以上立即9折，</p>
+                    <p className="fs-4 fs-md-2 mb-6">享受服務更划算。</p>
                     <div>
                       <button type="button" className="btn index-btn btn-primary main-btn text-neutral-0 fs-6">查看詳情</button>
                     </div>
                   </div>
-                  <div className="mb-6"><img src={Img.newsImg1} alt="" /></div>
+                  <div className="mb-6"><img src={Img.newsImg1} alt="" className="img-fluid" /></div>
                 </div>
               </div>
               <div className="carousel-item">
-                <div className="d-flex gap-3 p-6 index-news-bg rounded justify-content-between shadow-sm flex-column-reverse flex-md-row">
-                  <div className="d-md-flex flex-md-column justify-content-center ms-5">
-                    <p className="fs-2 mb-3">買越多、省越多！</p>
-                    <p className="fs-2 mb-3">開幕慶，兩件以上立即9折，</p>
-                    <p className="fs-2 mb-6">享受服務更划算。</p>
+                <div className="d-flex gap-3 p-4 p-md-6 index-news-bg rounded justify-content-between shadow-sm flex-column-reverse flex-md-row">
+                  <div className="d-md-flex flex-md-column justify-content-center ms-0 ms-md-5">
+                    <p className="fs-4 fs-md-2 mb-3">買越多、省越多！</p>
+                    <p className="fs-4 fs-md-2 mb-3">開幕慶，兩件以上立即9折，</p>
+                    <p className="fs-4 fs-md-2 mb-6">享受服務更划算。</p>
                     <div>
                       <button type="button" className="btn index-btn btn-primary main-btn text-neutral-0 fs-6">查看詳情</button>
                     </div>
                   </div>
-                  <div className="mb-6"><img src={Img.newsImg1} alt="" /></div>
+                  <div className="mb-6"><img src={Img.newsImg1} alt="" className="img-fluid" /></div>
                 </div>
               </div>
             </div>
@@ -155,84 +109,23 @@ const HomePage = () => {
               <span className="visually-hidden">Next</span>
             </button>
           </div>
-          
+
           <div id="hotProduct"></div>
-          
+
           <h2 className="d-flex gap-md-3 justify-content-center align-content-center mb-6 mb-md-10 text-primary-800">
             <img src={Img.titleItem} alt="" />
             <span className="fs-1 ms-3 me-3">熱門商品</span>
             <img src={Img.titleItem} alt="" />
           </h2>
-          
+
           <div className="index-search-bg">
             <input id="faqSearch" className="form-control search-input mb-3" type="search" placeholder="輸入關鍵字" aria-controls="faqList" />
             <div className="icon"><img src={Img.iconSearch} alt="" /></div>
           </div>
 
-          {/* Hot Product Swiper */}
-          <div className="index-product-bg">
-            <CommonSwiper
-              items={hotProducts}
-              config={{
-                slidesPerView: 1,
-                spaceBetween: 16,
-                loop: true,
-                navigation: true,
-                pagination: { clickable: true },
-                breakpoints: {
-                  768: {
-                    slidesPerView: 3,
-                    spaceBetween: 4,
-                  },
-                }
-              }}
-              renderItem={(item) => (
-                <div className="card p-4 p-md-8 h-100 border border-2 rounded-3 border-neutral-0 bg-white bg-opacity-40">
-                  <div className="d-flex justify-content-center mb-4 mb-md-6">
-                    <img src={item.imgSrc} alt={item.alt} style={item.alt === 'YouTubePremium' ? { width: 'auto' } : {}} />
-                  </div>
-                  <div className="card-body p-0">
-                    <div className="card-pane d-flex flex-column justify-content-between h-100">
-                      <div className="d-flex flex-column gap-4 mb-4 mb-md-6 text-start">
-                        <div className="d-flex align-items-center">
-                          <div className="svg-task_alt-size">
-                            <svg className="text-secondary-500 me-2" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <mask id="mask0_29222_16883" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                                <rect width="24" height="24" fill="#D9D9D9" />
-                              </mask>
-                              <g mask="url(#mask0_29222_16883)">
-                                <path d="M12 22C10.6167 22 9.31667 21.7375 8.1 21.2125C6.88333 20.6875 5.825 19.975 4.925 19.075C4.025 18.175 3.3125 17.1167 2.7875 15.9C2.2625 14.6833 2 13.3833 2 12C2 10.6167 2.2625 9.31667 2.7875 8.1C3.3125 6.88333 4.025 5.825 4.925 4.925C5.825 4.025 6.88333 3.3125 8.1 2.7875C9.31667 2.2625 10.6167 2 12 2C13.0833 2 14.1083 2.15833 15.075 2.475C16.0417 2.79167 16.9333 3.23333 17.75 3.8L16.3 5.275C15.6667 4.875 14.9917 4.5625 14.275 4.3375C13.5583 4.1125 12.8 4 12 4C9.78333 4 7.89583 4.77917 6.3375 6.3375C4.77917 7.89583 4 9.78333 4 12C4 14.2167 4.77917 16.1042 6.3375 17.6625C7.89583 19.2208 9.78333 20 12 20C14.2167 20 16.1042 19.2208 17.6625 17.6625C19.2208 16.1042 20 14.2167 20 12C20 11.7 19.9833 11.4 19.95 11.1C19.9167 10.8 19.8667 10.5083 19.8 10.225L21.425 8.6C21.6083 9.13333 21.75 9.68333 21.85 10.25C21.95 10.8167 22 11.4 22 12C22 13.3833 21.7375 14.6833 21.2125 15.9C20.6875 17.1167 19.975 18.175 19.075 19.075C18.175 19.975 17.1167 20.6875 15.9 21.2125C14.6833 21.7375 13.3833 22 12 22ZM10.6 16.6L6.35 12.35L7.75 10.95L10.6 13.8L20.6 3.775L22 5.175L10.6 16.6Z" fill="currentColor" />
-                              </g>
-                            </svg>
-                          </div>
-                          <div className="fs-7 fs-md-6 text-neutral-700">{item.device}</div>
-                        </div>
-                        <div className="d-flex align-items-center">
-                          <div className="svg-task_alt-size">
-                            <svg className="text-secondary-500 me-2" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <mask id="mask0_29222_16883" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                                <rect width="24" height="24" fill="#D9D9D9" />
-                              </mask>
-                              <g mask="url(#mask0_29222_16883)">
-                                <path d="M12 22C10.6167 22 9.31667 21.7375 8.1 21.2125C6.88333 20.6875 5.825 19.975 4.925 19.075C4.025 18.175 3.3125 17.1167 2.7875 15.9C2.2625 14.6833 2 13.3833 2 12C2 10.6167 2.2625 9.31667 2.7875 8.1C3.3125 6.88333 4.025 5.825 4.925 4.925C5.825 4.025 6.88333 3.3125 8.1 2.7875C9.31667 2.2625 10.6167 2 12 2C13.0833 2 14.1083 2.15833 15.075 2.475C16.0417 2.79167 16.9333 3.23333 17.75 3.8L16.3 5.275C15.6667 4.875 14.9917 4.5625 14.275 4.3375C13.5583 4.1125 12.8 4 12 4C9.78333 4 7.89583 4.77917 6.3375 6.3375C4.77917 7.89583 4 9.78333 4 12C4 14.2167 4.77917 16.1042 6.3375 17.6625C7.89583 19.2208 9.78333 20 12 20C14.2167 20 16.1042 19.2208 17.6625 17.6625C19.2208 16.1042 20 14.2167 20 12C20 11.7 19.9833 11.4 19.95 11.1C19.9167 10.8 19.8667 10.5083 19.8 10.225L21.425 8.6C21.6083 9.13333 21.75 9.68333 21.85 10.25C21.95 10.8167 22 11.4 22 12C22 13.3833 21.7375 14.6833 21.2125 15.9C20.6875 17.1167 19.975 18.175 19.075 19.075C18.175 19.975 17.1167 20.6875 15.9 21.2125C14.6833 21.7375 13.3833 22 12 22ZM10.6 16.6L6.35 12.35L7.75 10.95L10.6 13.8L20.6 3.775L22 5.175L10.6 16.6Z" fill="currentColor" />
-                              </g>
-                            </svg>
-                          </div>
-                          <div className="fs-7 fs-md-6 text-neutral-700">{item.desc}</div>
-                        </div>
-                      </div>
-                      <div className="d-flex gap-2 justify-content-center align-items-center">
-                        <p className="text-primary-600 h4 h3-md">{item.price}</p>
-                        <p className="text-neutral-800 fs-md-5">{item.period}</p>
-                      </div>
-                    </div>
-                  </div>
-                  <button className="mt-4 mt-md-6 w-100 py-4 px-6 border-0 main-btn text-neutral-0 rounded-pill">立即訂閱</button>
-                </div>
-              )}
-            />
-          </div>
-          
+          {/* Hot Product Swiper Component */}
+          <HotProducts />
+
           <div className="index-product-btn-bg text-center">
             <Link to="/products" className="btn index-btn sub-btn">更多商品</Link>
           </div>
@@ -251,7 +144,7 @@ const HomePage = () => {
             <span className="fs-1 ms-3 me-3">用戶推薦</span>
             <img src={Img.titleItem} alt="" />
           </h2>
-          
+
           <div className="swiper-container">
             <CommonSwiper
               items={testimonials}
