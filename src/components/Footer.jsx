@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Img } from "../assets/constants/imageManager";
 
 function Footer({ isLoggedIn }) {
     return (
@@ -15,12 +16,9 @@ function Footer({ isLoggedIn }) {
                                 className="d-flex align-items-center gap-1 py-3 px-4"
                                 to="/"
                             >
+                                <img src={Img.logoPure} alt="Submate-logo" />
                                 <img
-                                    src="/src/assets/images/SubmateLogo.svg"
-                                    alt="Submate-logo"
-                                />
-                                <img
-                                    src="/src/assets/images/SubMate_word_new.svg"
+                                    src={Img.logoSubMateWord}
                                     className="Submate-word"
                                     alt="Submate-word"
                                 />
@@ -36,7 +34,7 @@ function Footer({ isLoggedIn }) {
                                             target="_blank"
                                         >
                                             <img
-                                                src="/src/assets/images/location_on.svg"
+                                                src={Img.locationOn}
                                                 alt="定位圖示"
                                             />
                                             <p className="fs-6">
@@ -46,7 +44,7 @@ function Footer({ isLoggedIn }) {
                                     </li>
                                     <li className="d-flex gap-2">
                                         <img
-                                            src="/src/assets/images/call.svg"
+                                            src={Img.callIcon}
                                             alt="電話圖示"
                                         />
                                         <p className="fs-6">02 8101 8800</p>
@@ -77,10 +75,7 @@ function Footer({ isLoggedIn }) {
                                     <li>
                                         {/* 根據登入狀態切換連結名稱與路徑  */}
                                         {isLoggedIn ? (
-                                            <Link
-                                                className="fs-6"
-                                                to="/profile"
-                                            >
+                                            <Link className="fs-6" to="/">
                                                 會員中心
                                             </Link>
                                         ) : (
@@ -97,14 +92,14 @@ function Footer({ isLoggedIn }) {
                                 <a href="#">
                                     <img
                                         className="p-3"
-                                        src="/src/assets/images/instagram.svg"
+                                        src={Img.iconInstagram}
                                         alt="ig圖示"
                                     />
                                 </a>
                                 <a href="#">
                                     <img
                                         className="p-3"
-                                        src="/src/assets/images/facebook.svg"
+                                        src={Img.iconFacebook}
                                         alt="fb圖示"
                                     />
                                 </a>

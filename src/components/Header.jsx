@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"; // 1. 引入 Link
+import { Img } from "../assets/constants/imageManager";
 
 function Header({ isLoggedIn, onLogout }) {
     return (
@@ -14,12 +15,9 @@ function Header({ isLoggedIn, onLogout }) {
                                 className="d-flex align-items-center gap-1"
                                 to="/"
                             >
+                                <img src={Img.logoPure} alt="Submate-logo" />
                                 <img
-                                    src="../src/assets/images/SubmateLogo.svg"
-                                    alt="Submate-logo"
-                                />
-                                <img
-                                    src="../src/assets/images/SubMate_word_new.svg"
+                                    src={Img.logoSubMateWord}
                                     className="Submate-word"
                                     alt="Submate-word"
                                 />
@@ -61,7 +59,7 @@ function Header({ isLoggedIn, onLogout }) {
                                                 <li className="nav-item">
                                                     <Link
                                                         className="nav-link py-md-3 px-md-4 fs-6"
-                                                        to="/profile"
+                                                        to="/"
                                                     >
                                                         會員中心
                                                     </Link>
@@ -75,13 +73,17 @@ function Header({ isLoggedIn, onLogout }) {
                                                             {/* 1. 購物車主圖示 */}
                                                             <img
                                                                 className="local_mall"
-                                                                src="/src/assets/images/local_mall.svg"
+                                                                src={
+                                                                    Img.localMall
+                                                                }
                                                                 alt="購物車按鈕"
                                                             />
                                                             {/* 2. 商品數量圖示 (目前是靜態的 Badge_10) */}
                                                             <img
                                                                 className="porduct-sum"
-                                                                src="/src/assets/images/Badge_10.svg"
+                                                                src={
+                                                                    Img.Badge10
+                                                                }
                                                                 alt="購物車商品數量圖示"
                                                                 style={{
                                                                     position:
@@ -101,12 +103,12 @@ function Header({ isLoggedIn, onLogout }) {
                                 {/* 電腦版登入/登出按鈕 (根據是否已登入判斷)*/}
                                 <div>
                                     {!isLoggedIn ? (
-                                        <button
-                                            type="button"
-                                            className="btn-secondary-large d-none d-md-block"
+                                        <Link
+                                            to="/login"
+                                            className="btn-secondary-large d-none d-md-block text-decoration-none d-flex align-items-center justify-content-center"
                                         >
-                                            <Link href="/login">登入/註冊</Link>
-                                        </button>
+                                            登入/註冊
+                                        </Link>
                                     ) : (
                                         <button
                                             type="button"
@@ -121,12 +123,12 @@ function Header({ isLoggedIn, onLogout }) {
                                 {/* 手機版右側按鈕群組 */}
                                 <div className="mobile-header-buttons d-flex d-md-none align-items-center">
                                     {!isLoggedIn ? (
-                                        <button
-                                            type="button"
-                                            className="btn-secondary-medium mobile-login-toggle"
+                                        <Link
+                                            to="/login"
+                                            className="btn-secondary-medium mobile-login-toggle text-decoration-none d-flex align-items-center justify-content-center"
                                         >
-                                            <Link href="/login">登入/註冊</Link>
-                                        </button>
+                                            登入/註冊
+                                        </Link>
                                     ) : (
                                         <button
                                             type="button"
@@ -176,39 +178,13 @@ function Header({ isLoggedIn, onLogout }) {
                                             商品列表
                                         </Link>
                                     </li>
-                                    <li className="nav-item">
-                                        <Link
-                                            className="nav-link py-md-3 px-md-4"
-                                            to="/carts"
-                                        >
-                                            <div className="cart-group position-relative">
-                                                {/* 1. 購物車主圖示 */}
-                                                <img
-                                                    className="local_mall"
-                                                    src="/src/assets/images/local_mall.svg"
-                                                    alt="購物車按鈕"
-                                                />
-                                                {/* 2. 商品數量圖示 (目前是靜態的 Badge_10) */}
-                                                <img
-                                                    className="porduct-sum"
-                                                    src="/src/assets/images/Badge_10.svg"
-                                                    alt="購物車商品數量圖示"
-                                                    style={{
-                                                        position: "absolute",
-                                                        top: "-5px",
-                                                        right: "-15px",
-                                                    }}
-                                                />
-                                            </div>
-                                        </Link>
-                                    </li>
                                     {/* 已登入才顯示 */}
                                     {isLoggedIn && (
                                         <>
                                             <li className="nav-item">
                                                 <Link
                                                     className="nav-link mobile-nav-link py-3 px-4 fs-6"
-                                                    to="/profile"
+                                                    to="/"
                                                 >
                                                     會員中心
                                                 </Link>
@@ -222,13 +198,13 @@ function Header({ isLoggedIn, onLogout }) {
                                                         {/* 1. 購物車主圖示 */}
                                                         <img
                                                             className="local_mall"
-                                                            src="/src/assets/images/local_mall.svg"
+                                                            src={Img.localMall}
                                                             alt="購物車按鈕"
                                                         />
                                                         {/* 2. 商品數量圖示 (目前是靜態的 Badge_10) */}
                                                         <img
                                                             className="porduct-sum"
-                                                            src="/src/assets/images/Badge_10.svg"
+                                                            src={Img.Badge10}
                                                             alt="購物車商品數量圖示"
                                                             style={{
                                                                 position:

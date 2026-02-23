@@ -8,6 +8,7 @@
 import logoSubMate from "@/assets/images/SubMate_newLogo.svg";
 import logoSubMateWord from "@/assets/images/SubMate_word_new.svg";
 import logoDefault from "@/assets/images/logo.svg";
+import logoPure from "@/assets/images/SubmateLogo.svg";
 
 // --- 2. 產品/串流平台 Logo ---
 import logoNetflix from "@/assets/images/Property1_NETFLIX.svg";
@@ -37,6 +38,12 @@ import titleItemImg from "@/assets/images/title item.svg";
 import iconCheckCircle from "@/assets/images/check-circle.svg";
 import iconAlertCircle from "@/assets/images/alert-circle.svg";
 import iconArrowUp from "@/assets/icons/keyboard_arrow_up.svg";
+import locationOn from "@/assets/icons/location_on.svg";
+import callIcon from "@/assets/icons/call.svg";
+import localMall from "@/assets/icons/local_mall.svg";
+import Badge2 from "@/assets/images/Badge_2.svg";
+import Badge10 from "@/assets/images/Badge_10.svg";
+import Badge99 from "@/assets/images/Badge_99+.svg";
 
 // --- 5. Home頁面 ---
 import bannerMobile from "@/assets/images/Property1_mobile.png";
@@ -66,40 +73,59 @@ import portraitGirl2 from "@/assets/images/portrait_girl2.svg";
 
 // 將所有圖片打包成一個 Img 物件匯出
 export const Img = {
-  // 主 Logo
-  logoSubMate,
-  logoSubMateWord,
-  logoDefault,
+    // 主 Logo
+    logoSubMate,
+    logoSubMateWord,
+    logoDefault,
+    logoPure,
 
-  // 產品 Logo
-  logoNetflix,
-  logoDisney,
-  logoYoutube,
-  logoKktv,
-  logoIqiyi,
-  logoSpotify,
-  logoHami,
-  logoFriday,
-  logoCanva,
-  logoMiro,
-  logoMicrosoft,
-  logoNotion,
+    // 產品 Logo
+    logoNetflix,
+    logoDisney,
+    logoYoutube,
+    logoKktv,
+    logoIqiyi,
+    logoSpotify,
+    logoHami,
+    logoFriday,
+    logoCanva,
+    logoMiro,
+    logoMicrosoft,
+    logoNotion,
 
-  // 社群/登入 Icon
-  iconFacebook,
-  iconInstagram,
-  iconLine,
-  iconGmail,
-  iconApple,
+    // 社群/登入 Icon
+    iconFacebook,
+    iconInstagram,
+    iconLine,
+    iconGmail,
+    iconApple,
 
-  // 介面 Icon
-  iconCart,
-  iconPortrait,
-  titleItemImg,
-  iconCheckCircle,
-  iconAlertCircle,
-  iconArrowUp,
+    // 介面 Icon
+    iconCart,
+    iconPortrait,
+    titleItemImg,
+    iconCheckCircle,
+    iconAlertCircle,
+    iconArrowUp,
+    locationOn,
+    callIcon,
+    localMall,
+    Badge2,
+    Badge10,
+    Badge99,
 
+<<<<<<< components/header-brice
+    // Home頁面
+    bannerMobile,
+    bannerDefault,
+    newsImg1,
+    portrait01,
+    portrait02,
+    portrait03,
+    iconSearch,
+    iconKidStar,
+    titleItem,
+=======
   // Home頁面
   bannerMobile,
   bannerDefault,
@@ -125,4 +151,5 @@ export const Img = {
   storySub4,
   portraitGirl1,
   portraitGirl2,
+>>>>>>> main
 };
