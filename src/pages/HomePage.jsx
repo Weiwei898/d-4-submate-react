@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import CommonSwiper from '../components/CommonSwiper';
 import { Img } from "../assets/constants/imageManager";
 import HotProducts from '../components/HotProducts';
+import BrandStory from '../components/BrandStory';
+import BrandFeature from '../components/BrandFeature';
+
 
 // 引入圖片 (或是直接使用絕對路徑字串，這裡示範直接使用路徑字串配合 Vite)
 // 注意：請確保圖片路徑正確，這裡假設您的圖片都在 src/assets/images 下
@@ -132,9 +135,8 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Brand Story & Feature (Placeholders for now as components are not provided) */}
-      {/* <BrandStory /> */}
-      {/* <BrandFeature /> */}
+      <BrandStory />
+      <BrandFeature />
 
       {/* User Recommendation Section */}
       <section className="bg-primary-50">
