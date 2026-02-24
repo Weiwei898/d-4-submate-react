@@ -208,7 +208,6 @@ const RegisterPage = () => {
             className="card border-0 rounded-4 mx-auto"
             style={{
               maxWidth: "600px",
-              maxWidth: "600px",
               ...BACKGROUND_STYLE,
             }}
           >

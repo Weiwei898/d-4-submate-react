@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
  */
 const ProductCard = ({ plans, onOpenDetails }) => {
   // useNavigate 是 react-router-dom 提供的 hook，用於程式化的頁面跳轉
-  const navigate = useNavigate();
+  //const navigate = useNavigate(); //沒用到 AI 報錯 先註解
   // activePlan 狀態用來追蹤並顯示當前使用者選擇的方案。初始值為 null
   const [activePlan, setActivePlan] = useState(null);
 

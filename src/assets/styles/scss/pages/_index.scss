@@ -81,11 +81,11 @@
 }
 
 .index-news-carousel .carousel-control-next{
-  right: -132px;
+  right: 0px; // -132px 改0，避免X軸跳動
   display: none;
 }
 .index-news-carousel .carousel-control-prev{
-  left: -132px;
+  left: 0px;  // -132px 改0，避免X軸跳動
   display: none;
 }
 

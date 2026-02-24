@@ -14,7 +14,8 @@ function AdminLogin({ supabase }) {
     setLoading(true);
 
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
+      // data 沒用到 AI報錯 先改靜態 _data
+      const { _data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });

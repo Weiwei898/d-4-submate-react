@@ -72,6 +72,10 @@
     & a {
         display: block;
     }
+
+    &:hover {
+        color: white;
+    }
 }
 
 //手機版展開選單內的大按鈕樣式

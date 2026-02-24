@@ -8,6 +8,7 @@
 import logoSubMate from "@/assets/images/SubMate_newLogo.svg";
 import logoSubMateWord from "@/assets/images/SubMate_word_new.svg";
 import logoDefault from "@/assets/images/logo.svg";
+import logoPure from "@/assets/images/SubmateLogo.svg";
 
 // --- 2. 產品/串流平台 Logo ---
 import logoNetflix from "@/assets/images/Property1_NETFLIX.svg";
@@ -37,40 +38,105 @@ import titleItemImg from "@/assets/images/title item.svg";
 import iconCheckCircle from "@/assets/images/check-circle.svg";
 import iconAlertCircle from "@/assets/images/alert-circle.svg";
 import iconArrowUp from "@/assets/icons/keyboard_arrow_up.svg";
+import locationOn from "@/assets/icons/location_on.svg";
+import callIcon from "@/assets/icons/call.svg";
+import localMall from "@/assets/icons/local_mall.svg";
+import Badge2 from "@/assets/images/Badge_2.svg";
+import Badge10 from "@/assets/images/Badge_10.svg";
+import Badge99 from "@/assets/images/Badge_99+.svg";
+
+// --- 5. Home頁面 ---
+import bannerMobile from "@/assets/images/Property1_mobile.png";
+import bannerDefault from "@/assets/images/Property1_Default.png";
+import newsImg1 from "@/assets/images/Property1_1.svg";
+import portrait01 from "@/assets/images/portrait01.png";
+import portrait02 from "@/assets/images/portrait02.png";
+import portrait03 from "@/assets/images/portrait03.png";
+import iconSearch from "@/assets/icons/Search.svg";
+import iconKidStar from "@/assets/images/kid_star.svg";
+import titleItem from "@/assets/images/title_item.svg";
+
+// --- 6. about頁面 ---
+import feature01 from "@/assets/images/Property1_01.svg";
+import feature02 from "@/assets/images/Property1_02.svg";
+import feature03 from "@/assets/images/Property1_03.svg";
+import feature04 from "@/assets/images/Property1_04.svg";
+import feature05 from "@/assets/images/Property1_05.svg";
+import feature06 from "@/assets/images/Property1_06.svg";
+import storyBefore from "@/assets/images/image_150.jpg";
+import storySub1 from "@/assets/images/image_151.png";
+import storySub2 from "@/assets/images/image_153.png";
+import storySub3 from "@/assets/images/image_152.png";
+import storySub4 from "@/assets/images/image_154.png";
+import portraitGirl1 from "@/assets/images/portrait_girl1.svg";
+import portraitGirl2 from "@/assets/images/portrait_girl2.svg";
 
 // 將所有圖片打包成一個 Img 物件匯出
 export const Img = {
-  // 主 Logo
-  logoSubMate,
-  logoSubMateWord,
-  logoDefault,
+    // 主 Logo
+    logoSubMate,
+    logoSubMateWord,
+    logoDefault,
+    logoPure,
 
-  // 產品 Logo
-  logoNetflix,
-  logoDisney,
-  logoYoutube,
-  logoKktv,
-  logoIqiyi,
-  logoSpotify,
-  logoHami,
-  logoFriday,
-  logoCanva,
-  logoMiro,
-  logoMicrosoft,
-  logoNotion,
+    // 產品 Logo
+    logoNetflix,
+    logoDisney,
+    logoYoutube,
+    logoKktv,
+    logoIqiyi,
+    logoSpotify,
+    logoHami,
+    logoFriday,
+    logoCanva,
+    logoMiro,
+    logoMicrosoft,
+    logoNotion,
 
-  // 社群/登入 Icon
-  iconFacebook,
-  iconInstagram,
-  iconLine,
-  iconGmail,
-  iconApple,
+    // 社群/登入 Icon
+    iconFacebook,
+    iconInstagram,
+    iconLine,
+    iconGmail,
+    iconApple,
 
-  // 介面 Icon
-  iconCart,
-  iconPortrait,
-  titleItemImg,
-  iconCheckCircle,
-  iconAlertCircle,
-  iconArrowUp,
+    // 介面 Icon
+    iconCart,
+    iconPortrait,
+    titleItemImg,
+    iconCheckCircle,
+    iconAlertCircle,
+    iconArrowUp,
+    locationOn,
+    callIcon,
+    localMall,
+    Badge2,
+    Badge10,
+    Badge99,
+
+    // Home頁面
+    bannerMobile,
+    bannerDefault,
+    newsImg1,
+    portrait01,
+    portrait02,
+    portrait03,
+    iconSearch,
+    iconKidStar,
+    titleItem,
+
+    // About頁面
+    feature01,
+    feature02,
+    feature03,
+    feature04,
+    feature05,
+    feature06,
+    storyBefore,
+    storySub1,
+    storySub2,
+    storySub3,
+    storySub4,
+    portraitGirl1,
+    portraitGirl2,
 };

@@ -33,7 +33,7 @@ const CommonSwiper = ({
       {...config} // 展開其餘自訂設定 (例如 autoplay, loop, breakpoints 等)，讓外部可以覆蓋上面的預設值
     >
       {items.map((item, index) => (
-        <SwiperSlide key={item.id || index}>
+        <SwiperSlide key={item.id || index} className="h-auto">
           {/* 這裡就是關鍵：把資料丟回去給呼叫者決定怎麼渲染 (Render Prop) */}
           {/* 這樣 CommonSwiper 就不需要知道內容是圖片、文字還是卡片，只負責輪播邏輯 */}
           {renderItem(item)}
