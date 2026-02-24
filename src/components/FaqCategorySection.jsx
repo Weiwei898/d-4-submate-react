@@ -41,7 +41,8 @@ const FaqCategorySection = ({ brand, allFaqs }) => {
             </div>
 
             <div className="accordion" id={`faq-${brand.id}`}>
-              {categoryFaqs.map((faq, index) => (
+              {/* index沒用到 AI報錯 先改_index靜態 */}
+              {categoryFaqs.map((faq, _index) => (
                 <div className="accordion-item mb-1" key={faq.id}>
                   <h2 className="accordion-header" id={`heading-${faq.id}`}>
                     <button

@@ -32,11 +32,13 @@ const HotProducts = () => {
         }));
 
         try {
-          const reviews = await getReviews(); 
+          // AI報錯reviews沒使用到，先用靜態_reviews
+          const _reviews = await getReviews(); 
           // 這裡實作將 reviews 對應到 productsWithRating 的邏輯
           // 例如: 計算平均分數並更新 rating 欄位
         } catch (err) {
           console.log("尚未串接評論 API 或取得失敗，將使用隨機推薦");
+          console.error(err); // AI修正 err沒使用到 所以加這行
         }
 
         // 4. 篩選邏輯：5星 -> 4星 -> 隨機
@@ -104,6 +106,7 @@ const HotProducts = () => {
               return JSON.parse(item.description || "[]");
             } catch (e) {
               console.error("Failed to parse item.description:", item.description);
+              console.error(e); // AI 報錯未使用到e 所以加consol.error(e)
               return [];
             }
           })();
