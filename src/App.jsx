@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
-import Carts from "./components/Carts";
+import Carts from "./pages/CartsList";
 import ApiTester from "./components/ApiTester"; // 引入 ApiTester 元件
 //頁面
 import AdminIndex from "./pages/Admin/AdminIndex";

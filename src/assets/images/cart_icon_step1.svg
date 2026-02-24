@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_圖層_1" data-name="圖層_1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32">
+  <!-- Generator: Adobe Illustrator 30.0.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 123)  -->
+  <defs>
+    <style>
+      .st0 {
+        stroke: url(#_未命名漸層_2);
+      }
+
+      .st0, .st1, .st2 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+
+      .st1 {
+        stroke: url(#_未命名漸層);
+      }
+
+      .st2 {
+        stroke: url(#_未命名漸層_3);
+      }
+    </style>
+    <linearGradient id="_未命名漸層" data-name="未命名漸層" x1="13.33" y1="6.61" x2="10.67" y2="3.94" gradientTransform="translate(0 33.28) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1edfad"/>
+      <stop offset=".5" stop-color="#11a7ed"/>
+      <stop offset="1" stop-color="#9738f5"/>
+    </linearGradient>
+    <linearGradient id="_未命名漸層_2" data-name="未命名漸層 2" x1="28" y1="6.61" x2="25.33" y2="3.94" gradientTransform="translate(0 33.28) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1edfad"/>
+      <stop offset=".5" stop-color="#11a7ed"/>
+      <stop offset="1" stop-color="#9738f5"/>
+    </linearGradient>
+    <linearGradient id="_未命名漸層_3" data-name="未命名漸層 3" x1="24.16" y1="36.35" x2="5.54" y2="9.05" gradientTransform="translate(0 33.28) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1edfad"/>
+      <stop offset=".5" stop-color="#11a7ed"/>
+      <stop offset="1" stop-color="#9738f5"/>
+    </linearGradient>
+  </defs>
+  <path class="st1" d="M12,29.33c.74,0,1.33-.6,1.33-1.33s-.6-1.33-1.33-1.33-1.33.6-1.33,1.33.6,1.33,1.33,1.33Z"/>
+  <path class="st0" d="M26.67,29.33c.74,0,1.33-.6,1.33-1.33s-.6-1.33-1.33-1.33-1.33.6-1.33,1.33.6,1.33,1.33,1.33Z"/>
+  <path class="st2" d="M1.33,1.33h5.33l3.57,17.85c.12.61.46,1.17.94,1.56.49.39,1.1.6,1.72.59h12.96c.63.01,1.24-.2,1.72-.59.49-.39.82-.94.94-1.56l2.13-11.19H8"/>
+</svg>

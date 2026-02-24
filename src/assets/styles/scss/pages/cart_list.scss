@@ -58,6 +58,13 @@ a {
 
 .cart-steps a {
     align-items: center;
+
+    // 手機版：縮小字體，行距適中
+    @media (max-width: 767px) {
+        font-size: 0.75rem !important; // 覆蓋 Bootstrap fs-4 (1.5rem)
+        line-height: 1.4;
+        text-align: center;
+    }
 }
 
 a.cart-step-on {
@@ -73,7 +80,8 @@ a.cart-step-off {
     color: $neutral-300;
 
     &:hover {
-        color: $primary-700;
+        color: $neutral-300;
+        text-decoration: none;
     }
 }
 
@@ -84,13 +92,13 @@ div.cart-step-common {
     width: 32px;
     height: 32px;
 
-    /* 使用 CSS 變數來保留遮罩 URL 的位置 */
-    -webkit-mask-image: var(--cart-step-mask-url);
-    mask-image: var(--cart-step-mask-url);
-
     /* 確保遮罩圖片填滿容器 */
     -webkit-mask-size: contain;
     mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
 }
 
 a.cart-step-on div.cart-step-common {
@@ -103,21 +111,19 @@ a.cart-step-off div.cart-step-common {
     background: $neutral-300;
 }
 
-a.cart-step-off:hover div.cart-step-common {
-    //svg圖片顏色
-    background: $primary-600;
-}
-
 div.cart-step01 {
-    --cart-step-mask-url: url('../images/shopping-cart.svg');
+    -webkit-mask-image: url('../src/assets/images/cart_icon_step1.svg');
+    mask-image: url('../src/assets/images/cart_icon_step1.svg');
 }
 
 div.cart-step02 {
-    --cart-step-mask-url: url('../images/edit.svg');
+    -webkit-mask-image: url('../src/assets/images/cart_icon_step2.svg');
+    mask-image: url('../src/assets/images/cart_icon_step2.svg');
 }
 
 div.cart-step03 {
-    --cart-step-mask-url: url('../images/file-text.svg');
+    -webkit-mask-image: url('../src/assets/images/cart_icon_step3.svg');
+    mask-image: url('../src/assets/images/cart_icon_step3.svg');
 }
 
 /*=================
@@ -156,13 +162,24 @@ button.rounded-circle {
     &:disabled {
         color: $neutral-0;
     }
+
+    // 手機版：加大觸控點擊面積
+    @media (max-width: 767px) {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+    }
 }
 
-.number-control input {
-    width: 64px;
-    font-size: 1rem;
-    line-height: 0.75;
+.number-control {
+    margin: 0 auto; // 水平置中（搭配 th 的 text-center）
+    width: fit-content; // 只佔內容寬度
 
+    input {
+        width: 64px;
+        font-size: 1rem;
+        line-height: 0.75;
+    }
 }
 
 /* 隱藏 Chrome, Safari, Edge, Opera 的上下箭頭 */
@@ -175,6 +192,20 @@ button.rounded-circle {
 //總金額區域
 .cart-total {
     border: none;
+}
+
+// 購物車表格 wrapper：手機版才啟用橫向滑動
+.cart-table-wrapper {
+    width: 100%;
+
+    @media (max-width: 767px) {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; // iOS 滑動更順暢
+
+        table {
+            min-width: 600px; // 確保表格夠寬，文字不會不自然斷行
+        }
+    }
 }
 
 /*=================
@@ -290,6 +321,12 @@ a.next-step.btn-primary-600 {
 ===================*/
 
 .order-summary-card {
+
+    // 手機版：右欄移到下方時補上間距
+    @media (max-width: 991px) {
+        margin-top: 1.5rem;
+    }
+
     border: 1px solid rgba(0, 0, 0, 0.08);
 
     h4 {
@@ -408,4 +445,22 @@ a.next-step.btn-primary-600 {
 
 /*=================
    結帳資訊卡片結束<<<<
+===================*/
+
+/*=================
+   手機版排版調整
+===================*/
+
+// 縮小 white-board 的 padding
+.white-board {
+    @media (max-width: 767px) {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+}
+
+/*=================
+   手機版排版調整結束<<<<
 ===================*/
