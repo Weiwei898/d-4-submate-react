@@ -147,7 +147,7 @@ const HomePage = () => {
             <img src={Img.titleItem} alt="" />
           </h2>
 
-          <div className="swiper-container">
+          <div className="swiper-container h-auto">
             <CommonSwiper
               items={testimonials}
               config={{
@@ -164,7 +164,7 @@ const HomePage = () => {
                 }
               }}
               renderItem={(item) => (
-                <ul className="p-8 list shadow-sm d-flex flex-wrap rounded bg-white">
+                <ul className="p-8 list shadow-sm d-flex flex-wrap rounded bg-white h-100">
                   <li className="me-4 mb-6"><img src={item.img} alt={item.name} /></li>
                   <li className="d-flex flex-column justify-content-center mb-6">
                     <h6 className="fs-5 mb-3">{item.name}</h6>
