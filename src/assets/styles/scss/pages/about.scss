@@ -17,7 +17,7 @@ li {
 /* 電腦版樣式(背景圖片放section層級) */
 @media (min-width: 767px) {
     section.about {
-        background-image: url(../images/roadmap_bg.svg);
+        background-image: url("@/assets/images/roadmap_bg.svg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -155,7 +155,7 @@ p.about-card1 {
 
     &::before {
         content: "";
-        background-image: url("../images/about_Line_left.svg");
+        background-image: url("@/assets/images/about_Line_left.svg");
         background-repeat: no-repeat;
         background-size: contain;
         /* 讓圖片在容器內完整顯示 */
@@ -179,7 +179,7 @@ p.about-card2 {
 
     &::before {
         content: "";
-        background-image: url("../images/about_Line_right.svg");
+        background-image: url("@/assets/images/about_Line_right.svg");
         background-repeat: no-repeat;
         background-size: contain;
         /* 讓圖片在容器內完整顯示 */
@@ -225,7 +225,7 @@ p.about-card2 {
 
 .roadmap-dot {
     //圓點背景圖片
-    background-image: url("../images/roadmap-dot.svg");
+    background-image: url("@/assets/images/roadmap-dot.svg");
     background-repeat: no-repeat;
     background-size: cover;
     display: block;
@@ -578,7 +578,7 @@ li.time06 {
     .about-roadmap {
         overflow-x: auto;
         flex-wrap: nowrap;
-        background-image: url(../images/roadmap_mobile.svg);
+        background-image: url("@/assets/images/roadmap_mobile.svg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: left;
@@ -593,7 +593,7 @@ li.time06 {
 
     .about-roadmap ol {
         width: 100%;
-        height: 600px;
+        height: 600px; // 給予固定高度讓背景圖顯示
     }
 
     li.time01 {
@@ -658,7 +658,7 @@ li.time06 {
 }
 
 .title-logo {
-    background-image: url("../images/title_item.svg");
+    background-image: url("@/assets/images/title_item.svg");
     background-repeat: no-repeat;
     background-size: cover;
     width: 20px;
