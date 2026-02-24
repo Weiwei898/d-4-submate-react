@@ -65,19 +65,27 @@ const RegisterPage = () => {
   const [validated, setValidated] = useState(false); // 控制 Bootstrap 的驗證樣式
 
   // 倒數計時器狀態
-  const [timeLeft, setTimeLeft] = useState(0);
   const DURATION = 60;
   const STORAGE_KEY = "register_code_sent_at";
+  
+  // 優化：直接在 useState 初始化時讀取 localStorage 計算剩餘時間
+  const [timeLeft, setTimeLeft] = useState(() => {
+    const sentAt = Number(localStorage.getItem(STORAGE_KEY) || 0);
+    if (sentAt) {
+      const elapsed = Math.floor((Date.now() - sentAt) / 1000);
+      const remaining = DURATION - elapsed;
+      if (remaining > 0) return remaining;
+    }
+    return 0;
+  });
 
   // 初始化：檢查 localStorage 是否有未完成的倒數
   useEffect(() => {
     const sentAt = Number(localStorage.getItem(STORAGE_KEY) || 0);
     if (sentAt) {
       const elapsed = Math.floor((Date.now() - sentAt) / 1000);
-      const remaining = DURATION - elapsed;
-      if (remaining > 0) {
-        setTimeLeft(remaining);
-      } else {
+      // 這裡只負責清理過期的 key，不負責設定 state，避免二次渲染
+      if (DURATION - elapsed <= 0) {
         localStorage.removeItem(STORAGE_KEY);
       }
     }

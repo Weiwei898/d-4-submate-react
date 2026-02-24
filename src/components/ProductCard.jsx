@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+//import { useNavigate } from "react-router-dom"; //AI報錯註解目前沒用到的 useNavigate
 
 /**
  * ProductCard 元件
@@ -10,17 +10,11 @@ const ProductCard = ({ plans, onOpenDetails }) => {
   // useNavigate 是 react-router-dom 提供的 hook，用於程式化的頁面跳轉
   //const navigate = useNavigate(); //沒用到 AI 報錯 先註解
   // activePlan 狀態用來追蹤並顯示當前使用者選擇的方案。初始值為 null
-  const [activePlan, setActivePlan] = useState(null);
+  // 優化：使用 Lazy Initializer 直接在初始化時取得第一個方案，避免 useEffect 造成的二次渲染
+  const [activePlan, setActivePlan] = useState(() => (plans && plans.length > 0 ? plans[0] : null));
 
   // useEffect Hook: 用於處理 props 傳入後的副作用
   // 當 props.plans 發生變化時，此函式會執行，自動將 activePlan 的狀態設置為傳入方案中的第一個
-  useEffect(() => {
-    // 確保 plans 是一個有內容的陣列
-    if (plans && plans.length > 0) {
-      // setActivePlan 會更新 activePlan 的狀態，觸發元件重新渲染以顯示該方案的資訊
-      setActivePlan(plans[0]); 
-    }
-  }, [plans]); // 依賴項陣列：只有當 plans 這個 prop 改變時，這個 effect 才會重新執行
 
   // 防禦性程式碼：如果 activePlan 尚未被設置 (例如 props.plans 是空的)，則不渲染任何內容，避免後續程式碼出錯
   if (!activePlan) return null;
@@ -38,10 +32,11 @@ const ProductCard = ({ plans, onOpenDetails }) => {
       // JSON.parse() 會嘗試將一個 JSON 字串轉換為 JavaScript 的值 (此處預期是陣列)
       // `activePlan.description || "[]"` 的意思是：如果 `activePlan.description` 是 `null` 或 `undefined`，就使用 `[]` 這個空陣列的字串作為備用，避免 `JSON.parse(null)` 拋出錯誤
       return JSON.parse(activePlan.description || "[]");
-    } catch (e) {
+    } catch (error) {
       // 如果 `try` 區塊內的程式碼執行出錯 (例如 `activePlan.description` 是 "你好" 這種無效的JSON字串)，`catch` 會捕捉到錯誤
       // 記錄錯誤到控制台，方便開發者除錯
       console.error("Failed to parse activePlan.description:", activePlan.description);
+      console.error(error);
       // ...並返回一個空陣列，確保即使資料格式錯誤，頁面也不會因此崩潰
       return [];
     }

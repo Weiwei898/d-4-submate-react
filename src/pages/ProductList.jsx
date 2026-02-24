@@ -183,19 +183,6 @@ const ProductList = () => {
       </div>
 
       {selectedPlans && <ProductDetails plans={selectedPlans} onClose={handleCloseDetails} />}
-
-      {/* <Footer /> */}
-
-      {/* global svg defs */}
-      <svg aria-hidden="true" style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }}>
-        <defs>
-          <linearGradient id="grad-01" gradientUnits="userSpaceOnUse" x1="0" y1="24" x2="24" y2="0">
-            <stop offset="0%" stopColor="#9738F5" />
-            <stop offset="50%" stopColor="#11A7ED" />
-            <stop offset="100%" stopColor="#1EDFAD" />
-          </linearGradient>
-        </defs>
-      </svg>
     </div>
   );
 };

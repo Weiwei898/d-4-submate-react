@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // Since we don't have a specific SVG loader, we'll import them as paths for `<img>` tags
@@ -9,15 +9,15 @@ import arrowForwardIcon from '../assets/icons/arrow_forward.svg';
 
 const ProductDetails = ({ plans, onClose }) => {
   const navigate = useNavigate();
-  const [activePlan, setActivePlan] = useState(null);
-
-  useEffect(() => {
+  // 優化：直接在 useState 初始化時計算正確的方案
+  const [activePlan, setActivePlan] = useState(() => {
     if (plans && plans.length > 0) {
       // Find the first plan that is not a recommendation
       const initialPlan = plans.find(p => p.id); // Assuming recommendations might not have ids
-      setActivePlan(initialPlan || plans[0]);
+      return initialPlan || plans[0];
     }
-  }, [plans]);
+    return null;
+  });
 
   if (!activePlan) {
     return null; // Don't render if there's no active plan
@@ -32,8 +32,9 @@ const ProductDetails = ({ plans, onClose }) => {
   const features = (() => {
     try {
       return JSON.parse(productDescription);
-    } catch (e) {
+    } catch (error) {
       console.error("Failed to parse product description:", productDescription);
+      console.error(error);
       return [];
     }
   })();
