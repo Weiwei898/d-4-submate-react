@@ -17,7 +17,8 @@ function AdminRegister({ supabase }) {
     setStatus({ type: 'info', msg: '正在連線至資料庫...' });
 
     try {
-      const { data, error } = await supabase.auth.signUp({
+      // data 沒用到 AI報錯 先改靜態 _data
+      const { _data, error } = await supabase.auth.signUp({
         email: email,
         password: password,
       });

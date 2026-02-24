@@ -31,7 +31,7 @@ const highlightKeyword = (text, keyword) => {
 // 2. 主頁面元件
 // ==========================================
 const FaqPage = () => {
-  const [faqs, setFaqs] = useState(STATIC_FAQS);
+  const [faqs, _setFaqs] = useState(STATIC_FAQS); // setFaqs 目前沒用到先改靜態 _setFaqs
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   const [searchTerm, setSearchTerm] = useState("");

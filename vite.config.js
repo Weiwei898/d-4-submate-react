@@ -4,6 +4,7 @@ import { ViteEjsPlugin } from "vite-plugin-ejs";
 import { fileURLToPath, URL } from "node:url";
 import path from "node:path";
 import { glob } from "glob";
+import process from 'node:process';
 
 // https://vite.dev/config/
 export default defineConfig({
