@@ -1,8 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom"; // 1. 引入 Link
+import { Link, useNavigate } from "react-router-dom"; // 1. 引入 Link
 import { Img } from "../assets/constants/imageManager";
 
 function Header({ isLoggedIn, onLogout }) {
+    const navigate = useNavigate(); // 初始化 navigate
+
+    const handleLogout = () => {
+        onLogout(); // 執行傳入的登出邏輯
+        navigate("/"); // 登出後導向首頁
+    };
+
     return (
         <header className="bg-primary-50">
             <div className="container">
@@ -113,7 +120,7 @@ function Header({ isLoggedIn, onLogout }) {
                                         <button
                                             type="button"
                                             className="btn-secondary-large d-none d-md-block"
-                                            onClick={onLogout}
+                                            onClick={handleLogout}
                                         >
                                             登出
                                         </button>
