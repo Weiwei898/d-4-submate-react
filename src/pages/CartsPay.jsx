@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getProducts } from "../api/productsApi";
 
 function CartsList() {
@@ -39,12 +40,6 @@ function CartsList() {
                                         <CartTable products={filteredProducts} />
                                     </div>
                                 </div>
-
-                                <div className="row d-flex justify-end">
-                                    <div className="col-4">
-                                        <CartTotal />
-                                    </div>
-                                </div>
                             </div>
 
                             {/* Payment Method Section */}
@@ -53,11 +48,6 @@ function CartsList() {
                             {/* Checkout Info Section */}
                             <CheckoutInfo />
 
-                            {/* <div className="d-flex justify-end mt-4">
-                <a href="#" className="next-step btn btn-primary-600" role="button">
-                  下一步
-                </a>
-              </div> */}
                         </div>
 
                         {/* Right Column (col-lg-4) */}
@@ -82,8 +72,10 @@ function TitleSection() {
                     <div className="col-12">
                         <div className="title-container d-flex align-items-center gap-3 mb-6 mb-md-10">
                             <div className="title-logo d-flex align-items-center"></div>
-                            <div className="title-text">
-                                <h3 className="text-center">購物車</h3>
+                            <div className="title-text d-flex align-items-center gap-2">
+                                <img src="/src/assets/images/title_item.svg" alt="" />
+                                <h3 className="text-center text-primary-800 mb-0">購物車</h3>
+                                <img src="/src/assets/images/title_item.svg" alt="" />
                             </div>
                             <div className="title-logo d-flex align-items-center"></div>
                         </div>
@@ -98,23 +90,23 @@ function TitleSection() {
 function StepsNav() {
     return (
         <div className="row justify-center">
-            <nav className="col-6">
+            <nav className="col-10 col-md-6">
                 <ol className="cart-steps d-flex justify-between">
                     <li>
-                        <a href="#" className="cart-step-on d-flex flex-column fs-4 fw-bolder">
-                            <div className="cart-step-common cart-step01"><img src="../assets/images/cart_icon_step1.svg" alt="" /></div>
+                        <a href="#" className="cart-step-off d-flex flex-column fs-4 fw-bolder">
+                            <div className="cart-step-common cart-step01"></div>
                             購物車確認
                         </a>
                     </li>
                     <li>
-                        <a href="#" className="cart-step-off d-flex flex-column fs-4 fw-bolder">
-                            <div className="cart-step-common cart-step02"><img src="../assets/images/cart_icon_step2_gray.svg" alt="" /></div>
+                        <a href="#" className="cart-step-on d-flex flex-column fs-4 fw-bolder">
+                            <div className="cart-step-common cart-step02"></div>
                             填寫或確認結帳資料
                         </a>
                     </li>
                     <li>
                         <a href="#" className="cart-step-off d-flex flex-column fs-4 fw-bolder">
-                            <div className="cart-step-common cart-step03"><img src="../assets/images/cart_icon_step3_gray.svg" alt="" /></div>
+                            <div className="cart-step-common cart-step03"></div>
                             完成付款
                         </a>
                     </li>
@@ -126,77 +118,64 @@ function StepsNav() {
 
 function CartTable({ products }) {
     return (
-        <table className="table table-hover">
-            <thead>
-                <tr className="align-middle">
-                    <th scope="col" className="text-center">產品名稱</th>
-                    <th scope="col" className="text-center">方案</th>
-                    <th scope="col" className="text-center">數量</th>
-                    <th scope="col" className="text-center">小計(新台幣)</th>
-                </tr>
-            </thead>
-            <tbody>
-                {products.map((product) => (
-                    <tr className="align-middle" key={product.id}>
-                        <th scope="col">
-                            <div className="form-check d-flex gap-3">
-                                <input
-                                    className="form-check-input"
-                                    type="checkbox"
-                                    defaultChecked
-                                    id={`cart-product-${product.id}`}
-                                />
-                                <label
-                                    className="form-check-label"
-                                    htmlFor={`cart-product-${product.id}`}
-                                >
-                                    {product.title}
-                                </label>
-                            </div>
-                        </th>
-                        <th scope="col" className="text-center">基本方案</th>
-                        <th scope="col" className="d-flex justify-center">
-                            <div className="number-control d-flex align-items-center gap-3">
-                                <button className="btn btn-primary rounded-circle p-0 decrement-btn" type="button">-</button>
-                                <input
-                                    type="number"
-                                    className="form-control text-center number-input"
-                                    defaultValue="1"
-                                    min="0"
-                                    max="99"
-                                />
-                                <button className="btn btn-primary rounded-circle p-0 increment-btn" type="button">+</button>
-                            </div>
-                        </th>
-                        <th scope="col" className="text-end">$180</th>
+        <div className="cart-table-wrapper">
+            <table className="table table-hover">
+                <thead>
+                    <tr className="align-middle">
+                        <th scope="col" className="text-start">產品名稱</th>
+                        <th scope="col" className="text-center">方案</th>
+                        <th scope="col" className="text-center">數量</th>
+                        <th scope="col" className="text-end">小計(新台幣)</th>
+                        <th scope="col"></th>
                     </tr>
-                ))}
-            </tbody>
-        </table>
-    );
-}
-
-function CartTotal() {
-    return (
-        <table className="table cart-total table-borderless">
-            <tbody>
-                <tr>
-                    <th className="text-end">總計金額 </th>
-                    <th className="text-start"> NT$</th>
-                    <th className="text-end">4,980 元</th>
-                </tr>
-                <tr>
-                    <th className="text-end">折扣總金額 </th>
-                    <th className="text-start"> NT$</th>
-                    <th className="text-end">-100 元</th>
-                </tr>
-                <tr>
-                    <th className="text-end">總付款 </th>
-                    <th className="text-start"> NT$</th>
-                    <th className="text-end">4,980 元</th>
-                </tr>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {products.map((product) => (
+                        <tr className="align-middle" key={product.id}>
+                            <th scope="col">
+                                <div className="form-check d-flex gap-3">
+                                    <input
+                                        className="form-check-input"
+                                        type="checkbox"
+                                        defaultChecked
+                                        id={`cart-product-${product.id}`}
+                                    />
+                                    <label
+                                        className="form-check-label"
+                                        htmlFor={`cart-product-${product.id}`}
+                                    >
+                                        {product.title}
+                                    </label>
+                                </div>
+                            </th>
+                            <th scope="col" className="text-center">基本方案</th>
+                            <th scope="col" className="text-center">
+                                <div className="number-control d-flex align-items-center gap-3">
+                                    <button className="btn btn-primary rounded-circle p-0 decrement-btn" type="button">-</button>
+                                    <input
+                                        type="number"
+                                        className="form-control text-center number-input"
+                                        defaultValue="1"
+                                        min="0"
+                                        max="99"
+                                    />
+                                    <button className="btn btn-primary rounded-circle p-0 increment-btn" type="button">+</button>
+                                </div>
+                            </th>
+                            <td className="text-end">$180</td>
+                            <td className="text-center">
+                                <button
+                                    className="btn btn-danger rounded-pill px-2 py-1"
+                                    type="button"
+                                >
+                                    刪除
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     );
 }
 
@@ -327,12 +306,12 @@ function OrderSummary() {
             </div>
 
             <div className="d-flex gap-2 mt-4">
-                <button className="btn btn-outline-primary flex-fill rounded-pill py-2">
+                <Link to="/carts" className="btn btn-outline-primary flex-fill rounded-pill py-2 text-decoration-none">
                     上一步
-                </button>
-                <button className="btn btn-primary flex-fill rounded-pill py-2">
-                    立即結帳
-                </button>
+                </Link>
+                <Link to="/carts-complete" className="btn btn-primary flex-fill rounded-pill py-2 text-white text-decoration-none">
+                    下一步
+                </Link>
             </div>
         </div>
     );
