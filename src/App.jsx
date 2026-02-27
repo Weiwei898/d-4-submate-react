@@ -6,6 +6,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Carts from "./pages/CartsList";
+import CartsPay from "./pages/CartsPay";
+import CartsComplete from "./pages/CartsComplete";
 import ApiTester from "./components/ApiTester"; // 引入 ApiTester 元件
 //頁面
 import AdminIndex from "./pages/Admin/AdminIndex";
@@ -62,6 +64,8 @@ function App() {
                 <Route path="/" element={<HomePage />} />
 
                 <Route path="/carts" element={<Carts />} />
+                <Route path="/carts-pay" element={<CartsPay />} />
+                <Route path="/carts-complete" element={<CartsComplete />} />
                 {/* 透過傳入 onLogin 這個 Props 以更新全站的 header、footer */}
                 <Route
                     path="/login"

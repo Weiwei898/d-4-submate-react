@@ -277,6 +277,10 @@ a.next-step.btn-primary-600 {
 .finish-container {
     position: relative;
     //圖片容器尺寸由JS自動抓取白板尺寸來控制
+
+    @media (max-width: 767px) {
+        padding-block: 3.5rem; // 手機版給上下內距撐開空間
+    }
 }
 
 .finish-bg {
@@ -290,6 +294,13 @@ a.next-step.btn-primary-600 {
     background-size: cover;
     background-position: center;
     z-index: 1;
+
+    @media (max-width: 767px) {
+        top: -1.5rem;
+        left: -1rem;
+        width: calc(100% + 2rem);
+        height: calc(100% + 3rem);
+    }
 }
 
 /* 讓勾勾和文字位於背景圖片之上 */
@@ -299,17 +310,36 @@ a.next-step.btn-primary-600 {
 }
 
 .check-circle {
-    background-image: url("../images/check-circle.svg");
+    background-image: url("../src/assets/images/check-circle.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
     width: 200px;
     height: 200px;
+
+    @media (max-width: 767px) {
+        width: 120px;
+        height: 120px;
+    }
 }
 
 .submate-logo img {
     /* 將圖片放大 1.2 倍，即 120% */
     transform: scale(1.5);
+
+    @media (max-width: 767px) {
+        transform: scale(1);
+    }
+}
+
+.submate-logo {
+    @media (max-width: 767px) {
+        gap: 1rem !important;
+    }
+}
+
+.imgSize {
+    width: 113px;
 }
 
 /*++++++++++++++++++++
@@ -348,7 +378,8 @@ a.next-step.btn-primary-600 {
         }
     }
 
-    button {
+    button,
+    .btn {
         font-weight: 500;
         transition: all 0.2s ease;
 
@@ -363,7 +394,7 @@ a.next-step.btn-primary-600 {
 
             &:hover {
                 background-color: $primary-600;
-                color: white;
+                color: white !important;
             }
         }
 
