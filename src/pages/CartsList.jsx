@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getProducts } from "../api/productsApi";
 
 function CartsList() {
@@ -204,9 +205,9 @@ function OrderSummary() {
                 <button className="btn btn-outline-primary flex-fill rounded-pill py-2">
                     上一步
                 </button>
-                <button className="btn btn-primary flex-fill rounded-pill py-2 text-white">
-                    立即結帳
-                </button>
+                <Link to="/carts-pay" className="btn btn-primary flex-fill rounded-pill py-2 text-white text-decoration-none">
+                    下一步
+                </Link>
             </div>
         </div>
     );
