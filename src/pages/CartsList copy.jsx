@@ -139,11 +139,11 @@ function CartTable({ products }) {
                                         className="form-check-input"
                                         type="checkbox"
                                         defaultChecked
-                                        id={`cart - product - ${product.id} `}
+                                        id={`cart-product-${product.id}`}
                                     />
                                     <label
                                         className="form-check-label"
-                                        htmlFor={`cart - product - ${product.id} `}
+                                        htmlFor={`cart-product-${product.id}`}
                                     >
                                         {product.title}
                                     </label>
