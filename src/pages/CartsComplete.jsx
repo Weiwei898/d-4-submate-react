@@ -180,7 +180,7 @@ function FinishBoard() {
                 <ol className="d-flex flex-column gap-3 gap-md-4">
                     <li className="d-flex">
                         <p className="col-4 col-md-2 mb-0 fw-bold">訂單編號：</p>
-                        <p className="col-8 col-md-10 mb-0">S2025070452970</p>
+                        <p className="col-8 col-md-10 mb-0">S2025070462970</p>
                     </li>
 
                     <li className="d-flex">
