@@ -157,10 +157,10 @@ function FinishBoard() {
                 ></div>
                 <div className="row">
                     <div className="finish-image d-flex flex-column flex-md-row align-items-center gap-4 gap-md-12">
-                        <div
+                        {/* <div
                             className="check-circle"
                             style={{ backgroundImage: `url(${checkCircleIcon})` }}
-                        ></div>
+                        ></div> */}
 
                         <div className="d-flex flex-column justify-center align-items-center align-items-md-start gap-4 gap-md-10">
                             {/* Submate logo */}
@@ -180,7 +180,7 @@ function FinishBoard() {
                 <ol className="d-flex flex-column gap-3 gap-md-4">
                     <li className="d-flex">
                         <p className="col-4 col-md-2 mb-0 fw-bold">訂單編號：</p>
-                        <p className="col-8 col-md-10 mb-0">S2025070452970</p>
+                        <p className="col-8 col-md-10 mb-0">S2025070462970</p>
                     </li>
 
                     <li className="d-flex">
