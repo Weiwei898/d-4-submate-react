@@ -157,10 +157,10 @@ function FinishBoard() {
                 ></div>
                 <div className="row">
                     <div className="finish-image d-flex flex-column flex-md-row align-items-center gap-4 gap-md-12">
-                        <div
+                        {/* <div
                             className="check-circle"
                             style={{ backgroundImage: `url(${checkCircleIcon})` }}
-                        ></div>
+                        ></div> */}
 
                         <div className="d-flex flex-column justify-center align-items-center align-items-md-start gap-4 gap-md-10">
                             {/* Submate logo */}
