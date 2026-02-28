@@ -1,5 +1,15 @@
 import { useEffect, useRef } from "react";
 
+// 【圖片引用】
+import titleItemIcon from "../assets/images/title_item.svg";
+import submateLogo from "../assets/images/SubmateLogo.svg";
+import submateWord from "../assets/images/SubMate_word_new.svg";
+import cartIconStep1 from "../assets/images/cart_icon_step1.svg";
+import cartIconStep2 from "../assets/images/cart_icon_step2.svg";
+import cartIconStep3 from "../assets/images/cart_icon_step3.svg";
+import roadmapBg from "../assets/images/roadmap_bg.svg";
+import checkCircleIcon from "../assets/images/check-circle.svg";
+
 function CartsComplete() {
     return (
         <>
@@ -32,9 +42,9 @@ function TitleSection() {
                         <div className="title-container d-flex align-items-center gap-3 mb-6 mb-md-10">
                             <div className="title-logo d-flex align-items-center"></div>
                             <div className="title-text d-flex align-items-center gap-2">
-                                <img src="/src/assets/images/title_item.svg" alt="" />
+                                <img src={titleItemIcon} alt="" />
                                 <h3 className="text-center text-primary-800 mb-0">購物車</h3>
-                                <img src="/src/assets/images/title_item.svg" alt="" />
+                                <img src={titleItemIcon} alt="" />
                             </div>
                             <div className="title-logo d-flex align-items-center"></div>
                         </div>
@@ -54,7 +64,13 @@ function StepsNav() {
                     {/* 1. 購物車確認 */}
                     <li>
                         <a href="#" className="cart-step-off d-flex flex-column fs-4 fw-bolder">
-                            <div className="cart-step-common cart-step01"></div>
+                            <div
+                                className="cart-step-common cart-step01"
+                                style={{
+                                    maskImage: `url(${cartIconStep1})`,
+                                    WebkitMaskImage: `url(${cartIconStep1})`,
+                                }}
+                            ></div>
                             購物車確認
                         </a>
                     </li>
@@ -62,7 +78,13 @@ function StepsNav() {
                     {/* 2. 填寫或確認結帳資料 */}
                     <li>
                         <a href="#" className="cart-step-off d-flex flex-column fs-4 fw-bolder">
-                            <div className="cart-step-common cart-step02"></div>
+                            <div
+                                className="cart-step-common cart-step02"
+                                style={{
+                                    maskImage: `url(${cartIconStep2})`,
+                                    WebkitMaskImage: `url(${cartIconStep2})`,
+                                }}
+                            ></div>
                             填寫或確認結帳資料
                         </a>
                     </li>
@@ -70,7 +92,13 @@ function StepsNav() {
                     {/* 3. 完成付款（目前步驟，active） */}
                     <li>
                         <a href="#" className="cart-step-on d-flex flex-column fs-4 fw-bolder">
-                            <div className="cart-step-common cart-step03"></div>
+                            <div
+                                className="cart-step-common cart-step03"
+                                style={{
+                                    maskImage: `url(${cartIconStep3})`,
+                                    WebkitMaskImage: `url(${cartIconStep3})`,
+                                }}
+                            ></div>
                             完成付款
                         </a>
                     </li>
@@ -123,16 +151,22 @@ function FinishBoard() {
                 className="finish-container d-flex align-items-center justify-center"
                 ref={finishContainerRef}
             >
-                <div className="finish-bg"></div>
+                <div
+                    className="finish-bg"
+                    style={{ backgroundImage: `url(${roadmapBg})` }}
+                ></div>
                 <div className="row">
                     <div className="finish-image d-flex flex-column flex-md-row align-items-center gap-4 gap-md-12">
-                        <div className="check-circle"></div>
+                        <div
+                            className="check-circle"
+                            style={{ backgroundImage: `url(${checkCircleIcon})` }}
+                        ></div>
 
                         <div className="d-flex flex-column justify-center align-items-center align-items-md-start gap-4 gap-md-10">
                             {/* Submate logo */}
                             <div className="submate-logo d-flex align-items-center gap-4 gap-md-12">
-                                <img src="/src/assets/images/SubmateLogo.svg" alt="Submate-logo" />
-                                <img className="imgSize" src="/src/assets/images/SubMate_word_new.svg" alt="Submate-word" />
+                                <img src={submateLogo} alt="Submate-logo" />
+                                <img className="imgSize" src={submateWord} alt="Submate-word" />
                             </div>
 
                             <h1 className="mb-0">結帳完成</h1>
