@@ -22,8 +22,8 @@ function AdminLogin({ supabase }) {
 
       if (error) throw error;
 
-      // 登入成功，導向到註冊頁面 (或是未來的 Dashboard)
-      navigate('/admin/register');
+      // 登入成功，導向到後台首頁
+      navigate('/admin');
     } catch (error) {
       setErrorMsg('登入失敗：' + error.message);
     } finally {
