@@ -8,12 +8,18 @@ import CartsPay from "./pages/CartsPay";
 import CartsComplete from "./pages/CartsComplete";
 //import ApiTester from "./components/ApiTester"; // 引入 ApiTester 元件
 //頁面
-import AdminIndex from "./pages/Admin/AdminIndex";
+//import AdminIndex from "./pages/Admin/AdminIndex";
 import ProductList from "./pages/ProductList";
 import RegisterPage from "./pages/RegisterPage";
 import FaqPage from "./pages/FaqPage";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
+//後台
+import AdminLogin from "./pages/Admin/AdminLogin";
+import AdminRegister from "./pages/Admin/AdminRegister";
+import ProductManager from "./pages/Admin/ProductManager";
+import MemberManager from "./pages/Admin/MemberManager";
+
 //layouts
 import FrontendLayout from "./layouts/FrontendLayout";
 import AdminLayout from "./layouts/AdminLayout";
@@ -75,10 +81,31 @@ function App() {
                 ]
             },
             {
-                element: <AdminLayout />,
+                path: "/admin",
+                element: <AdminLayout supabase={supabase} />,
                 children: [
                     /* ...後台路由... */
-                    { path: "/admin/*", element: <AdminIndex supabase={supabase} /> }
+                    {
+                        index: true, // 進入 /admin 時
+                        element: <ProductManager supabase={supabase} /> // 預設顯示登入
+                    },
+                    {
+                        path: "/admin/login",
+                        element: <AdminLogin supabase={supabase} />
+                    },
+                    {
+                        path: "/admin/register",
+                        element: <AdminRegister supabase={supabase} />
+                    },
+                    {
+                        path: "/admin/product", // 這就是你想要做成 Accordion 的那一頁
+                        element: <ProductManager supabase={supabase} />
+                    },
+                    {
+                        path: "/admin/members",
+                        element: <MemberManager supabase={supabase} />
+                    }
+
                 ]
             }
         ]);
